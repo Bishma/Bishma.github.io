@@ -1,1 +1,270 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>automations on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/automations/</link><description>Recent content in automations on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 02 Feb 2020 10:54:44 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/automations/index.xml" rel="self" type="application/rss+xml"/><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>Context Aware Mouse Button Shortcuts in Gnome The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey.</description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>Adding Home Assistant to My Synology/Dropbox Backup Routine There was a time when I felt comfortable using GitHub as my main backup solution for Home Assistant.</description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>3.1 Weather Alerts sent to Telegram via Home Assistant Updated 2018-11-20</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>automations on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/automations/</link><description>Recent content in automations on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 02 Feb 2020 10:54:44 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/automations/index.xml" rel="self" type="application/rss+xml"/><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>&lt;h1 id="context-aware-mouse-button-shortcuts-in-gnome">Context Aware Mouse Button Shortcuts in Gnome&lt;/h1>
+&lt;p>The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey. It was my go to for customizing controls and making macros. A lot of the things I used are different enough now that the AHK script wouldn&amp;rsquo;t be applicable anyway, but my context aware mouse buttons have been a huge hit to the way I work and play. I use a 9 button Logitech Vertical Mouse. It&amp;rsquo;s a form factor I prefer and it has helped so much with my RSI that I have one at home and one at work. The only bad thing I have to say about it concerns the lack of support it has in linux.&lt;/p>
+&lt;p>Thankfully I&amp;rsquo;ve &lt;a href="https://github.com/Bishma/.xbindkeys">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of &lt;a href="https://linux.die.net/man/1/xbindkeys">xbindkeys&lt;/a>, &lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html">xdotool&lt;/a>, and a bash script.&lt;/p>
+&lt;h2 id="problem-1-determine-the-active-window">Problem 1: Determine the Active Window&lt;/h2>
+&lt;p>The way I tend to work I can get away with simply knowing the process name and window title of the window that is currently focused.&lt;/p>
+&lt;pre>&lt;code># The window title is available straight from xdotool
+ACTIVE_WINDOW_TITLE=$(xdotool getactivewindow getwindowname)
+# Getting the process name requires back tracking through the active windows pid
+ACTIVE_WINDOW_PROCESS=$(ps -p &amp;quot;$(xdotool getactivewindow getwindowpid)&amp;quot; -o comm=)
+&lt;/code>&lt;/pre>
+&lt;p>Here &lt;code>xdotool getactivewindow getwindowname&lt;/code> will give me the title of the the active window. I can get the the PID of that window using &lt;code>xdotool getactivewindow getwindowpid&lt;/code> and use &lt;code>ps&lt;/code> to get the process name from that.&lt;/p>
+&lt;h2 id="problem-2-sending-keystrokes-to-the-active-window">Problem 2: Sending Keystrokes to the Active Window&lt;/h2>
+&lt;h2 id="problem-3-when-in-firefox-what-site-am-i-on">Problem 3: When in Firefox, What Site Am I On&lt;/h2>
+&lt;p>I like to use mouse buttons 8 and 9 as next/previous keys on my most frequently visited websites. The shortcut is different on various sites so I needed a way to distinguish what side I&amp;rsquo;m on. While I haven&amp;rsquo;t been able to find a way to get the url of the active tab in Firefox (without hijacking my clipboard) but I was able to gleen what I needed from the window title.&lt;/p>
+&lt;pre>&lt;code>function get_firefox_site() {
+if [[ $ACTIVE_WINDOW_TITLE =~ &amp;quot; / Twitter&amp;quot; ]]; then
+SITE=&amp;quot;twitter&amp;quot;
+elif [[ $ACTIVE_WINDOW_TITLE =~ &amp;quot;All Personal Feeds&amp;quot; ]]; then
+SITE=&amp;quot;feedly&amp;quot;
+else
+SITE=&amp;quot;other&amp;quot;
+fi
+echo $SITE
+}
+&lt;/code>&lt;/pre>
+&lt;p>The sites I use next/prev on the most are Twitter, Feedly, and Reddit. Unfortunately when reddit opens thelightbox of a post it makes the title match the post title. So my detection amounts to Twitter, Feedly, and &amp;ldquo;Other.&amp;rdquo;&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
+&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for &lt;a href="https://www.home-assistant.io">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
+&lt;p>This solution utilizes the &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">Remote Backup&lt;/a> addon, my home &lt;a href="https://www.synology.com">Synology Diskstation NAS&lt;/a> and &lt;a href="https://www.dropbox.com">Dropbox&lt;/a> via encrypted &lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup">Hyper Backup&lt;/a> tasks.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="durability">Durability&lt;/h3>
+&lt;p>We&amp;rsquo;ve grown fond enough of the system that I consider it worth at least 3-2-1 for its backups. The chances of meaningful loss with this configuration is very low.&lt;/p>
+&lt;ul>
+&lt;li>3+ copies
+&lt;ul>
+&lt;li>Running in HASS&lt;/li>
+&lt;li>Snapshots
+&lt;ul>
+&lt;li>Previous 3 daily snapshots in Home Assistant&lt;/li>
+&lt;li>Previous 14 daily snapshots (above included) in NAS&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Backed up to Dropbox
+&lt;ul>
+&lt;li>Encrypted, versioned, and non-public via Hyperbackup&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>2+ Media
+&lt;ul>
+&lt;li>Micro-SD (in my Pi)&lt;/li>
+&lt;li>SATA Hard Drive (in my NAS)&lt;/li>
+&lt;li>Dropbox&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1 copy offsite
+&lt;ul>
+&lt;li>&lt;em>See also:&lt;/em> Dropbox&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Obviously my configs are also still in github, further minimizing risk.&lt;/p>
+&lt;h3 id="i-want-the-hass-part-to-be-self-contained">I want the HASS part to be self contained&lt;/h3>
+&lt;p>If we need to restore from backup, that restore should be everything needed to be up and running again - including the backup routine. To this end I am going to use Hass.io snapshots, the Hass.io remote backup plugin, and vanilla Home Assistant automations.&lt;/p>
+&lt;h3 id="database-too">Database Too&lt;/h3>
+&lt;p>It&amp;rsquo;s not expendable anymore but also not&amp;hellip; mission critical (yet). I am not doing 3-2-1 here but I am doing a daily offsite backup.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>The Home Assistant device and the Synology Diskstation have network routes and access controls that allow SSH traffic.&lt;/li>
+&lt;li>Hypervisor is set up on the Synology Diskstation and configured to use Dropbox.&lt;/li>
+&lt;li>There should be a backup folder in the main volume of the Synology with a home assistant subfolder.
+&lt;ul>
+&lt;li>&lt;code>/volume1/Backups/HomeAssistant/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-up">Set up&lt;/h2>
+&lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
+&lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
+&lt;h3 id="synology-user">Synology User&lt;/h3>
+&lt;ol>
+&lt;li>From The Users section of the DSM Control Panel select Create &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_1-user-creation.png" alt="User creation screen from the Synology DSM">&lt;/li>
+&lt;li>Make sure the user is in the admin group. As of the time of this writing only admin users are allowed SSH. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_2-groups.png" alt="Group Management screen from the Synology DSM">&lt;/li>
+&lt;li>The user should only be given access to two folders: the one where backups are being sent (&lt;code>volume1/Backups/HomeAssistant&lt;/code>) and the &lt;code>homes&lt;/code> directory. If the homes directory doesn&amp;rsquo;t exist it will be created in a later step then it can be given read/write access here. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_3-folder-permissions.png" alt="User permissions screen from the Synology DSM">&lt;/li>
+&lt;li>Deny all access to applications &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_4-applications.png" alt="User application access screen from the Synology DSM">&lt;/li>
+&lt;/ol>
+&lt;h3 id="synology-sshscp">Synology SSH/SCP&lt;/h3>
+&lt;ol>
+&lt;li>If SSH isn&amp;rsquo;t otherwise on it needs to be enabled. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_5-ssh.png" alt="SSH enabling">
+&lt;ol>
+&lt;li>Make note of the port.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>In the advanced tab of the Users section of the control panel, scroll to the bottom and enable home directories. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_6-home-directory.png" alt="Enabling Home Directories">
+&lt;ol>
+&lt;li>If the user home directories weren&amp;rsquo;t previously enabled remember to give the &lt;code>hass_backup&lt;/code> user read/write permissions in the Synology DSM User Control Panel.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
+&lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
+&lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
+&lt;p>While logged into the Synology via SSH:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
+&lt;li>Uncomment these 3 lines
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
+&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Restart the ssh service
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
+&lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
+&lt;li>&lt;code>vim ~/.ssh/authorized_keys&lt;/code>
+&lt;ol>
+&lt;li>Paste the contents of the public key generate above into a new line of this file.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>At this point it should be possible to ssh into the synology without entering a password.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
+&lt;ol>
+&lt;li>Add the repository and install the add-on &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">per its instructions&lt;/a>.&lt;/li>
+&lt;li>Configure it with the everything that was just set up. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_7-remote-backup-config.png" alt="Remote Backup Creation Screen">&lt;/li>
+&lt;/ol>
+&lt;p>At this point it should be able to test that backups are being sent to the Synology via the Developer Tools Service panel. It will take a few minutes to perform the backup after the service call is made. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
+&lt;h3 id="automation">Automation&lt;/h3>
+&lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
+&lt;p>The hyper backup job is pretty simple. Backup the &lt;code>HomeAssistant&lt;/code> folder and the MariaDB application (which at the time of this writing is only used by Home Assistant).&lt;/p>
+&lt;ol>
+&lt;li>Create a new &amp;ldquo;data backup task&amp;rdquo; with Dropbox as its destination. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_9-create-backup-task.png" alt="Backup Destination Window">&lt;/li>
+&lt;li>A new browser window will open to grant Hyper Backup dropbox permissions. Allow them.&lt;/li>
+&lt;li>Select the Dropbox folder to send to (&lt;code>SynoBackups&lt;/code>) and what the and what to call within that folder (&lt;code>HomeAssistant&lt;/code>). &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_10-dropbox-setup.png" alt="Backup Destination Screen">&lt;/li>
+&lt;li>Select the Synology folder to back up from the &amp;ldquo;Data Backup&amp;rdquo; screen. &lt;code>Backups &amp;gt; HomeAssistant&lt;/code>&lt;/li>
+&lt;li>Select the MariaDB 10 from the &amp;ldquo;Application Backup&amp;rdquo; screen.&lt;/li>
+&lt;li>Set the backup task settings. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_11-task-settings.png" alt="Backup Setting Screen">
+&lt;ol>
+&lt;li>The password for this backup is stored in my password manager.&lt;/li>
+&lt;li>At the end of the wizard you will be prompted to have the backup&amp;rsquo;s encryption key. The backup can be accessed using either the password or the key. If both are kept safe then at lest one should be available when needed.&lt;/li>
+&lt;li>I chose a Hyper Backup time sufficiently after my Home Assistant backup automation.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Choose a rotation schedule. I keep a smart rotation with 128 versions.&lt;/li>
+&lt;li>At the end of the wizard, after saving the backup&amp;rsquo;s encryption key, there is an option to back up now.
+&lt;ol>
+&lt;li>This will be the last thing to test.&lt;/li>
+&lt;li>Note: Backing up Maria DB will make it briefly unavailable.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="clean-up">Clean Up&lt;/h2>
+&lt;p>My snapshots are only about 50M, but I still don&amp;rsquo;t have a reason to keep them all. I am going to prune all local backups older than 14 days.&lt;/p>
+&lt;ol>
+&lt;li>Create a User Defined Script under Scheduled Tasks &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_12-scheduled-task-creation.png" alt="Scheduled Task Creation Screen">&lt;/li>
+&lt;li>The task should run as the backup user. Name it descriptively. I set a scheduled task using the administer account but run the task as the hass backup user. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_13-task-settings.png" alt="Task Creation Screen - General Tab">&lt;/li>
+&lt;li>In the schedule tab choose daily at an time.&lt;/li>
+&lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
+find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
+&lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
+&lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their &lt;a href="https://www.home-assistant.io/components/sensor.rest/">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
+&lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">check it out&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://dereksrose.com/images/NWS-Alerts_1-telegram-example.png" alt="Example of the NWS Alert Text sent through Telegram.">&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as &lt;code>notification.general&lt;/code>. That was set up using the &lt;a href="https://www.home-assistant.io/components/notify.telegram/">notification component&amp;rsquo;s docs&lt;/a>.&lt;/p>
+&lt;h2 id="sensors">Sensors&lt;/h2>
+&lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
+&lt;p>The first looks for the total number of alerts in my area.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active/count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> {% if value_json.zones.ORZ604 is defined %}
+&lt;/span>&lt;span class="sd"> {{ value_json.zones.ORZ604 | int }}
+&lt;/span>&lt;span class="sd"> {% elif value_json.zones.ORC039 is defined %}
+&lt;/span>&lt;span class="sd"> {{ value_json.zones.ORC039 | int }}
+&lt;/span>&lt;span class="sd"> {% else %}
+&lt;/span>&lt;span class="sd"> 0
+&lt;/span>&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/ld+json&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
+&lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Event&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> {% if value_json.features[0] is defined %}
+&lt;/span>&lt;span class="sd"> {{ value_json[&amp;#39;features&amp;#39;][0][&amp;#39;properties&amp;#39;].event }}
+&lt;/span>&lt;span class="sd"> {% else %}
+&lt;/span>&lt;span class="sd"> None
+&lt;/span>&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">json_attributes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">features&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/geo+json&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="automation">Automation&lt;/h2>
+&lt;p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the &lt;code>notify.general&lt;/code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Notification Weather Alert&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">state&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">entity_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sensor.nws_alert_count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{states.sensor.nws_alert_count.state | int &amp;gt; 0}}&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{ as_timestamp(now()) | int - as_timestamp(states.automation.nws_notification_weather_alert.attributes.last_triggered) | int &amp;gt; 21600 }}&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">data_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> Hi There,
+&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> I&amp;#39;ve detected a change in national weather service advisories for Eugene.
+&lt;/span>&lt;span class="sd"> {% for i in range(states(&amp;#39;sensor.nws_alert_count&amp;#39;) | int) %}
+&lt;/span>&lt;span class="sd"> {%- if i &amp;gt; 0 -%}
+&lt;/span>&lt;span class="sd"> ---------
+&lt;/span>&lt;span class="sd"> {%- endif %}
+&lt;/span>&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.headline }}
+&lt;/span>&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.description }}
+&lt;/span>&lt;span class="sd"> {% endfor %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">notify.general&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="still-to-come">Still to come&lt;/h2>
+&lt;p>I don&amp;rsquo;t love that I&amp;rsquo;m just blocking alerts for 6 hours. I get alert fatigue quickly, but I want to know if conditions are deteriorating. But what seems to happen most commonly is that an alert is retracted, then a new alert is issued with minimally updated information.&lt;/p>
+&lt;p>I want to add a Lovelace condition card to my outdoor climate tab that will pop up, highlighted, showing that there&amp;rsquo;s an alert. When I set up HTML notifications I may also want to push to that. I&amp;rsquo;m also considering changing the detailed sensor. Right now I like the flexibility of the full data from the API, but I don&amp;rsquo;t think I&amp;rsquo;ll want more than the headline and description.&lt;/p></description></item></channel></rss>

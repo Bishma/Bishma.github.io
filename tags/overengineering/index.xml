@@ -1,1 +1,255 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>overengineering on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/overengineering/</link><description>Recent content in overengineering on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 27 Jun 2021 18:05:02 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/overengineering/index.xml" rel="self" type="application/rss+xml"/><item><title>Drybox</title><link>https://dereksrose.com/posts/drybox/</link><pubDate>Sun, 27 Jun 2021 18:05:02 -0700</pubDate><guid>https://dereksrose.com/posts/drybox/</guid><description>Multi-roll Filament Dry Box I have a humidity problem when it comes to 3D Printing filament.</description></item><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel One of the issues I encountered when I decided to try to make a filament dry box out of material I had on hand was that my rod (a 19mm wooden dowel left over from Halloween) was causing too much friction.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>overengineering on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/overengineering/</link><description>Recent content in overengineering on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 27 Jun 2021 18:05:02 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/overengineering/index.xml" rel="self" type="application/rss+xml"/><item><title>Drybox</title><link>https://dereksrose.com/posts/drybox/</link><pubDate>Sun, 27 Jun 2021 18:05:02 -0700</pubDate><guid>https://dereksrose.com/posts/drybox/</guid><description>&lt;h1 id="multi-roll-filament-dry-box">Multi-roll Filament Dry Box&lt;/h1>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="hero-gallery"
+href="https://dereksrose.com/images/drybox/in_use.jpg"
+title="My completed 3 spool drybox">
+&lt;img
+src="https://dereksrose.com/images/drybox/in_use.jpg"
+title="My completed 3 spool drybox"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="hero-gallery"
+href="https://dereksrose.com/images/drybox/in_use2.jpg"
+title="Closer view">
+&lt;img
+src="https://dereksrose.com/images/drybox/in_use2.jpg"
+title="Closer view"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>I have a humidity problem when it comes to 3D Printing filament. For much of the year it only takes a few days of exposure to the air before even something as forgiving as PLA will start to pop and sputter due to absorbed moisture. Moving spools in and out of dry storage is a pain and my work-horse filaments still ended up spending a lot of time out in the air. A drybox that could feed my 3 most commonly used filaments would help keep these spools printing cleanly, save me time, and cut down the number of times I have to open up my dry storage.&lt;/p>
+&lt;p>Since there&amp;rsquo;s been this pesky pandemic on (and because one of the reasons I got a printer was to be able to make (re)use of junk around the house), I had a goal to buy as little as possible for this project. After picking through things here are some basics I found:&lt;/p>
+&lt;dl>
+&lt;dt>&lt;strong>The Box&lt;/strong>&lt;/dt>
+&lt;dd>Gasket boxes are a common sight around our house, so we rearranged some things to free up one that was a good size. This one would support 4 1kg spools, were it not for the bearing assemblies which brings the total down to 3.&lt;/dd>
+&lt;dt>&lt;strong>Spindle / Rod&lt;/strong>&lt;/dt>
+&lt;dd>A last minute (Zoom) Halloween costume contest left me with a poorly painted 3/4" wooden dowel lying around.&lt;/dd>
+&lt;dt>&lt;strong>Hygrometer&lt;/strong>&lt;/dt>
+&lt;dd>I had a cheap one from ali-express that was not in use.
+&lt;dt>&lt;strong>Rod Holder and Silica Box&lt;/strong>&lt;/dt>
+&lt;dd>Printed&lt;/dd>
+&lt;/dl>
+&lt;p>In the end I just had to buy some ptfe push fittings. With the starting point defined I got to the fun part:&lt;/p>
+&lt;h2 id="problem-solving">Problem Solving&lt;/h2>
+&lt;h3 id="problem-1">Problem 1&lt;/h3>
+&lt;p>Finding a reenforced 3/4&amp;quot; (19mm) dowel holder that would work for a polypropylene box&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> was harder than I thought it would be. I wanted one that would be supported from the outside of the storage box. This was also complicated by it not being easy to search for fractions on Thingiverse.&lt;/p>
+&lt;h4 id="solution-1">Solution 1&lt;/h4>
+&lt;p>This was and easy ask, so I made my own. I used Fusion 360 to create a sweep that was just over 180° so that dowel is loosely held in place when I&amp;rsquo;m moving the box around.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="bracket-gallery"
+href="https://dereksrose.com/images/drybox/bracket1.jpg"
+title="Front: close up">
+&lt;img
+src="https://dereksrose.com/images/drybox/bracket1.jpg"
+title="Front: close up"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="bracket-gallery"
+href="https://dereksrose.com/images/drybox/bracket2.jpg"
+title="Back: close up. You can also see my centering marks.">
+&lt;img
+src="https://dereksrose.com/images/drybox/bracket2.jpg"
+title="Back: close up. You can also see my centering marks."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="bracket-gallery"
+href="https://dereksrose.com/images/drybox/bracket3.jpg"
+>
+&lt;img
+src="https://dereksrose.com/images/drybox/bracket3.jpg"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>To make assembly easier I &lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.thingiverse.com/thing:4668530/">Thingiverse&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount">Github&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="problem-2">Problem 2&lt;/h3>
+&lt;p>So much friction! I knew the filament spools wouldn&amp;rsquo;t roll smoothly on a narrow rod, but this was enough friction to make my extruder skip steps. Using a wooden rod was certainly exacerbating the situation.&lt;/p>
+&lt;h4 id="solution-2-bearing-assembly">Solution 2: Bearing Assembly&lt;/h4>
+&lt;p>I&amp;rsquo;m pretty sure I could have sufficiently overcome both sources of friction by making a bushing to adapt the average size of a filament spool to my small diameter rod. But I happen to have almost 50 (mediocre quality) 608 bearings that would DEFINITELY do the job&amp;hellip; perhaps too well (thay may spin too freely).&lt;/p>
+&lt;p>My first attempt (left side of the video below) didn&amp;rsquo;t leave enough clearance so it didn&amp;rsquo;t spin well and was going to wear grooves in my wooden dowel. On the right spool in the video you can see how adding just 0.15mm of tolerance got it dialed in.&lt;/p>
+&lt;p>This build warranted it&amp;rsquo;s &lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;h3 id="problem-3">Problem 3&lt;/h3>
+&lt;p>Space is limited and this dry box is rather large. In the interests of keeping filament paths and friction to a minimum, I wanted the box to sit on top of my Lack Enclosure. But the box is big enough that it would block the slot where I have filament enter my enclosure.&lt;/p>
+&lt;p>It so happens that my printer enclosure sits in front of an old stove mantle. That leaves me about 15cm of space between the back of the enclosure and the wall. The mantle itself is about 30cm lower than the enclosure&amp;rsquo;s top. So I just needed to give the back end of my box some support and I could make use of those 15cm.&lt;/p>
+&lt;h4 id="solution-3-sterilite-box-stands">Solution 3: Sterilite Box Stands&lt;/h4>
+&lt;p>I have few options for where this box can sit and the top of my encloser is the only practical spot. I wanted a fast solution that would help stabilize the drybox and keep it from slipping around when the enclosure shakes during fast printhead movements. I also need to be able to move to box readily as my lack enclosure the the kind with the hinged lid. Plus, when your most interesting tool is a 3D printer, every problem looks like a lack of plastic. In this case I wanted something that&lt;/p>
+&lt;ul>
+&lt;li>would print in a single job on my MK3s&lt;/li>
+&lt;li>would be stable&lt;/li>
+&lt;li>would not use a crazy amount of filament&lt;/li>
+&lt;li>is over engineered&lt;/li>
+&lt;/ul>
+&lt;p>So I decided to design these stand-offs. They have recesses in the top so that the corner of the Sterilite box is locked to the middle of the stand. A dovetailed bar holds the two stands at the correct width to hold the back half of the box.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="standoffs-gallery"
+href="https://dereksrose.com/images/drybox/standoffs1.jpg"
+title="Front: close up">
+&lt;img
+src="https://dereksrose.com/images/drybox/standoffs1.jpg"
+title="Front: close up"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="standoffs-gallery"
+href="https://dereksrose.com/images/drybox/standoffs2.jpg"
+title="Back: close up. You can also see my centering marks.">
+&lt;img
+src="https://dereksrose.com/images/drybox/standoffs2.jpg"
+title="Back: close up. You can also see my centering marks."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="standoffs-gallery"
+href="https://dereksrose.com/images/drybox/standoffs3.jpg"
+>
+&lt;img
+src="https://dereksrose.com/images/drybox/standoffs3.jpg"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h4 id="sterilite-box-stand-availability">Sterilite Box Stand Availability&lt;/h4>
+&lt;p>I haven&amp;rsquo;t posted this anywhere. It&amp;rsquo;s just so niche.&lt;/p>
+&lt;h3 id="problem-4">Problem 4&lt;/h3>
+&lt;p>I want to keep these 3 spools ready to go without much fuss. That meant feeding the filament from all spools without introducing a place for humidity to creep in.&lt;/p>
+&lt;h4 id="solution-4">Solution 4&lt;/h4>
+&lt;p>The folks who feed multi-filament systems (Like an &lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#">MMU&lt;/a> or a &lt;a href="https://www.mosaicmfg.com/products/palette-3">Pallete&lt;/a>) already have this figured out. I downloaded some &lt;a href="https://www.thingiverse.com/thing:4853256">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
+&lt;figure
+style="width: 60%;"
+>
+&lt;a
+data-lightbox="image-/images/gallery/drybox/3_filament-guides.jpg"
+href="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title=" "
+>
+&lt;img
+src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+/>
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="the-end">The End&lt;/h2>
+&lt;p>There are simpler ways to do this. Don&amp;rsquo;t be like me&amp;hellip; unless you like t kitbash your way to success. I&amp;rsquo;ve been using this box for about 6 months now, and other than needing a way to stop the hygrometer from sliding around&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>, I&amp;rsquo;m pretty happy with the outcome.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>Polypropylene doesn&amp;rsquo;t like to stick to much of anything so supporting the wight of the spools meant screws. And I wanted a backing that would support load and help gasket against air movement.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>See also: Footnote 1&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>&lt;h1 id="filament-spool-bearing-assembly-for-a-34-dowel">Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel&lt;/h1>
+&lt;p>One of the issues I encountered when I decided to try to make a filament dry box out of material I had on hand was that my rod (a 19mm wooden dowel left over from Halloween) was causing too much friction. I knew a heavy spool on a narrow rod would slide rather than roll, but I didn&amp;rsquo;t anticipate just how much force would be required to feed filament. My printer was not happy and my prints were full of under-extrusions.&lt;/p>
+&lt;p>I did a little research and figured out that a bushing would solve my issue (effectively adapting the 19mm rod to make it a ~50mm rod) buuuuut&amp;hellip; I also have a ton of crappy 608 bearings that I got for cheap. Plus, you know, bearings are more fun than bushings. &lt;span class="emoticon">¯\_(ツ)_/¯&lt;/span>&lt;/p>
+&lt;p>I figured three points of contact would be sufficient for the weight, but three 608 bearing + the diameter of the dowel is greater than the 50mm inner diameter of a filament spool. That means that the end caps are as thick as a 608 bearing + the plastic to hold them in place. I pressed ahead anyway knowing this extra width means I can only fit 3 spools in my dry box instead of 4.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/1_cap-parts.jpg"
+title="The parts that make up the end caps.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/1_cap-parts.jpg"
+title="The parts that make up the end caps."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/2_wide-spindle-assembled.jpg"
+title="Fully assembled with the long version of the spindle.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/2_wide-spindle-assembled.jpg"
+title="Fully assembled with the long version of the spindle."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/3_assembly-caps.jpg"
+title="Assembled end caps.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/3_assembly-caps.jpg"
+title="Assembled end caps."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/4_in-use.jpg"
+title="In use, holding filament spools in my dry box.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/4_in-use.jpg"
+title="In use, holding filament spools in my dry box."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title="Front view of my dry box with the bearing assemblies in use.">
+&lt;img
+src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title="Front view of my dry box with the bearing assemblies in use."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h2 id="design">Design&lt;/h2>
+&lt;p>This was pretty straight forward. I looked up the dimensions of a 608 bearing and the average diameter for a 1kg filament spool&amp;rsquo;s hole. In Fusion 360 I used the radius of the bearing and the diameter of the dowel to layout the caps. I used brass inserts for screwing that parts of the caps together. I did so mainly because I has a new soldering iron tip I wanted to try. Should I need more caps in the future I&amp;rsquo;ll probably tweak the design to use M3 hex nuts.&lt;/p>
+&lt;p>My first prototype technically worked but I forgot to add any tolerance and so there was no play between the assembly and the dowel.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/2FpKSwWCUTk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>It was still better than it was without the assembly, but I was sure the weight of the spools and the tightness of the bearings would result in grooves and/or flat spots wearing on the wooden dowel. For my second attempt I moved the bearings 0.15mm further from the rod. Now, if anything, it might spin too well but decided to use it as is. When the printer feeds the spools inertia can cause it to keep rolling a bit allowing some slack to build up.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>I&amp;rsquo;m pretty happy with how the whole dry box project turned out. I&amp;rsquo;ll have a post about it soon.&lt;/p></description></item></channel></rss>

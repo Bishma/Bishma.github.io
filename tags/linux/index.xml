@@ -1,1 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/linux/</link><description>Recent content in linux on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 02 Feb 2020 10:54:44 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>Context Aware Mouse Button Shortcuts in Gnome The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/linux/</link><description>Recent content in linux on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 02 Feb 2020 10:54:44 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>&lt;h1 id="context-aware-mouse-button-shortcuts-in-gnome">Context Aware Mouse Button Shortcuts in Gnome&lt;/h1>
+&lt;p>The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey. It was my go to for customizing controls and making macros. A lot of the things I used are different enough now that the AHK script wouldn&amp;rsquo;t be applicable anyway, but my context aware mouse buttons have been a huge hit to the way I work and play. I use a 9 button Logitech Vertical Mouse. It&amp;rsquo;s a form factor I prefer and it has helped so much with my RSI that I have one at home and one at work. The only bad thing I have to say about it concerns the lack of support it has in linux.&lt;/p>
+&lt;p>Thankfully I&amp;rsquo;ve &lt;a href="https://github.com/Bishma/.xbindkeys">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of &lt;a href="https://linux.die.net/man/1/xbindkeys">xbindkeys&lt;/a>, &lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html">xdotool&lt;/a>, and a bash script.&lt;/p>
+&lt;h2 id="problem-1-determine-the-active-window">Problem 1: Determine the Active Window&lt;/h2>
+&lt;p>The way I tend to work I can get away with simply knowing the process name and window title of the window that is currently focused.&lt;/p>
+&lt;pre>&lt;code># The window title is available straight from xdotool
+ACTIVE_WINDOW_TITLE=$(xdotool getactivewindow getwindowname)
+# Getting the process name requires back tracking through the active windows pid
+ACTIVE_WINDOW_PROCESS=$(ps -p &amp;quot;$(xdotool getactivewindow getwindowpid)&amp;quot; -o comm=)
+&lt;/code>&lt;/pre>
+&lt;p>Here &lt;code>xdotool getactivewindow getwindowname&lt;/code> will give me the title of the the active window. I can get the the PID of that window using &lt;code>xdotool getactivewindow getwindowpid&lt;/code> and use &lt;code>ps&lt;/code> to get the process name from that.&lt;/p>
+&lt;h2 id="problem-2-sending-keystrokes-to-the-active-window">Problem 2: Sending Keystrokes to the Active Window&lt;/h2>
+&lt;h2 id="problem-3-when-in-firefox-what-site-am-i-on">Problem 3: When in Firefox, What Site Am I On&lt;/h2>
+&lt;p>I like to use mouse buttons 8 and 9 as next/previous keys on my most frequently visited websites. The shortcut is different on various sites so I needed a way to distinguish what side I&amp;rsquo;m on. While I haven&amp;rsquo;t been able to find a way to get the url of the active tab in Firefox (without hijacking my clipboard) but I was able to gleen what I needed from the window title.&lt;/p>
+&lt;pre>&lt;code>function get_firefox_site() {
+if [[ $ACTIVE_WINDOW_TITLE =~ &amp;quot; / Twitter&amp;quot; ]]; then
+SITE=&amp;quot;twitter&amp;quot;
+elif [[ $ACTIVE_WINDOW_TITLE =~ &amp;quot;All Personal Feeds&amp;quot; ]]; then
+SITE=&amp;quot;feedly&amp;quot;
+else
+SITE=&amp;quot;other&amp;quot;
+fi
+echo $SITE
+}
+&lt;/code>&lt;/pre>
+&lt;p>The sites I use next/prev on the most are Twitter, Feedly, and Reddit. Unfortunately when reddit opens thelightbox of a post it makes the title match the post title. So my detection amounts to Twitter, Feedly, and &amp;ldquo;Other.&amp;rdquo;&lt;/p></description></item></channel></rss>

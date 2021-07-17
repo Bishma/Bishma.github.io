@@ -1,1 +1,1381 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/posts/</link><description>Recent content in Posts on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 27 Jun 2021 18:05:02 -0700</lastBuildDate><atom:link href="https://dereksrose.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Drybox</title><link>https://dereksrose.com/posts/drybox/</link><pubDate>Sun, 27 Jun 2021 18:05:02 -0700</pubDate><guid>https://dereksrose.com/posts/drybox/</guid><description>Multi-roll Filament Dry Box I have a humidity problem when it comes to 3D Printing filament.</description></item><item><title>MrHomn</title><link>https://dereksrose.com/posts/mrhomn/</link><pubDate>Sun, 27 Jun 2021 15:09:54 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn/</guid><description>My new home automation plan When I decided to leave my job of over 15 years I knew that I wanted a bit of a career rewind.</description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>Great project carts can always be made better.</description></item><item><title>Just A Super [glue] Organizer</title><link>https://dereksrose.com/posts/caddy/</link><pubDate>Sat, 23 Jan 2021 18:36:03 -0800</pubDate><guid>https://dereksrose.com/posts/caddy/</guid><description>The CAddy When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;).</description></item><item><title>Patio Umbrella Stand Cap</title><link>https://dereksrose.com/posts/umbrella-stand-cap/</link><pubDate>Sun, 10 Jan 2021 14:09:58 -0800</pubDate><guid>https://dereksrose.com/posts/umbrella-stand-cap/</guid><description>A way to keep detritus out of our outdoor umbrella stand over the winter.</description></item><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel One of the issues I encountered when I decided to try to make a filament dry box out of material I had on hand was that my rod (a 19mm wooden dowel left over from Halloween) was causing too much friction.</description></item><item><title>Garage Lock Handle</title><link>https://dereksrose.com/posts/garage-lock-handle/</link><pubDate>Thu, 11 Jun 2020 13:55:11 -0800</pubDate><guid>https://dereksrose.com/posts/garage-lock-handle/</guid><description>Thank you for your service, vice-grips The reason I wanted to get a 3D printer was to make solutions for common problems so designing my own models was always a goal.</description></item><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>Context Aware Mouse Button Shortcuts in Gnome The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey.</description></item><item><title>Codename: Bad Janet</title><link>https://dereksrose.com/posts/codename-bad-janet/</link><pubDate>Sun, 03 Nov 2019 11:11:53 -0800</pubDate><guid>https://dereksrose.com/posts/codename-bad-janet/</guid><description>A Better Alexa Skill In 2016 I was given a 1st gen Echo Dot and I immediately sought to integrate it with Home Assistant.</description></item><item><title>Appdaemon Logging</title><link>https://dereksrose.com/posts/appdaemon-logging/</link><pubDate>Mon, 22 Jul 2019 18:33:18 -0800</pubDate><guid>https://dereksrose.com/posts/appdaemon-logging/</guid><description>Combined logging between Home Assistant and AppDaemon I&amp;rsquo;ve begun using AppDaemon apps to extend Home Assistant.</description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>Adding Home Assistant to My Synology/Dropbox Backup Routine There was a time when I felt comfortable using GitHub as my main backup solution for Home Assistant.</description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>3.1 Weather Alerts sent to Telegram via Home Assistant Updated 2018-11-20</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/posts/</link><description>Recent content in Posts on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 27 Jun 2021 18:05:02 -0700</lastBuildDate><atom:link href="https://dereksrose.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Drybox</title><link>https://dereksrose.com/posts/drybox/</link><pubDate>Sun, 27 Jun 2021 18:05:02 -0700</pubDate><guid>https://dereksrose.com/posts/drybox/</guid><description>&lt;h1 id="multi-roll-filament-dry-box">Multi-roll Filament Dry Box&lt;/h1>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="hero-gallery"
+href="https://dereksrose.com/images/drybox/in_use.jpg"
+title="My completed 3 spool drybox">
+&lt;img
+src="https://dereksrose.com/images/drybox/in_use.jpg"
+title="My completed 3 spool drybox"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="hero-gallery"
+href="https://dereksrose.com/images/drybox/in_use2.jpg"
+title="Closer view">
+&lt;img
+src="https://dereksrose.com/images/drybox/in_use2.jpg"
+title="Closer view"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>I have a humidity problem when it comes to 3D Printing filament. For much of the year it only takes a few days of exposure to the air before even something as forgiving as PLA will start to pop and sputter due to absorbed moisture. Moving spools in and out of dry storage is a pain and my work-horse filaments still ended up spending a lot of time out in the air. A drybox that could feed my 3 most commonly used filaments would help keep these spools printing cleanly, save me time, and cut down the number of times I have to open up my dry storage.&lt;/p>
+&lt;p>Since there&amp;rsquo;s been this pesky pandemic on (and because one of the reasons I got a printer was to be able to make (re)use of junk around the house), I had a goal to buy as little as possible for this project. After picking through things here are some basics I found:&lt;/p>
+&lt;dl>
+&lt;dt>&lt;strong>The Box&lt;/strong>&lt;/dt>
+&lt;dd>Gasket boxes are a common sight around our house, so we rearranged some things to free up one that was a good size. This one would support 4 1kg spools, were it not for the bearing assemblies which brings the total down to 3.&lt;/dd>
+&lt;dt>&lt;strong>Spindle / Rod&lt;/strong>&lt;/dt>
+&lt;dd>A last minute (Zoom) Halloween costume contest left me with a poorly painted 3/4" wooden dowel lying around.&lt;/dd>
+&lt;dt>&lt;strong>Hygrometer&lt;/strong>&lt;/dt>
+&lt;dd>I had a cheap one from ali-express that was not in use.
+&lt;dt>&lt;strong>Rod Holder and Silica Box&lt;/strong>&lt;/dt>
+&lt;dd>Printed&lt;/dd>
+&lt;/dl>
+&lt;p>In the end I just had to buy some ptfe push fittings. With the starting point defined I got to the fun part:&lt;/p>
+&lt;h2 id="problem-solving">Problem Solving&lt;/h2>
+&lt;h3 id="problem-1">Problem 1&lt;/h3>
+&lt;p>Finding a reenforced 3/4&amp;quot; (19mm) dowel holder that would work for a polypropylene box&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> was harder than I thought it would be. I wanted one that would be supported from the outside of the storage box. This was also complicated by it not being easy to search for fractions on Thingiverse.&lt;/p>
+&lt;h4 id="solution-1">Solution 1&lt;/h4>
+&lt;p>This was and easy ask, so I made my own. I used Fusion 360 to create a sweep that was just over 180° so that dowel is loosely held in place when I&amp;rsquo;m moving the box around.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="bracket-gallery"
+href="https://dereksrose.com/images/drybox/bracket1.jpg"
+title="Front: close up">
+&lt;img
+src="https://dereksrose.com/images/drybox/bracket1.jpg"
+title="Front: close up"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="bracket-gallery"
+href="https://dereksrose.com/images/drybox/bracket2.jpg"
+title="Back: close up. You can also see my centering marks.">
+&lt;img
+src="https://dereksrose.com/images/drybox/bracket2.jpg"
+title="Back: close up. You can also see my centering marks."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="bracket-gallery"
+href="https://dereksrose.com/images/drybox/bracket3.jpg"
+>
+&lt;img
+src="https://dereksrose.com/images/drybox/bracket3.jpg"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>To make assembly easier I &lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.thingiverse.com/thing:4668530/">Thingiverse&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount">Github&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="problem-2">Problem 2&lt;/h3>
+&lt;p>So much friction! I knew the filament spools wouldn&amp;rsquo;t roll smoothly on a narrow rod, but this was enough friction to make my extruder skip steps. Using a wooden rod was certainly exacerbating the situation.&lt;/p>
+&lt;h4 id="solution-2-bearing-assembly">Solution 2: Bearing Assembly&lt;/h4>
+&lt;p>I&amp;rsquo;m pretty sure I could have sufficiently overcome both sources of friction by making a bushing to adapt the average size of a filament spool to my small diameter rod. But I happen to have almost 50 (mediocre quality) 608 bearings that would DEFINITELY do the job&amp;hellip; perhaps too well (thay may spin too freely).&lt;/p>
+&lt;p>My first attempt (left side of the video below) didn&amp;rsquo;t leave enough clearance so it didn&amp;rsquo;t spin well and was going to wear grooves in my wooden dowel. On the right spool in the video you can see how adding just 0.15mm of tolerance got it dialed in.&lt;/p>
+&lt;p>This build warranted it&amp;rsquo;s &lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;h3 id="problem-3">Problem 3&lt;/h3>
+&lt;p>Space is limited and this dry box is rather large. In the interests of keeping filament paths and friction to a minimum, I wanted the box to sit on top of my Lack Enclosure. But the box is big enough that it would block the slot where I have filament enter my enclosure.&lt;/p>
+&lt;p>It so happens that my printer enclosure sits in front of an old stove mantle. That leaves me about 15cm of space between the back of the enclosure and the wall. The mantle itself is about 30cm lower than the enclosure&amp;rsquo;s top. So I just needed to give the back end of my box some support and I could make use of those 15cm.&lt;/p>
+&lt;h4 id="solution-3-sterilite-box-stands">Solution 3: Sterilite Box Stands&lt;/h4>
+&lt;p>I have few options for where this box can sit and the top of my encloser is the only practical spot. I wanted a fast solution that would help stabilize the drybox and keep it from slipping around when the enclosure shakes during fast printhead movements. I also need to be able to move to box readily as my lack enclosure the the kind with the hinged lid. Plus, when your most interesting tool is a 3D printer, every problem looks like a lack of plastic. In this case I wanted something that&lt;/p>
+&lt;ul>
+&lt;li>would print in a single job on my MK3s&lt;/li>
+&lt;li>would be stable&lt;/li>
+&lt;li>would not use a crazy amount of filament&lt;/li>
+&lt;li>is over engineered&lt;/li>
+&lt;/ul>
+&lt;p>So I decided to design these stand-offs. They have recesses in the top so that the corner of the Sterilite box is locked to the middle of the stand. A dovetailed bar holds the two stands at the correct width to hold the back half of the box.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="standoffs-gallery"
+href="https://dereksrose.com/images/drybox/standoffs1.jpg"
+title="Front: close up">
+&lt;img
+src="https://dereksrose.com/images/drybox/standoffs1.jpg"
+title="Front: close up"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="standoffs-gallery"
+href="https://dereksrose.com/images/drybox/standoffs2.jpg"
+title="Back: close up. You can also see my centering marks.">
+&lt;img
+src="https://dereksrose.com/images/drybox/standoffs2.jpg"
+title="Back: close up. You can also see my centering marks."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="standoffs-gallery"
+href="https://dereksrose.com/images/drybox/standoffs3.jpg"
+>
+&lt;img
+src="https://dereksrose.com/images/drybox/standoffs3.jpg"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h4 id="sterilite-box-stand-availability">Sterilite Box Stand Availability&lt;/h4>
+&lt;p>I haven&amp;rsquo;t posted this anywhere. It&amp;rsquo;s just so niche.&lt;/p>
+&lt;h3 id="problem-4">Problem 4&lt;/h3>
+&lt;p>I want to keep these 3 spools ready to go without much fuss. That meant feeding the filament from all spools without introducing a place for humidity to creep in.&lt;/p>
+&lt;h4 id="solution-4">Solution 4&lt;/h4>
+&lt;p>The folks who feed multi-filament systems (Like an &lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#">MMU&lt;/a> or a &lt;a href="https://www.mosaicmfg.com/products/palette-3">Pallete&lt;/a>) already have this figured out. I downloaded some &lt;a href="https://www.thingiverse.com/thing:4853256">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
+&lt;figure
+style="width: 60%;"
+>
+&lt;a
+data-lightbox="image-/images/gallery/drybox/3_filament-guides.jpg"
+href="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title=" "
+>
+&lt;img
+src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+/>
+&lt;/a>
+&lt;/figure>
+&lt;h2 id="the-end">The End&lt;/h2>
+&lt;p>There are simpler ways to do this. Don&amp;rsquo;t be like me&amp;hellip; unless you like t kitbash your way to success. I&amp;rsquo;ve been using this box for about 6 months now, and other than needing a way to stop the hygrometer from sliding around&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>, I&amp;rsquo;m pretty happy with the outcome.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>Polypropylene doesn&amp;rsquo;t like to stick to much of anything so supporting the wight of the spools meant screws. And I wanted a backing that would support load and help gasket against air movement.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2" role="doc-endnote">
+&lt;p>See also: Footnote 1&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>MrHomn</title><link>https://dereksrose.com/posts/mrhomn/</link><pubDate>Sun, 27 Jun 2021 15:09:54 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn/</guid><description>&lt;h1 id="my-new-home-automation-plan">My new home automation plan&lt;/h1>
+&lt;figure
+style="width: 70%;"
+>
+&lt;a
+data-lightbox="image-/images/mrhomn/mrhomn1.jpg"
+href="https://dereksrose.com/images/mrhomn/mrhomn1.jpg"
+title=" "
+>
+&lt;img
+src="https://dereksrose.com/images/mrhomn/mrhomn1.jpg"
+/>
+&lt;/a>
+&lt;/figure>
+&lt;p>When I decided to leave my job of over 15 years I knew that I wanted a bit of a career rewind. The last several years have seen me in full-time management positions and my programming, sysadmin, and SRE skills have gotten rusty. Since I learn by doing I wanted a project that would get me up-to-date and which I&amp;rsquo;d have fun implementing.&lt;/p>
+&lt;p>&lt;a href="https://github.com/Bishma/MrHomn">MrHomn&lt;/a> is the 3rd generation of my home automation setup&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. Which I plan to expand out to utilize common open source tools all operating in a docker-compose stack.&lt;/p>
+&lt;h2 id="stack-elements">Stack Elements&lt;/h2>
+&lt;figure
+style="width: 70%;"
+>
+&lt;a
+data-lightbox="image-/images/mrhomn/diagram.png"
+href="https://dereksrose.com/images/mrhomn/diagram.png"
+title=" The Planned Tech Stack&amp;amp;hellip; vaguely"
+>
+&lt;img
+src="https://dereksrose.com/images/mrhomn/diagram.png"
+/>
+&lt;/a>
+&lt;figcaption>
+The Planned Tech Stack&amp;hellip; vaguely
+&lt;/figcaption>
+&lt;/figure>
+&lt;h3 id="synology">Synology&lt;/h3>
+&lt;p>I&amp;rsquo;ll be using my &lt;a href="https://www.synology.com/en-us">Diskstation&lt;/a> as my storage pool, docker host, and backup agent.&lt;/p>
+&lt;h3 id="hass">hass&lt;/h3>
+&lt;p>&lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a> is the brain of the setup. It provides the UI&amp;rsquo;s, device integrations, data recording, state tracking, events, and more.&lt;/p>
+&lt;h3 id="sql_db">sql_db&lt;/h3>
+&lt;p>I&amp;rsquo;ve gone with &lt;a href="https://mariadb.org/">MariaDB&lt;/a> for now. Home Assistant makes use of &lt;a href="https://www.sqlalchemy.org/">SQLAcadamy&lt;/a> which opens up a lot of DB options. At some point I may have more specific needs but for now the versatility of MariaDB seems like a good choice.&lt;/p>
+&lt;h3 id="appdaemon">appdaemon&lt;/h3>
+&lt;p>&lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> is a great way to incorporate loosely coupled Python apps with home assistant. Most critically this is how I&amp;rsquo;ll be creating my APIs to Home Assistant. My existing alexa skill connects to an &lt;a href="https://appdaemon.readthedocs.io/en/latest/AD_API_REFERENCE.html#alexa">appdaemon api&lt;/a> which makes use of &lt;code>sql_db&lt;/code>.&lt;/p>
+&lt;h3 id="nginx">nginx&lt;/h3>
+&lt;p>Initially, at least, I&amp;rsquo;m going to need a public API to support my Alexa skill. &lt;a href="https://www.nginx.com/">Nginx&lt;/a> is how I&amp;rsquo;ll be handling internal and external routing within my stack.&lt;/p>
+&lt;h2 id="near-future-goals">Near Future Goals&lt;/h2>
+&lt;h4 id="monitoring">Monitoring&lt;/h4>
+&lt;p>I&amp;rsquo;m currently weighing &lt;a href="https://prometheus.io/">Prometheus&lt;/a> vs &lt;a href="https://www.zabbix.com/">Zabbix&lt;/a>. I&amp;rsquo;d learn more implementing Prometheus but it&amp;rsquo;s overkill for this project.&lt;/p>
+&lt;h4 id="log-management">Log Management&lt;/h4>
+&lt;p>TBD, but I&amp;rsquo;m leaning toward &lt;a href="https://hub.docker.com/r/graylog/graylog">Greylog&lt;/a>.&lt;/p>
+&lt;h4 id="rum-and-synthetics">RUM and Synthetics&lt;/h4>
+&lt;p>This is running on my local network. I&amp;rsquo;m not going to have enough traffic for these to be of any use but it is one of the things I&amp;rsquo;d like to grain some practical experience with. ¯\_(ツ)_/¯&lt;/p>
+&lt;h3 id="data-analysis">Data Analysis&lt;/h3>
+&lt;h4 id="timeseries_db">timeseries_db&lt;/h4>
+&lt;p>SQL is well and good, but if you want to evaluate trends you want to be able to query for timeseries data. I am planning to use &lt;a href="https://www.influxdata.com/">InfluxDB&lt;/a>.&lt;/p>
+&lt;p>I&amp;rsquo;d' likely make use of InfluxDB as the storage backend for Prometheus.&lt;/p>
+&lt;h4 id="grafana">Grafana&lt;/h4>
+&lt;p>&lt;a href="https://grafana.com/">Grafana&lt;/a> is a solid visualization platform that is common use. Understanding it at more than basic level will pay dividends.&lt;/p>
+&lt;h3 id="purpose-built-sensors">Purpose built sensors&lt;/h3>
+&lt;p>It has been decades since I did anything with hobbyist electronics and I intend to make the time to relearn it. I intend to use ESP modules and simple sensors anywhere I can figure out how to power them. I&amp;rsquo;d like to sample the temp and humidity in each space of my house. I&amp;rsquo;d like to add CO&lt;sub>2&lt;/sub>, Lux, dB, and in key areas. And I also want some manner particulate sensor(s) in my attic due to local wildfires. For added fun I can 3D Print each sensors' housing.&lt;/p>
+&lt;figure
+style="width: 60%;"
+>
+&lt;a
+data-lightbox="image-/images/mrhomn/arduino-example.png"
+href="https://dereksrose.com/images/mrhomn/arduino-example.png"
+title=" Photo from"
+>
+&lt;img
+src="https://dereksrose.com/images/mrhomn/arduino-example.png"
+/>
+&lt;/a>
+&lt;figcaption>
+&lt;a href="https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/">Photo from&lt;/a>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Additionally I&amp;rsquo;m planning to build an RPi based outdoor weather station.&lt;/p>
+&lt;h4 id="esphome">ESPHome&lt;/h4>
+&lt;p>Those purpose built sensors have to tell someone what they sense. That someone is &lt;a href="https://github.com/esphome/esphome">ESPHome&lt;/a> which I plan to deploy in the &lt;a href="https://hub.docker.com/r/esphome/esphome">docker&lt;/a> stack.&lt;/p>
+&lt;h3 id="telegram-chatbot">Telegram Chatbot&lt;/h3>
+&lt;p>My goal is to be able to duplicate a natural language interface for both voice assistants and telegram. Telegram has the extra benefit of being able to present options as buttons.&lt;/p>
+&lt;h3 id="no-hardware-requiring-the-cloud">No hardware requiring the cloud&lt;/h3>
+&lt;p>I&amp;rsquo;ve got a number of devices in my current home automation that require a cloud provider. I want to limit, if not eliminate this weakness. First it means that if the internet is out then my house is degraded. It means that I&amp;rsquo;m reliant on these companies to keep their services online and open enough for home assistant integrations to work with them. Also, I want my data and I want to stop giving so much of it away. Frankly I don&amp;rsquo;t think any of these companies properly compensate us for the wealth of data we expose.&lt;/p>
+&lt;h4 id="voice-assistant">Voice Assistant&lt;/h4>
+&lt;p>The little bit of research that I&amp;rsquo;ve done so far suggests that the weak point in the realm of open/local voice assistants is wake work detection. Every time an OSS project starts to get close it gets snapped up by companies looking to compete with Amazon and Google.&lt;/p>
+&lt;p>All of that is to say that I want to replace Alexa. I&amp;rsquo;ll be doing various experiments to see how viable it is.&lt;/p>
+&lt;h4 id="doorbell">Doorbell&lt;/h4>
+&lt;p>I&amp;rsquo;m hearing that the &lt;a href="https://amcrest.com/smarthome-2-megapixel-wireless-doorbell-security-camera-1920-x-1080p-wifi-doorbell-camera-ip55-weatherproof-two-way-audio-ad110.html">Amcrest wifi doorbell&lt;/a> is decent hardware with a terrible app to back it up. But it has the big plus of not being cloud based. I can mimic alerting with Home Assistant + Telegram Bot, unfortunately that won&amp;rsquo;t replicate intercom functionality. There&amp;rsquo;s enough chance that we won&amp;rsquo;t be happy with the end result that I&amp;rsquo;m not willing to spend the money on one yet.&lt;/p>
+&lt;p>We have a couple Amcrest PTZ cameras connected to home assistant via &lt;a href="https://www.synology.com/en-us/surveillance">Synology Surveillance Station&lt;/a>.&lt;/p>
+&lt;h3 id="pytorch">PyTorch&lt;/h3>
+&lt;h4 id="nvidia-jetson">Nvidia Jetson&lt;/h4>
+&lt;p>This is a very affordable device that should be capable of keeping up with the tiny amount of learning and inference I&amp;rsquo;ll &amp;ldquo;need&amp;rdquo; for my house.&lt;/p>
+&lt;h4 id="face-detection">Face detection&lt;/h4>
+&lt;p>If we have non-cloud door cams I can have MrHome only send notifications if it identifies a human in the camera&amp;rsquo;s view when a motion detection triggers, avoiding some false positives. And if I can get it to recognize &lt;del>my many enemies&lt;/del> friends then I can &lt;del>launch countermeasures&lt;/del> play harp music&amp;hellip; or something.&lt;/p>
+&lt;h4 id="routine-detection">Routine Detection&lt;/h4>
+&lt;p>This is a half-baked idea at this point; I&amp;rsquo;d like to have MrHomn be able to do something like:&lt;/p>
+&lt;ul>
+&lt;li>Detect a recurring change to my day-to-day routine&lt;/li>
+&lt;li>Generate an automation change proposal based on the new behavior&lt;/li>
+&lt;li>Send a Telegram message to suggest the change&lt;/li>
+&lt;li>Implement the change if approved&lt;/li>
+&lt;/ul>
+&lt;p>E.g. &amp;ldquo;I&amp;rsquo;ve noticed you&amp;rsquo;re going to bed later recently. Would you like me to delay your pre-bedtime automation by 30 minutes?&amp;rdquo;&lt;/p>
+&lt;hr>
+&lt;figure
+style="width: 60%;"
+>
+&lt;a
+data-lightbox="image-/images/mrhomn/mrhomn2.jpg"
+href="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
+title=" "
+>
+&lt;img
+src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
+/>
+&lt;/a>
+&lt;/figure>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>OK, yes, I promised, after naming my second home automation repo &amp;ldquo;&lt;a href="https://github.com/Bishma/home-assistant-tng">HomeAssistant TNG&lt;/a>,&amp;rdquo; that I&amp;rsquo;d name my next one &amp;ldquo;Deep Space Nine.&amp;rdquo; But &lt;a href="https://memory-alpha.fandom.com/wiki/Homn">MrHomn&lt;/a> was too good to pass up.&lt;/p>
+&lt;p>He was &lt;a href="https://memory-alpha.fandom.com/wiki/Lwaxana_Troi">Lwaxana Troy&amp;rsquo;s&lt;/a> very diligent valet in Star Trek TNG, three syllable wake words tend to work best for VUIs, &lt;a href="https://en.wikipedia.org/wiki/Carel_Struycken">Carel Struycken&lt;/a> is awesome, and Homn is a homonym of home (at least the way Lwaxana pronounced it).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
+&lt;p>&lt;strong>Compatible with the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>We have several &lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a &lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my &lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
+&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the &lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/cover_image.jpg"
+>
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/cover_image.jpg"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/top-down_front.jpg"
+title="A look at all the pieces from the front.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/top-down_front.jpg"
+title="A look at all the pieces from the front."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/top-down_top.jpg"
+title="A look at all the pieces from the top.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/top-down_top.jpg"
+title="A look at all the pieces from the top."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/top-down_back.jpg"
+title="A look at all the pieces from the back.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/top-down_back.jpg"
+title="A look at all the pieces from the back."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
+&lt;p>Here&amp;rsquo;s what&amp;rsquo;s included.&lt;/p>
+&lt;h2 id="one-piece-hooks">One Piece Hooks&lt;/h2>
+&lt;p>On work carts it&amp;rsquo;s nice to be able to hang tools off the size. I ended up making a couple sizes as a design compromise. The &amp;ldquo;narrow&amp;rdquo; version is 4mm square and plenty strong (especially when printed with 3 perimeters)&lt;/p>
+&lt;figure
+>
+&lt;a
+data-lightbox="image-/images/clip-on-raskog-accessories/one-piece_hooks.jpg"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/one-piece_hooks.jpg"
+title=" These 4 hooks are the only parts that are not compatible with Skadis Universal Hook Set"
+>
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/one-piece_hooks.jpg"
+/>
+&lt;/a>
+&lt;figcaption>
+These 4 hooks are the only parts that are not compatible with Skadis Universal Hook Set
+&lt;/figcaption>
+&lt;/figure>
+&lt;h3 id="features">Features&lt;/h3>
+&lt;ul>
+&lt;li>Four varieties
+&lt;ul>
+&lt;li>Narrow Half-Round&lt;/li>
+&lt;li>Narrow Quarter-Round&lt;/li>
+&lt;li>Wide Half-Round&lt;/li>
+&lt;li>Wide Quarter-Round&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="hook-row">Hook Row&lt;/h2>
+&lt;p>A row of small hooks for hanging light-weight items. Each hook is 3mm squared. By having the four hooks connected together there is a lot more lateral stability than with the One Piece Hooks.&lt;/p>
+&lt;figure
+>
+&lt;a
+data-lightbox="image-/images/clip-on-raskog-accessories/hook-row_skadis.jpg"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/hook-row_skadis.jpg"
+title=" I only got a pic of this on the Skadis, but it still works with the Raskog."
+>
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/hook-row_skadis.jpg"
+/>
+&lt;/a>
+&lt;figcaption>
+I only got a pic of this on the Skadis, but it still works with the Raskog.
+&lt;/figcaption>
+&lt;/figure>
+&lt;h3 id="features-1">Features&lt;/h3>
+&lt;ul>
+&lt;li>Four small diameter hooks.&lt;/li>
+&lt;li>Three small gaps between the hooks.&lt;/li>
+&lt;/ul>
+&lt;h3 id="requires">Requires&lt;/h3>
+&lt;ul>
+&lt;li>2 Universal Hooks&lt;/li>
+&lt;/ul>
+&lt;h2 id="nintendo-switch-holder">Nintendo Switch Holder&lt;/h2>
+&lt;p>As I said, I use a Raskog like an end table so I wanted a store my switch so it would be in easy reach.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_raskog.jpg"
+title="The Nintendo Switch holder on a Raskog cart.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_raskog.jpg"
+title="The Nintendo Switch holder on a Raskog cart."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_skadis.jpg"
+title="The Nintendo Switch holder on a Skadis cart.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_skadis.jpg"
+title="The Nintendo Switch holder on a Skadis cart."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_behind.jpg"
+title="Showing the cart slots.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_behind.jpg"
+title="Showing the cart slots."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h3 id="features-2">Features&lt;/h3>
+&lt;ul>
+&lt;li>Can hold the Switch while a USB cable is attached.&lt;/li>
+&lt;li>Holds the console with or without the Joycons attached.&lt;/li>
+&lt;li>Stabilizers to guard against side-to-side movement.&lt;/li>
+&lt;li>Four game cart slots behind the switch.&lt;/li>
+&lt;li>There&amp;rsquo;s some extra depth to the console slot, to allow you to add something like this to the front forks to help guard against screen scratches. The forks are 18mm wide.&lt;/li>
+&lt;/ul>
+&lt;h3 id="requires-1">Requires&lt;/h3>
+&lt;ul>
+&lt;li>2 Universal Hooks.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pen-holders">Pen Holders&lt;/h2>
+&lt;p>I wanted a pen holder that would work for any pen, Sharpie diameter or smaller. I found it easier to get pens in and out when the holder was angled a bit but I would see how that may now always be desirable. So I made two versions.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/pen-holders_raskog.jpg"
+title="Pen Holders on a Raskog.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/pen-holders_raskog.jpg"
+title="Pen Holders on a Raskog."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_skadis.jpg"
+title="Pen Holders on a Skadis.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/switch-holder_skadis.jpg"
+title="Pen Holders on a Skadis."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h3 id="features-3">Features&lt;/h3>
+&lt;ul>
+&lt;li>Two versions:
+&lt;ul>
+&lt;li>Vertical&lt;/li>
+&lt;li>22° Angled Version&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Holds four pens.&lt;/li>
+&lt;/ul>
+&lt;h3 id="requires-2">Requires&lt;/h3>
+&lt;ul>
+&lt;li>2 Universal Hooks.&lt;/li>
+&lt;li>Pens or devices of similar dimensions:
+&lt;ul>
+&lt;li>brushes&lt;/li>
+&lt;li>pencils&lt;/li>
+&lt;li>glow sticks&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="usb-cable-holder">USB Cable Holder&lt;/h2>
+&lt;p>I wanted a holder for the end of various charging cables that was also able to accommodate some of the bigger dongles and doodads. My first attempt was too big for my narrow cables and too small for my really thick cables. I ended up making two widths of slots to handle the many whims of cable manufacturers.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/cable-holder_raskog.jpg"
+title="Cable Holders on a Raskog.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/cable-holder_raskog.jpg"
+title="Cable Holders on a Raskog."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="feature-gallery"
+href="https://dereksrose.com/images/clip-on-raskog-accessories/cable-holder_skadis.jpg"
+title="Cable Holders on a Skadis.">
+&lt;img
+src="https://dereksrose.com/images/clip-on-raskog-accessories/cable-holder_skadis.jpg"
+title="Cable Holders on a Skadis."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h3 id="features-4">Features&lt;/h3>
+&lt;ul>
+&lt;li>Four wide cable slots.&lt;/li>
+&lt;li>Three narrow cable slots.&lt;/li>
+&lt;li>Two USB-A slots.
+&lt;ul>
+&lt;li>For thumbdrives and such.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>One USB-C slot.&lt;/li>
+&lt;li>Deep tray for holding widgets.&lt;/li>
+&lt;/ul>
+&lt;h3 id="requires-3">Requires&lt;/h3>
+&lt;ul>
+&lt;li>2 Universal Hooks.&lt;/li>
+&lt;/ul>
+&lt;h1 id="print-settings">Print Settings&lt;/h1>
+&lt;p>&lt;em>As Pictured&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>0.4mm Nozzle&lt;/li>
+&lt;li>0.15mm layer height&lt;/li>
+&lt;li>10% infill&lt;/li>
+&lt;li>3 perimeters&lt;/li>
+&lt;li>PLA
+&lt;ul>
+&lt;li>Printed Solid Jessie&lt;/li>
+&lt;li>Feta Green&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="availability">Availability&lt;/h1>
+&lt;ul>
+&lt;li>
+&lt;a
+href="https://www.prusaprinters.org/prints/57188"
+target="_blank">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection">Github&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Just A Super [glue] Organizer</title><link>https://dereksrose.com/posts/caddy/</link><pubDate>Sat, 23 Jan 2021 18:36:03 -0800</pubDate><guid>https://dereksrose.com/posts/caddy/</guid><description>&lt;h1 id="the-caddy">The CAddy&lt;/h1>
+&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer, &lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
+&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="CAddy Gallery"
+href="https://dereksrose.com/images/CAddy/tray%20front%20-%20full.jpg"
+title="Front view of the CAddy tray.">
+&lt;img
+src="https://dereksrose.com/images/CAddy/tray%20front%20-%20full.jpg"
+title="Front view of the CAddy tray."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="CAddy Gallery"
+href="https://dereksrose.com/images/CAddy/tray%20back%20-%20full.jpg"
+title="Rear view of the CAddy tray.">
+&lt;img
+src="https://dereksrose.com/images/CAddy/tray%20back%20-%20full.jpg"
+title="Rear view of the CAddy tray."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="CAddy Gallery"
+href="https://dereksrose.com/images/CAddy/tray%20front%20-%20empty.jpg"
+title="Front view of the CAddy tray while empty.">
+&lt;img
+src="https://dereksrose.com/images/CAddy/tray%20front%20-%20empty.jpg"
+title="Front view of the CAddy tray while empty."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="CAddy Gallery"
+href="https://dereksrose.com/images/CAddy/tray%20top%20-%20empty.jpg"
+title="Top view of the CAddy tray while empty.">
+&lt;img
+src="https://dereksrose.com/images/CAddy/tray%20top%20-%20empty.jpg"
+title="Top view of the CAddy tray while empty."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="CAddy Gallery"
+href="https://dereksrose.com/images/CAddy/on%20buildplate.jpg"
+title="The tray as printed.">
+&lt;img
+src="https://dereksrose.com/images/CAddy/on%20buildplate.jpg"
+title="The tray as printed."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="CAddy Gallery"
+href="https://dereksrose.com/images/CAddy/knife%20handle%20on%20build%20plate.jpg"
+title="The utility knife handle as printed.">
+&lt;img
+src="https://dereksrose.com/images/CAddy/knife%20handle%20on%20build%20plate.jpg"
+title="The utility knife handle as printed."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest on prusaprinters.org&lt;/a>.&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;p>Because it&amp;rsquo;s not a Derek project if its not over-engineered I&amp;rsquo;ve packed as many features as I could make fit.&lt;/p>
+&lt;ul>
+&lt;li>Slots for up to 4 bottles with
+&lt;a
+data-lightbox="features"
+href="https://dereksrose.com/images/CAddy/models.png"
+title="Fusion 360 rendering showing the tray&amp;#39;s front view, with and without text labels."
+>optional labels&lt;/a>
+&lt;ul>
+&lt;li>Sized for 50g bottles of &lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html">Hobby King glues&lt;/a>&lt;/li>
+&lt;li>Specifically, the ovals that are
+&lt;a
+data-lightbox="features"
+href="https://dereksrose.com/images/CAddy/glue%20hole%20size.png"
+title="Fusion 360 sketch showing the oval dimensions: 50mm x 30mm"
+>50mm on the long side and 30mm on the short side&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The oxygen at the 4 position will hold an acupuncture needle (useful for clog clearing)&lt;/li>
+&lt;li>The triple bond holds a
+&lt;a
+data-lightbox="features"
+href="https://dereksrose.com/images/CAddy/knife%20assembly.jpg"
+title="Assembly of the utility knife."
+>utility knife&lt;/a>
+&lt;ul>
+&lt;li>The printed handle holds a #1 utility blade screws together for safety&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The other oxygen atom is big enough for a sharpie or a small rolled up rag / sandpaper&lt;/li>
+&lt;li>The front has a small slot sized to hold a few craft (popsicle) sticks&lt;/li>
+&lt;li>The end of the molecule is a textured handle&lt;/li>
+&lt;/ul>
+&lt;h2 id="design">Design&lt;/h2>
+&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
+&lt;p>Secondly, I was able to find a step model of a #1 utility knife on
+&lt;a href="https://grabcad.com/library/utility-blade-3">grabcad&lt;/a>, size a handle around it, and perform a &lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
+&lt;h2 id="printing">Printing&lt;/h2>
+&lt;h3 id="settings-and-assembly">Settings and Assembly&lt;/h3>
+&lt;h4 id="tray">Tray&lt;/h4>
+&lt;ul>
+&lt;li>0.2mm layer height&lt;/li>
+&lt;li>0.4mm nozzle&lt;/li>
+&lt;li>No supports, rafts, or brims&lt;/li>
+&lt;li>10% infill&lt;/li>
+&lt;li>The color change is done via filament swap for the final 6 layers.&lt;/li>
+&lt;/ul>
+&lt;h4 id="knife">Knife&lt;/h4>
+&lt;ul>
+&lt;li>0.15mm layer hight&lt;/li>
+&lt;li>0.4 mm nozzle&lt;/li>
+&lt;li>No supports, rafts, or brims&lt;/li>
+&lt;li>15% infill&lt;/li>
+&lt;/ul>
+&lt;p>The knife stores in the CAddy body blade side down with a backstop to prevent the tip of the blade from digging into the bottom of the tray. Please don&amp;rsquo;t cut yourself.&lt;/p>
+&lt;p>The filaments pictured are Prusament PLA in Galaxy Purple and Printed Solid Jessie in Feta Green.&lt;/p>
+&lt;h3 id="availability">Availability&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;a
+href="https://www.prusaprinters.org/prints/53618"
+target="_blank">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy">Github&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Patio Umbrella Stand Cap</title><link>https://dereksrose.com/posts/umbrella-stand-cap/</link><pubDate>Sun, 10 Jan 2021 14:09:58 -0800</pubDate><guid>https://dereksrose.com/posts/umbrella-stand-cap/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Our Winter Umbrella&lt;/h1>
+&lt;p>When we take our outdoor umbrella down for the season we like to put something over the remaining part of the stand. In years past we made use of an old travel mug, a plastic bag, and some duct tape. This year as we were taking it down Bonnie said, &amp;ldquo;hey, I&amp;rsquo;ll bet you can design and print a cap for that.&amp;rdquo; Spoiler: she was right.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="umbrella-gallery"
+href="https://dereksrose.com/images/umbrella-stand-cap/hero%20image.jpg"
+title="The first time the cap was put in place.">
+&lt;img
+src="https://dereksrose.com/images/umbrella-stand-cap/hero%20image.jpg"
+title="The first time the cap was put in place."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="umbrella-gallery"
+href="https://dereksrose.com/images/umbrella-stand-cap/thumbs%20down.jpg"
+title="Our old solution.">
+&lt;img
+src="https://dereksrose.com/images/umbrella-stand-cap/thumbs%20down.jpg"
+title="Our old solution."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="umbrella-gallery"
+href="https://dereksrose.com/images/umbrella-stand-cap/thumbs%20up.jpg"
+title="The cap were talking about. This thing. I&amp;amp;rsquo;m surprised you don&amp;amp;rsquo;t know what you&amp;amp;rsquo;re looking at by now.">
+&lt;img
+src="https://dereksrose.com/images/umbrella-stand-cap/thumbs%20up.jpg"
+title="The cap were talking about. This thing. I&amp;amp;rsquo;m surprised you don&amp;amp;rsquo;t know what you&amp;amp;rsquo;re looking at by now."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="umbrella-gallery"
+href="https://dereksrose.com/images/umbrella-stand-cap/on%20build%20plate.jpg"
+title="As Printed">
+&lt;img
+src="https://dereksrose.com/images/umbrella-stand-cap/on%20build%20plate.jpg"
+title="As Printed"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h2 id="design">Design&lt;/h2>
+&lt;p>This was a straight forward design in Fusion 360. It took so little time I decided to model and print an umbrella to go with it. I still ended up doing it pretty quick, this is far from the most printable thing I&amp;rsquo;ve ever designed. Every orientation of the umbrella seemed to result in nasty overhangs, so at the end of the day I just printed it
+&lt;a
+data-lightbox="design"
+href="https://dereksrose.com/images/umbrella-stand-cap/support%20example.jpg"
+>with a load of supports&lt;/a>.&lt;/p>
+&lt;p>The pole on our umbrella is
+&lt;a
+data-lightbox="design"
+href="https://dereksrose.com/images/umbrella-stand-cap/sketch.png"
+>43.25mm in diameter&lt;/a> with two lock pins that are 9.35mm in diameter and 33..95mm from its top.&lt;/p>
+&lt;h2 id="printing">Printing&lt;/h2>
+&lt;p>The umbrella needs a layer height of 0.15mm and I decided to print both pieces on one place.&lt;/p>
+&lt;ul>
+&lt;li>Layer Height: 0.15mm&lt;/li>
+&lt;li>Infill: 20%&lt;/li>
+&lt;li>Supports: Umbrella Only&lt;/li>
+&lt;/ul>
+&lt;p>Carefully remove the supports from the umbrella without breaking the umbrella pole. If you have any elephant footing you may need to clean up the bottom of the pole before it will insert into the cap. Use a drop of super glue to attach the two.&lt;/p>
+&lt;h2 id="material">Material&lt;/h2>
+&lt;p>I decided to go with PETG since it&amp;rsquo;s more UV resistant than PLA. Plus this Prusament Galaxy Black looks fun in
+&lt;a
+data-lightbox="L2ltYWdlcy91bWJyZWxsYS1zdGFuZC1jYXAvaW4gdXNlLmpwZw=="
+href="https://dereksrose.com/images/umbrella-stand-cap/in%20use.jpg"
+>the daylight&lt;/a>.&lt;/p>
+&lt;h2 id="availability">Availability&lt;/h2>
+&lt;a
+href="https://www.prusaprinters.org/prints/53800"
+target="_blank">Prusaprinters&lt;/a></description></item><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>&lt;h1 id="filament-spool-bearing-assembly-for-a-34-dowel">Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel&lt;/h1>
+&lt;p>One of the issues I encountered when I decided to try to make a filament dry box out of material I had on hand was that my rod (a 19mm wooden dowel left over from Halloween) was causing too much friction. I knew a heavy spool on a narrow rod would slide rather than roll, but I didn&amp;rsquo;t anticipate just how much force would be required to feed filament. My printer was not happy and my prints were full of under-extrusions.&lt;/p>
+&lt;p>I did a little research and figured out that a bushing would solve my issue (effectively adapting the 19mm rod to make it a ~50mm rod) buuuuut&amp;hellip; I also have a ton of crappy 608 bearings that I got for cheap. Plus, you know, bearings are more fun than bushings. &lt;span class="emoticon">¯\_(ツ)_/¯&lt;/span>&lt;/p>
+&lt;p>I figured three points of contact would be sufficient for the weight, but three 608 bearing + the diameter of the dowel is greater than the 50mm inner diameter of a filament spool. That means that the end caps are as thick as a 608 bearing + the plastic to hold them in place. I pressed ahead anyway knowing this extra width means I can only fit 3 spools in my dry box instead of 4.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/1_cap-parts.jpg"
+title="The parts that make up the end caps.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/1_cap-parts.jpg"
+title="The parts that make up the end caps."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/2_wide-spindle-assembled.jpg"
+title="Fully assembled with the long version of the spindle.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/2_wide-spindle-assembled.jpg"
+title="Fully assembled with the long version of the spindle."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/3_assembly-caps.jpg"
+title="Assembled end caps.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/3_assembly-caps.jpg"
+title="Assembled end caps."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/4_in-use.jpg"
+title="In use, holding filament spools in my dry box.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/4_in-use.jpg"
+title="In use, holding filament spools in my dry box."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title="Front view of my dry box with the bearing assemblies in use.">
+&lt;img
+src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title="Front view of my dry box with the bearing assemblies in use."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h2 id="design">Design&lt;/h2>
+&lt;p>This was pretty straight forward. I looked up the dimensions of a 608 bearing and the average diameter for a 1kg filament spool&amp;rsquo;s hole. In Fusion 360 I used the radius of the bearing and the diameter of the dowel to layout the caps. I used brass inserts for screwing that parts of the caps together. I did so mainly because I has a new soldering iron tip I wanted to try. Should I need more caps in the future I&amp;rsquo;ll probably tweak the design to use M3 hex nuts.&lt;/p>
+&lt;p>My first prototype technically worked but I forgot to add any tolerance and so there was no play between the assembly and the dowel.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/2FpKSwWCUTk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>It was still better than it was without the assembly, but I was sure the weight of the spools and the tightness of the bearings would result in grooves and/or flat spots wearing on the wooden dowel. For my second attempt I moved the bearings 0.15mm further from the rod. Now, if anything, it might spin too well but decided to use it as is. When the printer feeds the spools inertia can cause it to keep rolling a bit allowing some slack to build up.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>I&amp;rsquo;m pretty happy with how the whole dry box project turned out. I&amp;rsquo;ll have a post about it soon.&lt;/p></description></item><item><title>Garage Lock Handle</title><link>https://dereksrose.com/posts/garage-lock-handle/</link><pubDate>Thu, 11 Jun 2020 13:55:11 -0800</pubDate><guid>https://dereksrose.com/posts/garage-lock-handle/</guid><description>&lt;h1 id="thank-you-for-your-service-vice-grips">Thank you for your service, vice-grips&lt;/h1>
+&lt;p>The reason I wanted to get a 3D printer was to make solutions for common problems so designing my own models was always a goal. I decided a good first project would be to replace our missing interior garage door handle. It was missing when we bought out house and for the first 5 years we lived here we made due using a pair of vice grips to turn the spindle.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="L2ltYWdlcy9nYXJhZ2VfbG9ja19oYW5kbGUvY29sbGFnZS5qcGc="
+href="https://dereksrose.com/images/garage_lock_handle/collage.jpg"
+title="A knob&amp;amp;hellip; for a door">
+&lt;img
+src="https://dereksrose.com/images/garage_lock_handle/collage.jpg"
+title="A knob&amp;amp;hellip; for a door"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>This was my first 3D design but so far it&amp;rsquo;s holding up.&lt;/p></description></item><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>&lt;h1 id="context-aware-mouse-button-shortcuts-in-gnome">Context Aware Mouse Button Shortcuts in Gnome&lt;/h1>
+&lt;p>The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey. It was my go to for customizing controls and making macros. A lot of the things I used are different enough now that the AHK script wouldn&amp;rsquo;t be applicable anyway, but my context aware mouse buttons have been a huge hit to the way I work and play. I use a 9 button Logitech Vertical Mouse. It&amp;rsquo;s a form factor I prefer and it has helped so much with my RSI that I have one at home and one at work. The only bad thing I have to say about it concerns the lack of support it has in linux.&lt;/p>
+&lt;p>Thankfully I&amp;rsquo;ve &lt;a href="https://github.com/Bishma/.xbindkeys">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of &lt;a href="https://linux.die.net/man/1/xbindkeys">xbindkeys&lt;/a>, &lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html">xdotool&lt;/a>, and a bash script.&lt;/p>
+&lt;h2 id="problem-1-determine-the-active-window">Problem 1: Determine the Active Window&lt;/h2>
+&lt;p>The way I tend to work I can get away with simply knowing the process name and window title of the window that is currently focused.&lt;/p>
+&lt;pre>&lt;code># The window title is available straight from xdotool
+ACTIVE_WINDOW_TITLE=$(xdotool getactivewindow getwindowname)
+# Getting the process name requires back tracking through the active windows pid
+ACTIVE_WINDOW_PROCESS=$(ps -p &amp;quot;$(xdotool getactivewindow getwindowpid)&amp;quot; -o comm=)
+&lt;/code>&lt;/pre>
+&lt;p>Here &lt;code>xdotool getactivewindow getwindowname&lt;/code> will give me the title of the the active window. I can get the the PID of that window using &lt;code>xdotool getactivewindow getwindowpid&lt;/code> and use &lt;code>ps&lt;/code> to get the process name from that.&lt;/p>
+&lt;h2 id="problem-2-sending-keystrokes-to-the-active-window">Problem 2: Sending Keystrokes to the Active Window&lt;/h2>
+&lt;h2 id="problem-3-when-in-firefox-what-site-am-i-on">Problem 3: When in Firefox, What Site Am I On&lt;/h2>
+&lt;p>I like to use mouse buttons 8 and 9 as next/previous keys on my most frequently visited websites. The shortcut is different on various sites so I needed a way to distinguish what side I&amp;rsquo;m on. While I haven&amp;rsquo;t been able to find a way to get the url of the active tab in Firefox (without hijacking my clipboard) but I was able to gleen what I needed from the window title.&lt;/p>
+&lt;pre>&lt;code>function get_firefox_site() {
+if [[ $ACTIVE_WINDOW_TITLE =~ &amp;quot; / Twitter&amp;quot; ]]; then
+SITE=&amp;quot;twitter&amp;quot;
+elif [[ $ACTIVE_WINDOW_TITLE =~ &amp;quot;All Personal Feeds&amp;quot; ]]; then
+SITE=&amp;quot;feedly&amp;quot;
+else
+SITE=&amp;quot;other&amp;quot;
+fi
+echo $SITE
+}
+&lt;/code>&lt;/pre>
+&lt;p>The sites I use next/prev on the most are Twitter, Feedly, and Reddit. Unfortunately when reddit opens thelightbox of a post it makes the title match the post title. So my detection amounts to Twitter, Feedly, and &amp;ldquo;Other.&amp;rdquo;&lt;/p></description></item><item><title>Codename: Bad Janet</title><link>https://dereksrose.com/posts/codename-bad-janet/</link><pubDate>Sun, 03 Nov 2019 11:11:53 -0800</pubDate><guid>https://dereksrose.com/posts/codename-bad-janet/</guid><description>&lt;h1 id="a-better-alexa-skill">A Better Alexa Skill&lt;/h1>
+&lt;p>In 2016 I was given a 1st gen Echo Dot and I immediately sought to integrate it with &lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a>. The quick way to so at the time was via the Philips Hue Bridge which allowed simple on/off control of devices. Over time more of my home was being controlled by Home Assistant and just turning things on and off wasn&amp;rsquo;t enough.&lt;/p>
+&lt;p>I could achieve most of what I wanted using custom intent scripts. This allowed me to have nicer grammar when interacting with things like my media center, gave me the ability to pass variables to Home Assistant (like &amp;ldquo;turn up the volume &lt;em>two times&lt;/em>&amp;quot;), and allowed me to get &lt;a href="https://www.home-assistant.io/docs/configuration/templating/">jinja templated&lt;/a> responses. Fast forward to 2019 and I think you can do most, if not all, of this with &lt;a href="https://www.nabucasa.com/">Nabu Casa&lt;/a> + template sensors + Alexa routines. But at the time it was the most direct means to get what I wanted.&lt;/p>
+&lt;p>Now I want more. I want to be able to do fallbacks, have multi-step intents, do slot confirmations, and just generally have a good VUI. The most personally interesting way to approach this is to learn python and make use of &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> to build a full featured Alexa API. I&amp;rsquo;ll take a stepwise approach to achieving this, starting with trying to feature match my existing system with a few needed upgrades.&lt;/p>
+&lt;h2 id="minimum-viable-product">Minimum Viable Product&lt;/h2>
+&lt;h3 id="on--off-for-all-devices">On / Off For All Devices&lt;/h3>
+&lt;p>This was an interesting and entirely unnecessary problem to solve. We can do this outside of my skill because we also use Nabu Casa and the home assistant skill. I choose to duplicate the functionality as a personal challenge and because we get into the habit of invoking the skill and forget that the basics aren&amp;rsquo;t part of it.&lt;/p>
+&lt;p>This presented the problem of needing to get a device registry to Alexa. I didn&amp;rsquo;t want to have to hard-code any devices into my intent slots and &lt;a href="https://developer.amazon.com/docs/smapi/catalog-url-reference.html">Catalog Management&lt;/a> was more involved than I wanted to get for something only a couple people will use. I understand there are additional options if you make a skill that&amp;rsquo;s the &amp;ldquo;home automation&amp;rdquo; type but I didn&amp;rsquo;t investigate that very far because those need to be hosted in AWS Lambda, and I want to keep things local.&lt;/p>
+&lt;p>In the end I used a Search Query slot and then have my AppDaemon app search Home Assistant for the unbounded phrase. This will be the first place that I want to add validation and/or confirmation. Here is what is is able to search and control.&lt;/p>
+&lt;h4 id="example-phrases">Example Phrases&lt;/h4>
+&lt;ul>
+&lt;li>turn/switch {device} on&lt;/li>
+&lt;li>turn/switch {device} off&lt;/li>
+&lt;/ul>
+&lt;p>Where {device} can be:&lt;/p>
+&lt;ul>
+&lt;li>All smart switches&lt;/li>
+&lt;li>All smart lights&lt;/li>
+&lt;li>All groups
+&lt;ul>
+&lt;li>Fixtures with multiple bulbs.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The living room media center
+&lt;ul>
+&lt;li>Turns on by starting the Plex activity in Harmony.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The living room stand fan
+&lt;ul>
+&lt;li>Toggle&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The Bedroom AC
+&lt;ul>
+&lt;li>Toggle&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="dynamic-updown">Dynamic Up/Down&lt;/h3>
+&lt;p>Turn things up or down by a dynamic amount. This will default to 1 if no value is specified.&lt;/p>
+&lt;h4 id="example-phrases-1">Example Phrases&lt;/h4>
+&lt;ul>
+&lt;li>turn {device} up&lt;/li>
+&lt;li>turn {device} down twice&lt;/li>
+&lt;li>turn {device} up by {increment}.&lt;/li>
+&lt;/ul>
+&lt;p>Where {device} can be:&lt;/p>
+&lt;ul>
+&lt;li>The TV
+&lt;ul>
+&lt;li>A.K.A. The Bose Soundbar&lt;/li>
+&lt;li>Synonyms: The Television, The Volume, The Television Volume&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The Fan
+&lt;ul>
+&lt;li>This is the living room stand fan (if out).&lt;/li>
+&lt;li>Speed only goes up, then loops to the beginning after the highest speed.&lt;/li>
+&lt;li>Synonyms: The Stand Fan, The Living Room Fan&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The Thermostat
+&lt;ul>
+&lt;li>Synonyms: The Heat, Ecobee&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The Bedroom AC
+&lt;ul>
+&lt;li>This will only work if the AC is already turned on and I don&amp;rsquo;t currently have a state detection for it.&lt;/li>
+&lt;li>Synonyms: The Bedroom Air Conditioner, The Bedroom AC Temperature, The Bedroom Air Conditioned Temperature&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Increment can be any integer value (though I will probably add bounds to this)&lt;/p>
+&lt;h3 id="media-control">Media control&lt;/h3>
+&lt;p>Control the base functions of the media center. These can all be triggered any number of more time. These won&amp;rsquo;t work for the record player or &amp;ldquo;over the air.&amp;rdquo;&lt;/p>
+&lt;h4 id="example-phrases-2">Example phrases:&lt;/h4>
+&lt;p>These will all work followed by &amp;ldquo;the tv,&amp;rdquo; &amp;ldquo;,the television&amp;rdquo;, or &amp;ldquo;the living room tv / television.&amp;rdquo;&lt;/p>
+&lt;ul>
+&lt;li>{action} the television&lt;/li>
+&lt;li>{action} the tv twice.&lt;/li>
+&lt;li>{action} the tv {increment} times&lt;/li>
+&lt;/ul>
+&lt;p>Where {action} can be:&lt;/p>
+&lt;ul>
+&lt;li>Confirm
+&lt;ul>
+&lt;li>Synonyms: Okay, Yes, Go&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Fast forward (10 seconds)
+&lt;ul>
+&lt;li>Synonyms: Go Forward, Skip Ahead&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Rewind (also 10 seconds)
+&lt;ul>
+&lt;li>Synonyms: Go Backward, Go Backwards&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Play
+&lt;ul>
+&lt;li>Synonym: Unpause&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Pause&lt;/li>
+&lt;li>Stop
+&lt;ul>
+&lt;li>Synonyms: Back, Cancel&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Skip Back (1 minute)
+&lt;ul>
+&lt;li>ToDo: This will work whether followed by &amp;ldquo;tv&amp;rdquo; or &amp;ldquo;television&amp;rdquo; or not.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="media-switch">Media Switch&lt;/h3>
+&lt;p>Switching between Harmony activities.&lt;/p>
+&lt;h4 id="example">Example&lt;/h4>
+&lt;ul>
+&lt;li>Switch to {activity}&lt;/li>
+&lt;li>Change to {activity}&lt;/li>
+&lt;li>Make {activity} go now&lt;/li>
+&lt;/ul>
+&lt;p>Where {activity} can be:&lt;/p>
+&lt;ul>
+&lt;li>Amazon
+&lt;ul>
+&lt;li>Synonym: Amazon Prime&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hulu&lt;/li>
+&lt;li>Kodi&lt;/li>
+&lt;li>Over the Air
+&lt;ul>
+&lt;li>Synonyms: OTA, Antenna&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Plex&lt;/li>
+&lt;li>Record Player
+&lt;ul>
+&lt;li>Synonyms: Records, Bluetooth,&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Spotify
+&lt;ul>
+&lt;li>Synonyms: Music&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Switch
+&lt;ul>
+&lt;li>Synonyms: Nintendo, Nintendo Switch, Console&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Sling&lt;/li>
+&lt;li>Netflix&lt;/li>
+&lt;/ul>
+&lt;h3 id="command-phrases">Command Phrases&lt;/h3>
+&lt;p>There are certain things we want to be able to trigger without a slot. These have analogs that as Alexa Routines but are also avilable in the skill because we often forget.&lt;/p>
+&lt;h4 id="phrases">Phrases&lt;/h4>
+&lt;ul>
+&lt;li>skip back
+&lt;ul>
+&lt;li>Is also a media command, so &amp;ldquo;skip back the tv&amp;rdquo; will also work.&lt;/li>
+&lt;li>Performs a 60 second rewind in all video based Harmony activities.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-project">The Project&lt;/h2>
+&lt;p>It&amp;rsquo;s not very sophistocated yet, so it&amp;rsquo;s all in &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/alexa.py">this one appdaemon app&lt;/a>.&lt;/p></description></item><item><title>Appdaemon Logging</title><link>https://dereksrose.com/posts/appdaemon-logging/</link><pubDate>Mon, 22 Jul 2019 18:33:18 -0800</pubDate><guid>https://dereksrose.com/posts/appdaemon-logging/</guid><description>&lt;h1 id="combined-logging-between-home-assistant-and-appdaemon">Combined logging between Home Assistant and AppDaemon&lt;/h1>
+&lt;p>I&amp;rsquo;ve begun using &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> apps to extend &lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a>. It&amp;rsquo;s a way to write sandboxed &lt;a href="https://www.python.org/">Python&lt;/a> apps that have access to &lt;a href="https://www.home-assistant.io/">home-assistant&lt;/a> events, devices, services, and presence. It&amp;rsquo;s intended to be replacement for automations that can leverage all the power of python. You can also use it as a way to create sensors in Home Assistant.&lt;/p>
+&lt;p>My &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py">first foray&lt;/a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&amp;rsquo;s for lunch. There is also an attribute on the sensor containing the next three days' menus. I then wrote a &lt;a href="https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card">crude custom lovelace card&lt;/a> to display that on my frontend.&lt;/p>
+&lt;p>&lt;img src="https://dereksrose.com/images/appdaemon-logging_1-custom-card.png" alt="Custom card displaying attributes from an Appdaemon Sensor">&lt;/p>
+&lt;p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&amp;rsquo;m using &lt;a href="https://www.home-assistant.io/hassio/">Hass.io&lt;/a> with the &lt;a href="https://github.com/hassio-addons/addon-log-viewer">LogViewer&lt;/a> addon, I&amp;rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the &lt;a href="https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722">Home Assistant Forums&lt;/a> I was able to piece together what I wanted.&lt;/p>
+&lt;h4 id="step-1">Step 1:&lt;/h4>
+&lt;p>I need to use the home assistant &lt;a href="https://www.home-assistant.io/integrations/python_script/">python script component&lt;/a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;message&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;No message provided&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1"># Send to the appropriate log level&lt;/span>
+&lt;span class="n">received_level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;level&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;debug&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">debug&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">elif&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;warning&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">warning&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">elif&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;error&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">info&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in &lt;code>&amp;lt;config&amp;gt;/python_scripts/log.py&lt;/code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called &lt;code>python_script.log&lt;/code>.&lt;/p>
+&lt;h4 id="step-2">Step 2&lt;/h4>
+&lt;p>Fine grained &lt;a href="https://www.home-assistant.io/components/logger/">logger&lt;/a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new &lt;code>python_script.log&lt;/code> service all the way to debug when I&amp;rsquo;m developing a new AppDaemon app.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="c"># &amp;#34;The logger component lets you define the level of logging activities in Home Assistant.&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># https://www.home-assistant.io/components/logger/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">logger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">default&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">warning&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">homeassistant.components.python_script.log.py&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">debug&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Each call to the &lt;code>python_script.log&lt;/code> service will generate a log at the info level. Having a default log level of warning here has the benefit of not showing my all my AppDaemon logs twice.&lt;/p>
+&lt;h4 id="step-3">Step 3&lt;/h4>
+&lt;p>AppDaemon has the means to register a listener on all calls to self.log in all running AppDaemon apps. To do this you want to set up a stand-alone log handling AppDaemon app.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">appdaemon.plugins.hass.hassapi&lt;/span> &lt;span class="kn">as&lt;/span> &lt;span class="nn">hass&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">LogBridge&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">hass&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Hass&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">initialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">listen_log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">cb&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ts&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="n">msg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;[AppDaemon] {}: {}&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">call_service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;python_script/log&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msg&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The callback (&lt;code>cb&lt;/code>) formats a message for readability and then passes that and the level to the Home Assistant &lt;code>python_script.log&lt;/code> service created above. Save this in the apps directory as &lt;code>log_bridge.yaml&lt;/code>.&lt;/p>
+&lt;h4 id="step-4">Step 4&lt;/h4>
+&lt;p>Register this script as an AppDaemon app in &lt;code>apps.yaml&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">log_bridge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">module&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log_bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">class&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">LogBridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After a reboot every log line from AppDaemon pipes into home assistant.&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
+&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for &lt;a href="https://www.home-assistant.io">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
+&lt;p>This solution utilizes the &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">Remote Backup&lt;/a> addon, my home &lt;a href="https://www.synology.com">Synology Diskstation NAS&lt;/a> and &lt;a href="https://www.dropbox.com">Dropbox&lt;/a> via encrypted &lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup">Hyper Backup&lt;/a> tasks.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="durability">Durability&lt;/h3>
+&lt;p>We&amp;rsquo;ve grown fond enough of the system that I consider it worth at least 3-2-1 for its backups. The chances of meaningful loss with this configuration is very low.&lt;/p>
+&lt;ul>
+&lt;li>3+ copies
+&lt;ul>
+&lt;li>Running in HASS&lt;/li>
+&lt;li>Snapshots
+&lt;ul>
+&lt;li>Previous 3 daily snapshots in Home Assistant&lt;/li>
+&lt;li>Previous 14 daily snapshots (above included) in NAS&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Backed up to Dropbox
+&lt;ul>
+&lt;li>Encrypted, versioned, and non-public via Hyperbackup&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>2+ Media
+&lt;ul>
+&lt;li>Micro-SD (in my Pi)&lt;/li>
+&lt;li>SATA Hard Drive (in my NAS)&lt;/li>
+&lt;li>Dropbox&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1 copy offsite
+&lt;ul>
+&lt;li>&lt;em>See also:&lt;/em> Dropbox&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Obviously my configs are also still in github, further minimizing risk.&lt;/p>
+&lt;h3 id="i-want-the-hass-part-to-be-self-contained">I want the HASS part to be self contained&lt;/h3>
+&lt;p>If we need to restore from backup, that restore should be everything needed to be up and running again - including the backup routine. To this end I am going to use Hass.io snapshots, the Hass.io remote backup plugin, and vanilla Home Assistant automations.&lt;/p>
+&lt;h3 id="database-too">Database Too&lt;/h3>
+&lt;p>It&amp;rsquo;s not expendable anymore but also not&amp;hellip; mission critical (yet). I am not doing 3-2-1 here but I am doing a daily offsite backup.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>The Home Assistant device and the Synology Diskstation have network routes and access controls that allow SSH traffic.&lt;/li>
+&lt;li>Hypervisor is set up on the Synology Diskstation and configured to use Dropbox.&lt;/li>
+&lt;li>There should be a backup folder in the main volume of the Synology with a home assistant subfolder.
+&lt;ul>
+&lt;li>&lt;code>/volume1/Backups/HomeAssistant/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-up">Set up&lt;/h2>
+&lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
+&lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
+&lt;h3 id="synology-user">Synology User&lt;/h3>
+&lt;ol>
+&lt;li>From The Users section of the DSM Control Panel select Create &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_1-user-creation.png" alt="User creation screen from the Synology DSM">&lt;/li>
+&lt;li>Make sure the user is in the admin group. As of the time of this writing only admin users are allowed SSH. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_2-groups.png" alt="Group Management screen from the Synology DSM">&lt;/li>
+&lt;li>The user should only be given access to two folders: the one where backups are being sent (&lt;code>volume1/Backups/HomeAssistant&lt;/code>) and the &lt;code>homes&lt;/code> directory. If the homes directory doesn&amp;rsquo;t exist it will be created in a later step then it can be given read/write access here. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_3-folder-permissions.png" alt="User permissions screen from the Synology DSM">&lt;/li>
+&lt;li>Deny all access to applications &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_4-applications.png" alt="User application access screen from the Synology DSM">&lt;/li>
+&lt;/ol>
+&lt;h3 id="synology-sshscp">Synology SSH/SCP&lt;/h3>
+&lt;ol>
+&lt;li>If SSH isn&amp;rsquo;t otherwise on it needs to be enabled. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_5-ssh.png" alt="SSH enabling">
+&lt;ol>
+&lt;li>Make note of the port.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>In the advanced tab of the Users section of the control panel, scroll to the bottom and enable home directories. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_6-home-directory.png" alt="Enabling Home Directories">
+&lt;ol>
+&lt;li>If the user home directories weren&amp;rsquo;t previously enabled remember to give the &lt;code>hass_backup&lt;/code> user read/write permissions in the Synology DSM User Control Panel.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
+&lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
+&lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
+&lt;p>While logged into the Synology via SSH:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
+&lt;li>Uncomment these 3 lines
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
+&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Restart the ssh service
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
+&lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
+&lt;li>&lt;code>vim ~/.ssh/authorized_keys&lt;/code>
+&lt;ol>
+&lt;li>Paste the contents of the public key generate above into a new line of this file.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>At this point it should be possible to ssh into the synology without entering a password.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
+&lt;ol>
+&lt;li>Add the repository and install the add-on &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">per its instructions&lt;/a>.&lt;/li>
+&lt;li>Configure it with the everything that was just set up. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_7-remote-backup-config.png" alt="Remote Backup Creation Screen">&lt;/li>
+&lt;/ol>
+&lt;p>At this point it should be able to test that backups are being sent to the Synology via the Developer Tools Service panel. It will take a few minutes to perform the backup after the service call is made. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
+&lt;h3 id="automation">Automation&lt;/h3>
+&lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
+&lt;p>The hyper backup job is pretty simple. Backup the &lt;code>HomeAssistant&lt;/code> folder and the MariaDB application (which at the time of this writing is only used by Home Assistant).&lt;/p>
+&lt;ol>
+&lt;li>Create a new &amp;ldquo;data backup task&amp;rdquo; with Dropbox as its destination. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_9-create-backup-task.png" alt="Backup Destination Window">&lt;/li>
+&lt;li>A new browser window will open to grant Hyper Backup dropbox permissions. Allow them.&lt;/li>
+&lt;li>Select the Dropbox folder to send to (&lt;code>SynoBackups&lt;/code>) and what the and what to call within that folder (&lt;code>HomeAssistant&lt;/code>). &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_10-dropbox-setup.png" alt="Backup Destination Screen">&lt;/li>
+&lt;li>Select the Synology folder to back up from the &amp;ldquo;Data Backup&amp;rdquo; screen. &lt;code>Backups &amp;gt; HomeAssistant&lt;/code>&lt;/li>
+&lt;li>Select the MariaDB 10 from the &amp;ldquo;Application Backup&amp;rdquo; screen.&lt;/li>
+&lt;li>Set the backup task settings. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_11-task-settings.png" alt="Backup Setting Screen">
+&lt;ol>
+&lt;li>The password for this backup is stored in my password manager.&lt;/li>
+&lt;li>At the end of the wizard you will be prompted to have the backup&amp;rsquo;s encryption key. The backup can be accessed using either the password or the key. If both are kept safe then at lest one should be available when needed.&lt;/li>
+&lt;li>I chose a Hyper Backup time sufficiently after my Home Assistant backup automation.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Choose a rotation schedule. I keep a smart rotation with 128 versions.&lt;/li>
+&lt;li>At the end of the wizard, after saving the backup&amp;rsquo;s encryption key, there is an option to back up now.
+&lt;ol>
+&lt;li>This will be the last thing to test.&lt;/li>
+&lt;li>Note: Backing up Maria DB will make it briefly unavailable.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="clean-up">Clean Up&lt;/h2>
+&lt;p>My snapshots are only about 50M, but I still don&amp;rsquo;t have a reason to keep them all. I am going to prune all local backups older than 14 days.&lt;/p>
+&lt;ol>
+&lt;li>Create a User Defined Script under Scheduled Tasks &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_12-scheduled-task-creation.png" alt="Scheduled Task Creation Screen">&lt;/li>
+&lt;li>The task should run as the backup user. Name it descriptively. I set a scheduled task using the administer account but run the task as the hass backup user. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_13-task-settings.png" alt="Task Creation Screen - General Tab">&lt;/li>
+&lt;li>In the schedule tab choose daily at an time.&lt;/li>
+&lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
+find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
+&lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
+&lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their &lt;a href="https://www.home-assistant.io/components/sensor.rest/">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
+&lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">check it out&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://dereksrose.com/images/NWS-Alerts_1-telegram-example.png" alt="Example of the NWS Alert Text sent through Telegram.">&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as &lt;code>notification.general&lt;/code>. That was set up using the &lt;a href="https://www.home-assistant.io/components/notify.telegram/">notification component&amp;rsquo;s docs&lt;/a>.&lt;/p>
+&lt;h2 id="sensors">Sensors&lt;/h2>
+&lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
+&lt;p>The first looks for the total number of alerts in my area.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active/count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> {% if value_json.zones.ORZ604 is defined %}
+&lt;/span>&lt;span class="sd"> {{ value_json.zones.ORZ604 | int }}
+&lt;/span>&lt;span class="sd"> {% elif value_json.zones.ORC039 is defined %}
+&lt;/span>&lt;span class="sd"> {{ value_json.zones.ORC039 | int }}
+&lt;/span>&lt;span class="sd"> {% else %}
+&lt;/span>&lt;span class="sd"> 0
+&lt;/span>&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/ld+json&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
+&lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Event&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> {% if value_json.features[0] is defined %}
+&lt;/span>&lt;span class="sd"> {{ value_json[&amp;#39;features&amp;#39;][0][&amp;#39;properties&amp;#39;].event }}
+&lt;/span>&lt;span class="sd"> {% else %}
+&lt;/span>&lt;span class="sd"> None
+&lt;/span>&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">json_attributes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">features&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/geo+json&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="automation">Automation&lt;/h2>
+&lt;p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the &lt;code>notify.general&lt;/code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Notification Weather Alert&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">state&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">entity_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sensor.nws_alert_count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{states.sensor.nws_alert_count.state | int &amp;gt; 0}}&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{ as_timestamp(now()) | int - as_timestamp(states.automation.nws_notification_weather_alert.attributes.last_triggered) | int &amp;gt; 21600 }}&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">data_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> Hi There,
+&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;span class="sd"> I&amp;#39;ve detected a change in national weather service advisories for Eugene.
+&lt;/span>&lt;span class="sd"> {% for i in range(states(&amp;#39;sensor.nws_alert_count&amp;#39;) | int) %}
+&lt;/span>&lt;span class="sd"> {%- if i &amp;gt; 0 -%}
+&lt;/span>&lt;span class="sd"> ---------
+&lt;/span>&lt;span class="sd"> {%- endif %}
+&lt;/span>&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.headline }}
+&lt;/span>&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.description }}
+&lt;/span>&lt;span class="sd"> {% endfor %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">notify.general&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="still-to-come">Still to come&lt;/h2>
+&lt;p>I don&amp;rsquo;t love that I&amp;rsquo;m just blocking alerts for 6 hours. I get alert fatigue quickly, but I want to know if conditions are deteriorating. But what seems to happen most commonly is that an alert is retracted, then a new alert is issued with minimally updated information.&lt;/p>
+&lt;p>I want to add a Lovelace condition card to my outdoor climate tab that will pop up, highlighted, showing that there&amp;rsquo;s an alert. When I set up HTML notifications I may also want to push to that. I&amp;rsquo;m also considering changing the detailed sensor. Right now I like the flexibility of the full data from the API, but I don&amp;rsquo;t think I&amp;rsquo;ll want more than the headline and description.&lt;/p></description></item></channel></rss>

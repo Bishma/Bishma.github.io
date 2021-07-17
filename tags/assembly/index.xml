@@ -1,1 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>assembly on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/assembly/</link><description>Recent content in assembly on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 25 Nov 2020 16:08:04 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/assembly/index.xml" rel="self" type="application/rss+xml"/><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel One of the issues I encountered when I decided to try to make a filament dry box out of material I had on hand was that my rod (a 19mm wooden dowel left over from Halloween) was causing too much friction.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>assembly on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/assembly/</link><description>Recent content in assembly on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 25 Nov 2020 16:08:04 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/assembly/index.xml" rel="self" type="application/rss+xml"/><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>&lt;h1 id="filament-spool-bearing-assembly-for-a-34-dowel">Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel&lt;/h1>
+&lt;p>One of the issues I encountered when I decided to try to make a filament dry box out of material I had on hand was that my rod (a 19mm wooden dowel left over from Halloween) was causing too much friction. I knew a heavy spool on a narrow rod would slide rather than roll, but I didn&amp;rsquo;t anticipate just how much force would be required to feed filament. My printer was not happy and my prints were full of under-extrusions.&lt;/p>
+&lt;p>I did a little research and figured out that a bushing would solve my issue (effectively adapting the 19mm rod to make it a ~50mm rod) buuuuut&amp;hellip; I also have a ton of crappy 608 bearings that I got for cheap. Plus, you know, bearings are more fun than bushings. &lt;span class="emoticon">¯\_(ツ)_/¯&lt;/span>&lt;/p>
+&lt;p>I figured three points of contact would be sufficient for the weight, but three 608 bearing + the diameter of the dowel is greater than the 50mm inner diameter of a filament spool. That means that the end caps are as thick as a 608 bearing + the plastic to hold them in place. I pressed ahead anyway knowing this extra width means I can only fit 3 spools in my dry box instead of 4.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/1_cap-parts.jpg"
+title="The parts that make up the end caps.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/1_cap-parts.jpg"
+title="The parts that make up the end caps."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/2_wide-spindle-assembled.jpg"
+title="Fully assembled with the long version of the spindle.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/2_wide-spindle-assembled.jpg"
+title="Fully assembled with the long version of the spindle."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/3_assembly-caps.jpg"
+title="Assembled end caps.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/3_assembly-caps.jpg"
+title="Assembled end caps."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/bearing-assembly/4_in-use.jpg"
+title="In use, holding filament spools in my dry box.">
+&lt;img
+src="https://dereksrose.com/images/gallery/bearing-assembly/4_in-use.jpg"
+title="In use, holding filament spools in my dry box."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Assembly Parts"
+href="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title="Front view of my dry box with the bearing assemblies in use.">
+&lt;img
+src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
+title="Front view of my dry box with the bearing assemblies in use."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h2 id="design">Design&lt;/h2>
+&lt;p>This was pretty straight forward. I looked up the dimensions of a 608 bearing and the average diameter for a 1kg filament spool&amp;rsquo;s hole. In Fusion 360 I used the radius of the bearing and the diameter of the dowel to layout the caps. I used brass inserts for screwing that parts of the caps together. I did so mainly because I has a new soldering iron tip I wanted to try. Should I need more caps in the future I&amp;rsquo;ll probably tweak the design to use M3 hex nuts.&lt;/p>
+&lt;p>My first prototype technically worked but I forgot to add any tolerance and so there was no play between the assembly and the dowel.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/2FpKSwWCUTk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>It was still better than it was without the assembly, but I was sure the weight of the spools and the tightness of the bearings would result in grooves and/or flat spots wearing on the wooden dowel. For my second attempt I moved the bearings 0.15mm further from the rod. Now, if anything, it might spin too well but decided to use it as is. When the printer feeds the spools inertia can cause it to keep rolling a bit allowing some slack to build up.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>I&amp;rsquo;m pretty happy with how the whole dry box project turned out. I&amp;rsquo;ll have a post about it soon.&lt;/p></description></item></channel></rss>

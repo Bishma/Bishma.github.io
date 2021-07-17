@@ -1,1 +1,175 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>backups on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/backups/</link><description>Recent content in backups on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 09 Feb 2019 18:39:04 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/backups/index.xml" rel="self" type="application/rss+xml"/><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>Adding Home Assistant to My Synology/Dropbox Backup Routine There was a time when I felt comfortable using GitHub as my main backup solution for Home Assistant.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>backups on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/backups/</link><description>Recent content in backups on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 09 Feb 2019 18:39:04 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/backups/index.xml" rel="self" type="application/rss+xml"/><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
+&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for &lt;a href="https://www.home-assistant.io">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
+&lt;p>This solution utilizes the &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">Remote Backup&lt;/a> addon, my home &lt;a href="https://www.synology.com">Synology Diskstation NAS&lt;/a> and &lt;a href="https://www.dropbox.com">Dropbox&lt;/a> via encrypted &lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup">Hyper Backup&lt;/a> tasks.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="durability">Durability&lt;/h3>
+&lt;p>We&amp;rsquo;ve grown fond enough of the system that I consider it worth at least 3-2-1 for its backups. The chances of meaningful loss with this configuration is very low.&lt;/p>
+&lt;ul>
+&lt;li>3+ copies
+&lt;ul>
+&lt;li>Running in HASS&lt;/li>
+&lt;li>Snapshots
+&lt;ul>
+&lt;li>Previous 3 daily snapshots in Home Assistant&lt;/li>
+&lt;li>Previous 14 daily snapshots (above included) in NAS&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Backed up to Dropbox
+&lt;ul>
+&lt;li>Encrypted, versioned, and non-public via Hyperbackup&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>2+ Media
+&lt;ul>
+&lt;li>Micro-SD (in my Pi)&lt;/li>
+&lt;li>SATA Hard Drive (in my NAS)&lt;/li>
+&lt;li>Dropbox&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1 copy offsite
+&lt;ul>
+&lt;li>&lt;em>See also:&lt;/em> Dropbox&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Obviously my configs are also still in github, further minimizing risk.&lt;/p>
+&lt;h3 id="i-want-the-hass-part-to-be-self-contained">I want the HASS part to be self contained&lt;/h3>
+&lt;p>If we need to restore from backup, that restore should be everything needed to be up and running again - including the backup routine. To this end I am going to use Hass.io snapshots, the Hass.io remote backup plugin, and vanilla Home Assistant automations.&lt;/p>
+&lt;h3 id="database-too">Database Too&lt;/h3>
+&lt;p>It&amp;rsquo;s not expendable anymore but also not&amp;hellip; mission critical (yet). I am not doing 3-2-1 here but I am doing a daily offsite backup.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>The Home Assistant device and the Synology Diskstation have network routes and access controls that allow SSH traffic.&lt;/li>
+&lt;li>Hypervisor is set up on the Synology Diskstation and configured to use Dropbox.&lt;/li>
+&lt;li>There should be a backup folder in the main volume of the Synology with a home assistant subfolder.
+&lt;ul>
+&lt;li>&lt;code>/volume1/Backups/HomeAssistant/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-up">Set up&lt;/h2>
+&lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
+&lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
+&lt;h3 id="synology-user">Synology User&lt;/h3>
+&lt;ol>
+&lt;li>From The Users section of the DSM Control Panel select Create &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_1-user-creation.png" alt="User creation screen from the Synology DSM">&lt;/li>
+&lt;li>Make sure the user is in the admin group. As of the time of this writing only admin users are allowed SSH. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_2-groups.png" alt="Group Management screen from the Synology DSM">&lt;/li>
+&lt;li>The user should only be given access to two folders: the one where backups are being sent (&lt;code>volume1/Backups/HomeAssistant&lt;/code>) and the &lt;code>homes&lt;/code> directory. If the homes directory doesn&amp;rsquo;t exist it will be created in a later step then it can be given read/write access here. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_3-folder-permissions.png" alt="User permissions screen from the Synology DSM">&lt;/li>
+&lt;li>Deny all access to applications &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_4-applications.png" alt="User application access screen from the Synology DSM">&lt;/li>
+&lt;/ol>
+&lt;h3 id="synology-sshscp">Synology SSH/SCP&lt;/h3>
+&lt;ol>
+&lt;li>If SSH isn&amp;rsquo;t otherwise on it needs to be enabled. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_5-ssh.png" alt="SSH enabling">
+&lt;ol>
+&lt;li>Make note of the port.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>In the advanced tab of the Users section of the control panel, scroll to the bottom and enable home directories. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_6-home-directory.png" alt="Enabling Home Directories">
+&lt;ol>
+&lt;li>If the user home directories weren&amp;rsquo;t previously enabled remember to give the &lt;code>hass_backup&lt;/code> user read/write permissions in the Synology DSM User Control Panel.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
+&lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
+&lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
+&lt;p>While logged into the Synology via SSH:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
+&lt;li>Uncomment these 3 lines
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
+&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Restart the ssh service
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
+&lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
+&lt;li>&lt;code>vim ~/.ssh/authorized_keys&lt;/code>
+&lt;ol>
+&lt;li>Paste the contents of the public key generate above into a new line of this file.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>At this point it should be possible to ssh into the synology without entering a password.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
+&lt;ol>
+&lt;li>Add the repository and install the add-on &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">per its instructions&lt;/a>.&lt;/li>
+&lt;li>Configure it with the everything that was just set up. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_7-remote-backup-config.png" alt="Remote Backup Creation Screen">&lt;/li>
+&lt;/ol>
+&lt;p>At this point it should be able to test that backups are being sent to the Synology via the Developer Tools Service panel. It will take a few minutes to perform the backup after the service call is made. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
+&lt;h3 id="automation">Automation&lt;/h3>
+&lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
+&lt;p>The hyper backup job is pretty simple. Backup the &lt;code>HomeAssistant&lt;/code> folder and the MariaDB application (which at the time of this writing is only used by Home Assistant).&lt;/p>
+&lt;ol>
+&lt;li>Create a new &amp;ldquo;data backup task&amp;rdquo; with Dropbox as its destination. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_9-create-backup-task.png" alt="Backup Destination Window">&lt;/li>
+&lt;li>A new browser window will open to grant Hyper Backup dropbox permissions. Allow them.&lt;/li>
+&lt;li>Select the Dropbox folder to send to (&lt;code>SynoBackups&lt;/code>) and what the and what to call within that folder (&lt;code>HomeAssistant&lt;/code>). &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_10-dropbox-setup.png" alt="Backup Destination Screen">&lt;/li>
+&lt;li>Select the Synology folder to back up from the &amp;ldquo;Data Backup&amp;rdquo; screen. &lt;code>Backups &amp;gt; HomeAssistant&lt;/code>&lt;/li>
+&lt;li>Select the MariaDB 10 from the &amp;ldquo;Application Backup&amp;rdquo; screen.&lt;/li>
+&lt;li>Set the backup task settings. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_11-task-settings.png" alt="Backup Setting Screen">
+&lt;ol>
+&lt;li>The password for this backup is stored in my password manager.&lt;/li>
+&lt;li>At the end of the wizard you will be prompted to have the backup&amp;rsquo;s encryption key. The backup can be accessed using either the password or the key. If both are kept safe then at lest one should be available when needed.&lt;/li>
+&lt;li>I chose a Hyper Backup time sufficiently after my Home Assistant backup automation.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Choose a rotation schedule. I keep a smart rotation with 128 versions.&lt;/li>
+&lt;li>At the end of the wizard, after saving the backup&amp;rsquo;s encryption key, there is an option to back up now.
+&lt;ol>
+&lt;li>This will be the last thing to test.&lt;/li>
+&lt;li>Note: Backing up Maria DB will make it briefly unavailable.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="clean-up">Clean Up&lt;/h2>
+&lt;p>My snapshots are only about 50M, but I still don&amp;rsquo;t have a reason to keep them all. I am going to prune all local backups older than 14 days.&lt;/p>
+&lt;ol>
+&lt;li>Create a User Defined Script under Scheduled Tasks &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_12-scheduled-task-creation.png" alt="Scheduled Task Creation Screen">&lt;/li>
+&lt;li>The task should run as the backup user. Name it descriptively. I set a scheduled task using the administer account but run the task as the hass backup user. &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_13-task-settings.png" alt="Task Creation Screen - General Tab">&lt;/li>
+&lt;li>In the schedule tab choose daily at an time.&lt;/li>
+&lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
+&lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
+find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item></channel></rss>
