@@ -90,7 +90,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.forwardedHeaders.insecure&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.email=developer@dereksrose.com&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>

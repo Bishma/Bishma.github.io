@@ -32,7 +32,7 @@
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--entrypoints.websecure.address=:443&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--entrypoints.websecure.forwardedHeaders.insecure&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&#34;</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.email=developer@dereksrose.com&#34;</span><span class=w>
+</span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&#34;</span><span class=w>
 </span></code></pre></td></tr></table></div></div><p>The host ports here (8321 and 8322) are here translated back into ports 80 and 443 respectively. I also open up the port to Traefik&rsquo;s UI.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>21
 </span><span class=lnt>22
