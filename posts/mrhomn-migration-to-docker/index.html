@@ -100,7 +100,7 @@
 </span><span class=lnt>55
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>labels</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.enable=true</span><span class=w>
-</span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.rule=Host(`yggdrasil.amalgamatedwidget.com`)</span><span class=w>
+</span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.rule=Host(`my.site.com`)</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.entrypoints=websecure</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.tls.certresolver=myresolver</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.services.homeassistant.loadbalancer.server.port=8123</span><span class=w>
@@ -144,7 +144,7 @@
 </span><span class=lnt>77
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>labels</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.enable=true</span><span class=w>
-</span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.rule=(Host(`yggdrasil.amalgamatedwidget.com`) &amp;&amp; PathPrefix(`/api/appdaemon/`))</span><span class=w>
+</span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;&amp; PathPrefix(`/api/appdaemon/`))</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.entrypoints=websecure</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.tls.certresolver=myresolver</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.services.appdaemon.loadbalancer.server.port=5050</span><span class=w>

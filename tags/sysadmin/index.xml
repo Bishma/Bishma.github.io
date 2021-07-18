@@ -187,7 +187,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;td class="lntd">
 &lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.rule=Host(`yggdrasil.amalgamatedwidget.com`)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.rule=Host(`my.site.com`)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.entrypoints=websecure&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.tls.certresolver=myresolver&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.services.homeassistant.loadbalancer.server.port=8123&lt;/span>&lt;span class="w">
@@ -246,7 +246,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;td class="lntd">
 &lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.rule=(Host(`yggdrasil.amalgamatedwidget.com`) &amp;amp;&amp;amp; PathPrefix(`/api/appdaemon/`))&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;amp;&amp;amp; PathPrefix(`/api/appdaemon/`))&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.entrypoints=websecure&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.tls.certresolver=myresolver&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.services.appdaemon.loadbalancer.server.port=5050&lt;/span>&lt;span class="w">
