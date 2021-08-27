@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Summer of 42 on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/summer-of-42/</link><description>Recent content in Summer of 42 on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Aug 2021 13:55:45 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/summer-of-42/index.xml" rel="self" type="application/rss+xml"/><item><title>Garage Door Chock</title><link>https://dereksrose.com/posts/garage-door-chock/</link><pubDate>Fri, 27 Aug 2021 13:55:45 -0700</pubDate><guid>https://dereksrose.com/posts/garage-door-chock/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Garage door safety and... style?&lt;/h1>
-&lt;p>Our 1950&amp;rsquo;s home has its original garage door, track, and spring. The whole thing has help with age, but it can&amp;rsquo;t fully resist gravity any longer. It also has been painted several times over the years and needs a full restoration. Since we have plans to rework the garage I&amp;rsquo;m not taking on that project (now) and have been making do with the fact the garage door doesn&amp;rsquo;t always hold itself up anymore.&lt;/p>
-&lt;p>For the last 18 months the fix has been a screwdriver tied near the door with string, which we can insert through a hole in the track to act as a pin to prevent the door from falling. In terms of quick fixes for common life problems, this one isn&amp;rsquo;t bad but it&amp;rsquo;s not without some annoyances. There are only a couple holes in the track and they&amp;rsquo;re relatively convenient for holding the door all the way up. Also the string sometimes gets caught up in the door and fling around the screwdriver.&lt;/p>
+&lt;p>Our 1950&amp;rsquo;s home has its original garage door, track, and spring. The whole thing has aged well despite neglect, but it can&amp;rsquo;t fully resist gravity any longer. It also has been painted several times over the years and is really in need of a full restoration. Since we have plans to rework the garage in the not too distant future I&amp;rsquo;m not taking on that project (now) and have been just making do with the fact the garage door doesn&amp;rsquo;t always hold itself up anymore.&lt;/p>
+&lt;p>For the last 18 months the fix has been a screwdriver tied near the door with string, which we can insert through a hole in the track to act as a pin to prevent the door from falling. In terms of quick fixes for common life problems, this one isn&amp;rsquo;t bad but it&amp;rsquo;s not without some annoyances. The biggest is that the string sometimes gets caught up in the door mechanism and the screwdriver gets flung around and could take out an eye.&lt;/p>
 &lt;p>So I made a threw together this chock out of TPU with a small PETG handle.&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
@@ -44,16 +44,17 @@ loading="lazy">
 &lt;li>&lt;/li>
 &lt;/ul>
 &lt;h2 id="description">Description&lt;/h2>
-&lt;p>I put magnets in the base for two purposes. First, when the door is closed its handy to be able to attach the chock the the door lock assembly. Second, it hold the chock in place against gravity until the force of the wheel pushing the chock against the track lets friction do most of the work.&lt;/p>
+&lt;p>I put magnets in the base for two purposes. First, when the door is closed its convenient to be able to attach the chock to the door lock assembly as storage. Second, it hold the chock in place against gravity until the force of the wheel pushing the chock against the track lets friction do most of the work.&lt;/p>
 &lt;ul>
 &lt;li>Wedge is deep enough to more than accommodate all the horizontal wheel movement that the door track allows.&lt;/li>
 &lt;li>Eight 10mm x 2mm rare earth magnets (4 stacks of 2 magnets) for holding strength.&lt;/li>
 &lt;li>Easy printing.
 &lt;ul>
 &lt;li>Handle prints separately attaches with a dovetail&lt;/li>
+&lt;li>No supports or tricky overhangs&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Assembles with super glue.&lt;/li>
+&lt;li>Assembles with superglue.&lt;/li>
 &lt;/ul>
 &lt;h2 id="print-settings">Print Settings&lt;/h2>
 &lt;ul>
