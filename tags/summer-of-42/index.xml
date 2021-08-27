@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Summer of 42 on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/summer-of-42/</link><description>Recent content in Summer of 42 on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 18 Jul 2021 14:55:16 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/summer-of-42/index.xml" rel="self" type="application/rss+xml"/><item><title>MrHomn: Migration to Docker</title><link>https://dereksrose.com/posts/mrhomn-migration-to-docker/</link><pubDate>Sun, 18 Jul 2021 14:55:16 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn-migration-to-docker/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Proxy, Home Assistant and DB&amp;#39;s. Oh my.&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Summer of 42 on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/summer-of-42/</link><description>Recent content in Summer of 42 on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Aug 2021 13:55:45 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/summer-of-42/index.xml" rel="self" type="application/rss+xml"/><item><title>Garage Door Chock</title><link>https://dereksrose.com/posts/garage-door-chock/</link><pubDate>Fri, 27 Aug 2021 13:55:45 -0700</pubDate><guid>https://dereksrose.com/posts/garage-door-chock/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Garage door safety and... style?&lt;/h1>
+&lt;p>Our 1950&amp;rsquo;s home has its original garage door track and spring. The whole thing has help up remarkably well but it still is aging as resistant to any repair less than a full restoration. Over almost 70 years the spring that assists door opening and also helps hold the door up has weakened. Since we have plans to rework the garage I&amp;rsquo;m not taking on that project (now) and have been making do with the fact the garage door doesn&amp;rsquo;t always hold itself up anymore.&lt;/p>
+&lt;p>For the last 18 months the fix has been a screwdriver tied near the door with string, that we can insert through a hold an prevent the door from falling. In terms of quick fixes for common life problems, this one isn&amp;rsquo;t bad but it&amp;rsquo;s not without some annoyances. There are only a couple holes in the track and they&amp;rsquo;re relatively convenient for holding the door all the way up. Also the string sometimes gets caught up in the door and fling around the screw driver.&lt;/p>
+&lt;p>So I made a simple chock out of TPU with a small handle.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
+integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Garage Door Safety"
+href="https://dereksrose.com/images/garage-door-chock/old_lg.jpg"
+title="Our old safety system.">
+&lt;img
+src="https://dereksrose.com/images/garage-door-chock/old_lg.jpg"
+title="Our old safety system."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Garage Door Safety"
+href="https://dereksrose.com/images/garage-door-chock/new_lg.jpg"
+title="The new ramp at work">
+&lt;img
+src="https://dereksrose.com/images/garage-door-chock/new_lg.jpg"
+title="The new ramp at work"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Garage Door Safety"
+href="https://dereksrose.com/images/garage-door-chock/full%20ramp_lg.jpg"
+title="A better view of the full chock, held in place with magnets.">
+&lt;img
+src="https://dereksrose.com/images/garage-door-chock/full%20ramp_lg.jpg"
+title="A better view of the full chock, held in place with magnets."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>I put magnets in the base for two purposes. First, when the door is closed its handy to be able to attach the chock the the door lock assembly. Second, it hold the chock in place against gravity until the force of the wheel pushing the chock against the track lets friction do most of the work.&lt;/p>
+&lt;ul>
+&lt;li>Wedge is deep enough to more than accommodate all the horizontal wheel movement that the door track allows.&lt;/li>
+&lt;li>Eight 10mm x 2mm rare earth magnets (4 stacks of 2 magnets) for holding strength.&lt;/li>
+&lt;li>Easy printing.
+&lt;ul>
+&lt;li>Handle prints separately attaches with a dovetail&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Assembles with super glue.&lt;/li>
+&lt;/ul>
+&lt;h2 id="print-settings">Print Settings&lt;/h2>
+&lt;ul>
+&lt;li>0.2mm layer height&lt;/li>
+&lt;li>10% infill&lt;/li>
+&lt;li>3 perimeters&lt;/li>
+&lt;/ul>
+&lt;p>I used TPU that is Shore 40D hardness. I think something a bit softer (but not all the way to Ninjaflex) would have been better. I printed the handle in PETG because it&amp;rsquo;s what I had in the printer at the time.&lt;/p>
+&lt;p>I made mine with a debossed monogram on the handle. I have also included an STL without it.&lt;/p>
+&lt;h2 id="assembly">Assembly&lt;/h2>
+&lt;figure
+style="width: 33%;"
+>
+&lt;a
+data-lightbox="image-/images/garage-door-chock/assembly_lg.jpg"
+href="https://dereksrose.com/images/garage-door-chock/assembly_lg.jpg"
+title=" Parts and tools"
+>
+&lt;img
+src="https://dereksrose.com/images/garage-door-chock/assembly_lg.jpg"
+/>
+&lt;/a>
+&lt;figcaption>
+Parts and tools
+&lt;/figcaption>
+&lt;/figure>
+&lt;h3 id="parts">Parts&lt;/h3>
+&lt;ul>
+&lt;li>(8) 10mmx2mm neodymium magnets&lt;/li>
+&lt;li>(1) Printed handle&lt;/li>
+&lt;li>(1) Printed ramp&lt;/li>
+&lt;li>(some) Glue, super&lt;/li>
+&lt;/ul>
+&lt;h3 id="tools">Tools&lt;/h3>
+&lt;ul>
+&lt;li>A file or course sandpaper for distressing magnet surfaces (optional)&lt;/li>
+&lt;/ul>
+&lt;p>I made this using 10mmx2mm magnets because it&amp;rsquo;s what I had on hand. Since I needed a bit more &lt;em>uumph&lt;/em> I stacked two magnets into each of the four holes (8 total magnets). With rare earth magnets I always like to use a file to scuff the surfaces of the magnets before I glue them in. I also used thin CA so it&amp;rsquo;s really get into the nooks and crannies.&lt;/p>
+&lt;p>I also glued the handle to the ramp. I use rubberized superglue here, but I don&amp;rsquo;t really think it was needed. I put the glue on the ramp: some on the bottom of the dovetail and some on the backstop that keeps the handle from sliding out the front side of the ramp. A little glue goes a long way.&lt;/p>
+&lt;h2 id="availability">Availability&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;a
+href="https://www.thingiverse.com/thing:4943197"
+target="_blank">Thingiverse&lt;/a>&lt;/li>
+&lt;li>
+&lt;a
+href="https://www.prusaprinters.org/prints/74780"
+target="_blank">Prusaprinters&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>MrHomn: Migration to Docker</title><link>https://dereksrose.com/posts/mrhomn-migration-to-docker/</link><pubDate>Sun, 18 Jul 2021 14:55:16 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn-migration-to-docker/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Proxy, Home Assistant and DB&amp;#39;s. Oh my.&lt;/h1>
 &lt;p>&lt;a href="https://dereksrose.com/posts/mrhomn/" title="MrHomn">Last time&lt;/a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running &lt;a href="https://www.home-assistant.io/">home assistant&lt;/a> there.&lt;/p>
 &lt;figure
 style="width: 70%;"
@@ -33,7 +138,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>When I was developing I set the log level to debug, but for normal operations I think warning is sufficient. I&amp;rsquo;m also turning on access logs and having them just go to stdout by not specifying an output file.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">3
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;span class="lnt">6
@@ -42,7 +147,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">traefik&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">traefik&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik:v2.5&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -54,24 +159,24 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>We need to set up the provider now. Obviously we&amp;rsquo;re using docker. I&amp;rsquo;ll be configuring the routers using docker compose labels, so the set up here is pretty simple.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">10
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">10
 &lt;/span>&lt;span class="lnt">11
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker=true&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker.exposedbydefault=false&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Now I want to redirect all port 80 traffic to port 443 via permanent redirect.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">12
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">12
 &lt;/span>&lt;span class="lnt">13
 &lt;/span>&lt;span class="lnt">14
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.address=:80&amp;#34;&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.address=:80&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.to=websecure&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.scheme=https&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entrypoint.permanent=true&amp;#34;&lt;/span>&lt;span class="w">
@@ -80,14 +185,14 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>Now we get to the entry point that matters. This &amp;ldquo;websecure&amp;rdquo; endpoint will handle traffic for both Home Assistant and AppDaemon.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">16
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">16
 &lt;/span>&lt;span class="lnt">17
 &lt;/span>&lt;span class="lnt">18
 &lt;/span>&lt;span class="lnt">19
 &lt;/span>&lt;span class="lnt">20
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.forwardedHeaders.insecure&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&amp;#34;&lt;/span>&lt;span class="w">
@@ -97,13 +202,13 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>The host ports here (8321 and 8322) are here translated back into ports 80 and 443 respectively. I also open up the port to Traefik&amp;rsquo;s UI.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">21
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">21
 &lt;/span>&lt;span class="lnt">22
 &lt;/span>&lt;span class="lnt">23
 &lt;/span>&lt;span class="lnt">24
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8321:80&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8322:443&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8080:8080&amp;#34;&lt;/span>&lt;span class="w">
@@ -112,7 +217,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>In order to get things running I&amp;rsquo;m just going to set up logging as JSON and a short retention. I&amp;rsquo;ll get into more involved logging later&amp;hellip; probably.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">25
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">25
 &lt;/span>&lt;span class="lnt">26
 &lt;/span>&lt;span class="lnt">27
 &lt;/span>&lt;span class="lnt">28
@@ -121,7 +226,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">31
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;./letsencrypt:/letsencrypt&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/var/run/docker.sock:/var/run/docker.sock:ro&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -134,7 +239,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>Pretty standard stuff. The important stuff for routing is down at the bottom.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">32
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">32
 &lt;/span>&lt;span class="lnt">33
 &lt;/span>&lt;span class="lnt">34
 &lt;/span>&lt;span class="lnt">35
@@ -154,7 +259,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">49
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">hass&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">hass&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant/home-assistant:2021.7&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
@@ -177,7 +282,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>First we need to tell Traefik to enable routing to this container, since we turned automatic routing off. Then we&amp;rsquo;re going to define the rules for the websecure endpoint to route to Home Assistant. And we need to tell it to use the Let&amp;rsquo;s Encrypt cert resolver.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">50
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">50
 &lt;/span>&lt;span class="lnt">51
 &lt;/span>&lt;span class="lnt">52
 &lt;/span>&lt;span class="lnt">53
@@ -185,7 +290,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">55
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.rule=Host(`my.site.com`)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.entrypoints=websecure&lt;/span>&lt;span class="w">
@@ -197,7 +302,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">56
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">56
 &lt;/span>&lt;span class="lnt">57
 &lt;/span>&lt;span class="lnt">58
 &lt;/span>&lt;span class="lnt">59
@@ -215,7 +320,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">71
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">appdaemon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">appdaemon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">appdaemon&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">acockburn/appdaemon:4.0.8&lt;/span>&lt;span class="w">
@@ -236,7 +341,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>The only difference there, compared to home assistant, is that our routing rule requires both my domain and an API path. This is the patch that Alexa is pointed at.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">72
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">72
 &lt;/span>&lt;span class="lnt">73
 &lt;/span>&lt;span class="lnt">74
 &lt;/span>&lt;span class="lnt">75
@@ -244,7 +349,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">77
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;amp;&amp;amp; PathPrefix(`/api/appdaemon/`))&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.entrypoints=websecure&lt;/span>&lt;span class="w">
@@ -256,7 +361,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>In order to give the Home Assistant Z Wave JS integration a local z wave server to talk to, I&amp;rsquo;m using the zwave2mqtt image. For the time being I have mqtt turned off (via the UI on port 8080), but that will change soon enough.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">78
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">78
 &lt;/span>&lt;span class="lnt">79
 &lt;/span>&lt;span class="lnt">80
 &lt;/span>&lt;span class="lnt">81
@@ -276,7 +381,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">95
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">zwavejs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">zwavejs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs/zwavejs2mqtt&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
@@ -301,7 +406,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>I&amp;rsquo;ve gone with MariaDB for SQL. This currently only drives home assistant, but I will soon be restoring some Alexa skill functionality that also requires SQL.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 96
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 96
 &lt;/span>&lt;span class="lnt"> 97
 &lt;/span>&lt;span class="lnt"> 98
 &lt;/span>&lt;span class="lnt"> 99
@@ -323,7 +428,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">115
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">sql_db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">sql_db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sql_db&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">linuxserver/mariadb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># https://hub.docker.com/r/linuxserver/mariadb&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">

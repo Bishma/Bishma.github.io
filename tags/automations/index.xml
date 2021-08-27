@@ -77,7 +77,7 @@ echo $SITE
 &lt;h2 id="set-up">Set up&lt;/h2>
 &lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
 &lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
 &lt;h3 id="synology-user">Synology User&lt;/h3>
 &lt;ol>
@@ -105,7 +105,7 @@ echo $SITE
 &lt;/ol>
 &lt;/li>
 &lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
 &lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
@@ -113,7 +113,7 @@ echo $SITE
 &lt;/li>
 &lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
@@ -121,12 +121,12 @@ echo $SITE
 &lt;ol>
 &lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
 &lt;li>Uncomment these 3 lines
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
 &lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
 &lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>Restart the ssh service
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
 &lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
@@ -136,7 +136,7 @@ echo $SITE
 &lt;/ol>
 &lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology without entering a password.
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
@@ -149,7 +149,7 @@ echo $SITE
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
 &lt;h3 id="automation">Automation&lt;/h3>
 &lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
@@ -195,7 +195,7 @@ echo $SITE
 &lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
 find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
 &lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
@@ -207,7 +207,7 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;h2 id="sensors">Sensors&lt;/h2>
 &lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
 &lt;p>The first looks for the total number of alerts in my area.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active/count&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Count&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
@@ -224,7 +224,7 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
 &lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Event&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
@@ -241,7 +241,7 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="automation">Automation&lt;/h2>
 &lt;p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the &lt;code>notify.general&lt;/code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Notification Weather Alert&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">state&lt;/span>&lt;span class="w">

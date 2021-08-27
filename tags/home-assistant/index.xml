@@ -33,7 +33,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>When I was developing I set the log level to debug, but for normal operations I think warning is sufficient. I&amp;rsquo;m also turning on access logs and having them just go to stdout by not specifying an output file.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">3
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;span class="lnt">6
@@ -42,7 +42,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">traefik&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">traefik&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik:v2.5&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -54,24 +54,24 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>We need to set up the provider now. Obviously we&amp;rsquo;re using docker. I&amp;rsquo;ll be configuring the routers using docker compose labels, so the set up here is pretty simple.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">10
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">10
 &lt;/span>&lt;span class="lnt">11
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker=true&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker.exposedbydefault=false&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Now I want to redirect all port 80 traffic to port 443 via permanent redirect.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">12
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">12
 &lt;/span>&lt;span class="lnt">13
 &lt;/span>&lt;span class="lnt">14
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.address=:80&amp;#34;&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.address=:80&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.to=websecure&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.scheme=https&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entrypoint.permanent=true&amp;#34;&lt;/span>&lt;span class="w">
@@ -80,14 +80,14 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>Now we get to the entry point that matters. This &amp;ldquo;websecure&amp;rdquo; endpoint will handle traffic for both Home Assistant and AppDaemon.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">16
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">16
 &lt;/span>&lt;span class="lnt">17
 &lt;/span>&lt;span class="lnt">18
 &lt;/span>&lt;span class="lnt">19
 &lt;/span>&lt;span class="lnt">20
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.forwardedHeaders.insecure&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&amp;#34;&lt;/span>&lt;span class="w">
@@ -97,13 +97,13 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>The host ports here (8321 and 8322) are here translated back into ports 80 and 443 respectively. I also open up the port to Traefik&amp;rsquo;s UI.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">21
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">21
 &lt;/span>&lt;span class="lnt">22
 &lt;/span>&lt;span class="lnt">23
 &lt;/span>&lt;span class="lnt">24
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8321:80&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8322:443&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8080:8080&amp;#34;&lt;/span>&lt;span class="w">
@@ -112,7 +112,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>In order to get things running I&amp;rsquo;m just going to set up logging as JSON and a short retention. I&amp;rsquo;ll get into more involved logging later&amp;hellip; probably.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">25
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">25
 &lt;/span>&lt;span class="lnt">26
 &lt;/span>&lt;span class="lnt">27
 &lt;/span>&lt;span class="lnt">28
@@ -121,7 +121,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">31
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;./letsencrypt:/letsencrypt&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/var/run/docker.sock:/var/run/docker.sock:ro&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -134,7 +134,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>Pretty standard stuff. The important stuff for routing is down at the bottom.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">32
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">32
 &lt;/span>&lt;span class="lnt">33
 &lt;/span>&lt;span class="lnt">34
 &lt;/span>&lt;span class="lnt">35
@@ -154,7 +154,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">49
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">hass&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">hass&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant/home-assistant:2021.7&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
@@ -177,7 +177,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>First we need to tell Traefik to enable routing to this container, since we turned automatic routing off. Then we&amp;rsquo;re going to define the rules for the websecure endpoint to route to Home Assistant. And we need to tell it to use the Let&amp;rsquo;s Encrypt cert resolver.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">50
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">50
 &lt;/span>&lt;span class="lnt">51
 &lt;/span>&lt;span class="lnt">52
 &lt;/span>&lt;span class="lnt">53
@@ -185,7 +185,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">55
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.rule=Host(`my.site.com`)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.entrypoints=websecure&lt;/span>&lt;span class="w">
@@ -197,7 +197,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">56
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">56
 &lt;/span>&lt;span class="lnt">57
 &lt;/span>&lt;span class="lnt">58
 &lt;/span>&lt;span class="lnt">59
@@ -215,7 +215,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">71
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">appdaemon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">appdaemon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">appdaemon&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">acockburn/appdaemon:4.0.8&lt;/span>&lt;span class="w">
@@ -236,7 +236,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>&lt;p>The only difference there, compared to home assistant, is that our routing rule requires both my domain and an API path. This is the patch that Alexa is pointed at.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">72
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">72
 &lt;/span>&lt;span class="lnt">73
 &lt;/span>&lt;span class="lnt">74
 &lt;/span>&lt;span class="lnt">75
@@ -244,7 +244,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">77
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;amp;&amp;amp; PathPrefix(`/api/appdaemon/`))&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.entrypoints=websecure&lt;/span>&lt;span class="w">
@@ -256,7 +256,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>In order to give the Home Assistant Z Wave JS integration a local z wave server to talk to, I&amp;rsquo;m using the zwave2mqtt image. For the time being I have mqtt turned off (via the UI on port 8080), but that will change soon enough.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">78
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">78
 &lt;/span>&lt;span class="lnt">79
 &lt;/span>&lt;span class="lnt">80
 &lt;/span>&lt;span class="lnt">81
@@ -276,7 +276,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">95
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">zwavejs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">zwavejs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs/zwavejs2mqtt&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
@@ -301,7 +301,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;p>I&amp;rsquo;ve gone with MariaDB for SQL. This currently only drives home assistant, but I will soon be restoring some Alexa skill functionality that also requires SQL.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 96
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 96
 &lt;/span>&lt;span class="lnt"> 97
 &lt;/span>&lt;span class="lnt"> 98
 &lt;/span>&lt;span class="lnt"> 99
@@ -323,7 +323,7 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">115
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">sql_db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">sql_db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sql_db&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">linuxserver/mariadb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># https://hub.docker.com/r/linuxserver/mariadb&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
@@ -686,7 +686,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&amp;rsquo;m using &lt;a href="https://www.home-assistant.io/hassio/">Hass.io&lt;/a> with the &lt;a href="https://github.com/hassio-addons/addon-log-viewer">LogViewer&lt;/a> addon, I&amp;rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the &lt;a href="https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722">Home Assistant Forums&lt;/a> I was able to piece together what I wanted.&lt;/p>
 &lt;h4 id="step-1">Step 1:&lt;/h4>
 &lt;p>I need to use the home assistant &lt;a href="https://www.home-assistant.io/integrations/python_script/">python script component&lt;/a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;message&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;message&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="k">if&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">:&lt;/span>
 &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;No message provided&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="c1"># Send to the appropriate log level&lt;/span>
@@ -702,7 +702,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in &lt;code>&amp;lt;config&amp;gt;/python_scripts/log.py&lt;/code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called &lt;code>python_script.log&lt;/code>.&lt;/p>
 &lt;h4 id="step-2">Step 2&lt;/h4>
 &lt;p>Fine grained &lt;a href="https://www.home-assistant.io/components/logger/">logger&lt;/a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new &lt;code>python_script.log&lt;/code> service all the way to debug when I&amp;rsquo;m developing a new AppDaemon app.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="c"># &amp;#34;The logger component lets you define the level of logging activities in Home Assistant.&amp;#34;&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="c"># &amp;#34;The logger component lets you define the level of logging activities in Home Assistant.&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># https://www.home-assistant.io/components/logger/&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">logger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">default&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">warning&lt;/span>&lt;span class="w">
@@ -711,17 +711,17 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Each call to the &lt;code>python_script.log&lt;/code> service will generate a log at the info level. Having a default log level of warning here has the benefit of not showing my all my AppDaemon logs twice.&lt;/p>
 &lt;h4 id="step-3">Step 3&lt;/h4>
 &lt;p>AppDaemon has the means to register a listener on all calls to self.log in all running AppDaemon apps. To do this you want to set up a stand-alone log handling AppDaemon app.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">appdaemon.plugins.hass.hassapi&lt;/span> &lt;span class="kn">as&lt;/span> &lt;span class="nn">hass&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">appdaemon.plugins.hass.hassapi&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">hass&lt;/span>
 &lt;span class="k">class&lt;/span> &lt;span class="nc">LogBridge&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">hass&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Hass&lt;/span>&lt;span class="p">):&lt;/span>
 &lt;span class="k">def&lt;/span> &lt;span class="nf">initialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
 &lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">listen_log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="k">def&lt;/span> &lt;span class="nf">cb&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ts&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="n">msg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;[AppDaemon] {}: {}&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">msg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;[AppDaemon] &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">call_service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;python_script/log&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msg&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>The callback (&lt;code>cb&lt;/code>) formats a message for readability and then passes that and the level to the Home Assistant &lt;code>python_script.log&lt;/code> service created above. Save this in the apps directory as &lt;code>log_bridge.yaml&lt;/code>.&lt;/p>
 &lt;h4 id="step-4">Step 4&lt;/h4>
 &lt;p>Register this script as an AppDaemon app in &lt;code>apps.yaml&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">log_bridge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">log_bridge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">module&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log_bridge&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">class&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">LogBridge&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After a reboot every log line from AppDaemon pipes into home assistant.&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
@@ -778,7 +778,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;h2 id="set-up">Set up&lt;/h2>
 &lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
 &lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
 &lt;h3 id="synology-user">Synology User&lt;/h3>
 &lt;ol>
@@ -806,7 +806,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;/ol>
 &lt;/li>
 &lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
 &lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
@@ -814,7 +814,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;/li>
 &lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
@@ -822,12 +822,12 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;ol>
 &lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
 &lt;li>Uncomment these 3 lines
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
 &lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
 &lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>Restart the ssh service
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
 &lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
@@ -837,7 +837,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;/ol>
 &lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology without entering a password.
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
@@ -850,7 +850,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
 &lt;h3 id="automation">Automation&lt;/h3>
 &lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
@@ -896,7 +896,7 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
 find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
 &lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
@@ -908,7 +908,7 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;h2 id="sensors">Sensors&lt;/h2>
 &lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
 &lt;p>The first looks for the total number of alerts in my area.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active/count&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Count&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
@@ -925,7 +925,7 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
 &lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Event&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
@@ -942,7 +942,7 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="automation">Automation&lt;/h2>
 &lt;p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the &lt;code>notify.general&lt;/code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Notification Weather Alert&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">state&lt;/span>&lt;span class="w">

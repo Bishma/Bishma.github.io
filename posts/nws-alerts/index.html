@@ -1,4 +1,94 @@
-<!doctype html><html lang=en data-theme><head><title>Derek Rose | NWS Alerts</title><meta charset=utf-8><meta name=generator content="Hugo 0.83.1"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="My various home automation, electronics, coding, and/or 3D printing projects."><link rel=stylesheet href=https://dereksrose.com/css/style.min.f3c218a9155a17f7f59d47ad5fefa3b345ad9ef900cb722032f8c530fa7856fb.css integrity="sha256-88IYqRVaF/f1nUetX++js0WtnvkAy3IgMvjFMPp4Vvs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/flex.0a98e97a73f7ce3d056c1da4ac3dfafbb5e1640858c71b5ee31543d9e075edc0.css integrity="sha256-CpjpenP3zj0FbB2krD36+7XhZAhYxxte4xVD2eB17cA=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/lightbox.755b9081fac4c7d97cce7b030e7d2abeb1709a4378526f091b5449fa75076c87.css integrity="sha256-dVuQgfrEx9l8znsDDn0qvrFwmkN4Um8JG1RJ+nUHbIc=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/figure.615059e170e578e014add3ab4f7401ca633f03ec09e4aff1650eda7444793f2c.css integrity="sha256-YVBZ4XDleOAUrdOrT3QBymM/A+wJ5K/xZQ7adER5Pyw=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=https://dereksrose.com/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=https://dereksrose.com/favicons/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://dereksrose.com/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://dereksrose.com/favicons/favicon-16x16.png><link rel=canonical href=https://dereksrose.com/posts/nws-alerts/><script type=text/javascript src=https://dereksrose.com/js/anatole-header.min.7fccea9612e197b0736c6262484db9af65cc9e9c1f1ea31ab6321016549ecff7.js integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="NWS Alerts"><meta name=twitter:description content="3.1 Weather Alerts sent to Telegram via Home Assistant Updated 2018-11-20"></head><body><div class="sidebar ."><div class=logo-title><div class=title><img src=https://dereksrose.com/profile.png alt="profile picture"><h3 title><a href=/>Over-Engineering Is Fun</a></h3><div class=description><p>My various home automation, electronics, coding, and/or 3D printing projects.</p></div></div></div><ul class=social-links><li><a href=https://github.com/Bishma/ rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li><li><a href=https://twitter.com/Bishma rel=me aria-label=Twitter><i class="fab fa-twitter fa-2x" aria-hidden=true></i></a></li><li><a href=https://twitter.com/derek-prints rel=me aria-label="3D Printing Twitter"><i class="fab fa-twitter-square fa-2x" aria-hidden=true></i></a></li><li><a href=https://www.linkedin.com/in/dereksrose/ rel=me aria-label=LinkedIn><i class="fab fa-linkedin fa-2x" aria-hidden=true></i></a></li></ul><div class=footer><div class=by_farbox>&copy; Derek Rose 2021</div></div></div><div class=main><div class="page-top ."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><ul class=nav id=navMenu><li><a href=/ title>Home</a></li><li><a href=/posts/ title>Posts</a></li><li><a href=/about/ title>About</a></li><li class=theme-switch-item><a class=theme-switch title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></li></ul></div><div class=autopagerize_page_element><div class=content><div class="post ."><div class=post-content><div class=post-title><h3>NWS Alerts</h3></div><h1 id=31-weather-alerts-sent-to-telegram-via-home-assistant>3.1 Weather Alerts sent to Telegram via Home Assistant</h1><p><strong>Updated 2018-11-20</strong></p><p>User <em>finity</em> on the Home Assistant Forums <a href=https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11>posted a some REST sensors</a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their <a href=https://www.home-assistant.io/components/sensor.rest/>REST sensor</a>) to use as an automation that will send me alerts via Telegram. As <em>finity</em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&rsquo;s also a fun use of a valuable public API. <strong>Note:</strong> The National Weather Service APIs are only available for US locations.</p><p><em>finity&rsquo;s</em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should <a href=https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11>check it out</a>.</p><p><img src=/images/NWS-Alerts_1-telegram-example.png alt="Example of the NWS Alert Text sent through Telegram."></p><h2 id=prerequisites>Prerequisites</h2><p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as <code>notification.general</code>. That was set up using the <a href=https://www.home-assistant.io/components/notify.telegram/>notification component&rsquo;s docs</a>.</p><h2 id=sensors>Sensors</h2><p>Two REST sensors are used to pull from Nation Weather Service APIs.</p><p>The first looks for the total number of alerts in my area.</p><div class=highlight><pre class=chroma><code class=language-YAML data-lang=YAML>- <span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>rest</span><span class=w>
+<!doctype html><html lang=en data-theme><head>
+<title> Derek Rose | NWS Alerts </title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.87.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=description content="My various home automation, electronics, coding, and/or 3D printing projects.">
+<link rel=stylesheet href=https://dereksrose.com/css/style.min.f3c218a9155a17f7f59d47ad5fefa3b345ad9ef900cb722032f8c530fa7856fb.css integrity="sha256-88IYqRVaF/f1nUetX++js0WtnvkAy3IgMvjFMPp4Vvs=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/flex.0a98e97a73f7ce3d056c1da4ac3dfafbb5e1640858c71b5ee31543d9e075edc0.css integrity="sha256-CpjpenP3zj0FbB2krD36+7XhZAhYxxte4xVD2eB17cA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/lightbox.755b9081fac4c7d97cce7b030e7d2abeb1709a4378526f091b5449fa75076c87.css integrity="sha256-dVuQgfrEx9l8znsDDn0qvrFwmkN4Um8JG1RJ+nUHbIc=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/figure.615059e170e578e014add3ab4f7401ca633f03ec09e4aff1650eda7444793f2c.css integrity="sha256-YVBZ4XDleOAUrdOrT3QBymM/A+wJ5K/xZQ7adER5Pyw=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous>
+<link rel="shortcut icon" href=https://dereksrose.com/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=https://dereksrose.com/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://dereksrose.com/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://dereksrose.com/favicons/favicon-16x16.png>
+<link rel=canonical href=https://dereksrose.com/posts/nws-alerts/>
+<script type=text/javascript src=https://dereksrose.com/js/anatole-header.min.7fccea9612e197b0736c6262484db9af65cc9e9c1f1ea31ab6321016549ecff7.js integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="NWS Alerts">
+<meta name=twitter:description content="3.1 Weather Alerts sent to Telegram via Home Assistant Updated 2018-11-20">
+</head>
+<body><div class="sidebar .">
+<div class=logo-title>
+<div class=title>
+<img src=https://dereksrose.com/profile.png alt="profile picture">
+<h3 title><a href=/>Over-Engineering Is Fun</a></h3>
+<div class=description>
+<p>My various home automation, electronics, coding, and/or 3D printing projects.</p>
+</div>
+</div>
+</div>
+<ul class=social-links>
+<li>
+<a href=https://github.com/Bishma/ rel=me aria-label=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/Bishma rel=me aria-label=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/derek-prints rel=me aria-label="3D Printing Twitter">
+<i class="fab fa-twitter-square fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/dereksrose/ rel=me aria-label=LinkedIn>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+<div class=footer>
+<div class=by_farbox>&copy; Derek Rose 2021 </div>
+</div>
+</div>
+<div class=main>
+<div class="page-top .">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true></span>
+<span aria-hidden=true></span>
+<span aria-hidden=true></span>
+</a>
+<ul class=nav id=navMenu>
+<li><a href=/ title>Home</a></li>
+<li><a href=/posts/ title>Posts</a></li>
+<li><a href=/about/ title>About</a></li>
+<li class=theme-switch-item>
+<a class=theme-switch title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div class=autopagerize_page_element>
+<div class=content>
+<div class="post .">
+<div class=post-content>
+<div class=post-title>
+<h3>NWS Alerts</h3>
+</div>
+<h1 id=31-weather-alerts-sent-to-telegram-via-home-assistant>3.1 Weather Alerts sent to Telegram via Home Assistant</h1>
+<p><strong>Updated 2018-11-20</strong></p>
+<p>User <em>finity</em> on the Home Assistant Forums <a href=https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11>posted a some REST sensors</a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their <a href=https://www.home-assistant.io/components/sensor.rest/>REST sensor</a>) to use as an automation that will send me alerts via Telegram. As <em>finity</em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&rsquo;s also a fun use of a valuable public API. <strong>Note:</strong> The National Weather Service APIs are only available for US locations.</p>
+<p><em>finity&rsquo;s</em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should <a href=https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11>check it out</a>.</p>
+<p><img src=/images/NWS-Alerts_1-telegram-example.png alt="Example of the NWS Alert Text sent through Telegram."></p>
+<h2 id=prerequisites>Prerequisites</h2>
+<p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as <code>notification.general</code>. That was set up using the <a href=https://www.home-assistant.io/components/notify.telegram/>notification component&rsquo;s docs</a>.</p>
+<h2 id=sensors>Sensors</h2>
+<p>Two REST sensors are used to pull from Nation Weather Service APIs.</p>
+<p>The first looks for the total number of alerts in my area.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-YAML data-lang=YAML>- <span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>rest</span><span class=w>
 </span><span class=w>    </span><span class=nt>resource</span><span class=p>:</span><span class=w> </span><span class=l>https://api.weather.gov/alerts/active/count</span><span class=w>
 </span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>NWS Alert Count</span><span class=w>
 </span><span class=w>    </span><span class=nt>value_template</span><span class=p>:</span><span class=w> </span><span class=p>&gt;</span><span class=sd>
@@ -13,7 +103,9 @@
 </span><span class=w>      </span><span class=nt>User-Agent</span><span class=p>:</span><span class=w> </span><span class=l>Homeassistant</span><span class=w>
 </span><span class=w>      </span><span class=nt>Accept</span><span class=p>:</span><span class=w> </span><span class=l>application/ld+json</span><span class=w>
 </span><span class=w>    </span><span class=nt>scan_interval</span><span class=p>:</span><span class=w> </span><span class=m>300</span><span class=w>
-</span></code></pre></div><p>This looks for alerts in my zone <code>ORZ604</code>, failing that it looks for alerts in my county <code>ORC039</code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on <a href=https://alerts.weather.gov/>this page</a>.</p><p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under <code>features</code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&rsquo;s state, but at the moment I&rsquo;m not using the state anyway. The full features array is stored to the sensor&rsquo;s attributes, so I can loop through all events in my automation.</p><div class=highlight><pre class=chroma><code class=language-YAML data-lang=YAML>- <span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>rest</span><span class=w>
+</span></code></pre></div><p>This looks for alerts in my zone <code>ORZ604</code>, failing that it looks for alerts in my county <code>ORC039</code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on <a href=https://alerts.weather.gov/>this page</a>.</p>
+<p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under <code>features</code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&rsquo;s state, but at the moment I&rsquo;m not using the state anyway. The full features array is stored to the sensor&rsquo;s attributes, so I can loop through all events in my automation.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-YAML data-lang=YAML>- <span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>rest</span><span class=w>
 </span><span class=w>    </span><span class=nt>resource</span><span class=p>:</span><span class=w> </span><span class=l>https://api.weather.gov/alerts/active?zone=ORZ604,ORC039</span><span class=w>
 </span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>NWS Alert Event</span><span class=w>
 </span><span class=w>    </span><span class=nt>value_template</span><span class=p>:</span><span class=w> </span><span class=p>&gt;</span><span class=sd>
@@ -28,7 +120,9 @@
 </span><span class=w>      </span><span class=nt>User-Agent</span><span class=p>:</span><span class=w> </span><span class=l>Homeassistant</span><span class=w>
 </span><span class=w>      </span><span class=nt>Accept</span><span class=p>:</span><span class=w> </span><span class=l>application/geo+json</span><span class=w>
 </span><span class=w>    </span><span class=nt>scan_interval</span><span class=p>:</span><span class=w> </span><span class=m>300</span><span class=w>
-</span></code></pre></div><h2 id=automation>Automation</h2><p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the <code>notify.general</code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.</p><div class=highlight><pre class=chroma><code class=language-YAML data-lang=YAML>- <span class=nt>id</span><span class=p>:</span><span class=w> </span><span class=l>weather_alert_doooooom</span><span class=w>
+</span></code></pre></div><h2 id=automation>Automation</h2>
+<p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the <code>notify.general</code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-YAML data-lang=YAML>- <span class=nt>id</span><span class=p>:</span><span class=w> </span><span class=l>weather_alert_doooooom</span><span class=w>
 </span><span class=w>  </span><span class=nt>alias</span><span class=p>:</span><span class=w> </span><span class=l>NWS Notification Weather Alert</span><span class=w>
 </span><span class=w>  </span><span class=nt>trigger</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>state</span><span class=w>
@@ -52,4 +146,23 @@
 </span><span class=sd>          {{ state_attr(&#39;sensor.nws_alert_event&#39;, &#39;features&#39;)[i].properties.description }}
 </span><span class=sd>        {% endfor %}</span><span class=w>        
 </span><span class=w>    </span><span class=nt>service</span><span class=p>:</span><span class=w> </span><span class=l>notify.general</span><span class=w>
-</span></code></pre></div><h2 id=still-to-come>Still to come</h2><p>I don&rsquo;t love that I&rsquo;m just blocking alerts for 6 hours. I get alert fatigue quickly, but I want to know if conditions are deteriorating. But what seems to happen most commonly is that an alert is retracted, then a new alert is issued with minimally updated information.</p><p>I want to add a Lovelace condition card to my outdoor climate tab that will pop up, highlighted, showing that there&rsquo;s an alert. When I set up HTML notifications I may also want to push to that. I&rsquo;m also considering changing the detailed sensor. Right now I like the flexibility of the full data from the API, but I don&rsquo;t think I&rsquo;ll want more than the headline and description.</p></div><div class=post-footer><div class=info><span class=separator><a class=tag href=/tags/home-assistant/>home-assistant</a><a class=tag href=/tags/automations/>automations</a></span></div></div></div></div></div></div><script type=text/javascript src=https://dereksrose.com/js/jquery.min.64d0083866906099f942140bc1c5cba4b1bf65783c52e4a63c5c46bf9dbc41f4.js integrity="sha256-ZNAIOGaQYJn5QhQLwcXLpLG/ZXg8UuSmPFxGv528QfQ=" crossorigin=anonymous></script><script type=text/javascript src=https://dereksrose.com/js/bundle.min.45159b0e20ba3878972e064b7edc464c31a9e35a0d0a6a71e3fec84efdbe2ea5.js integrity="sha256-RRWbDiC6OHiXLgZLftxGTDGp41oNCmpx4/7ITv2+LqU=" crossorigin=anonymous></script><script type=text/javascript src=https://dereksrose.com/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-153109937-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script><script type=text/javascript src=https://dereksrose.com/js/lightbox.min.1f2212edfde1fa165886dc2438720f24214d70df6b4f0962773b7602b0317a25.js integrity="sha256-HyIS7f3h+hZYhtwkOHIPJCFNcN9rTwlidzt2ArAxeiU=" crossorigin=anonymous></script></body></html>
+</span></code></pre></div><h2 id=still-to-come>Still to come</h2>
+<p>I don&rsquo;t love that I&rsquo;m just blocking alerts for 6 hours. I get alert fatigue quickly, but I want to know if conditions are deteriorating. But what seems to happen most commonly is that an alert is retracted, then a new alert is issued with minimally updated information.</p>
+<p>I want to add a Lovelace condition card to my outdoor climate tab that will pop up, highlighted, showing that there&rsquo;s an alert. When I set up HTML notifications I may also want to push to that. I&rsquo;m also considering changing the detailed sensor. Right now I like the flexibility of the full data from the API, but I don&rsquo;t think I&rsquo;ll want more than the headline and description.</p>
+</div>
+<div class=post-footer>
+<div class=info>
+<span class=separator><a class=tag href=/tags/home-assistant/>home-assistant</a><a class=tag href=/tags/automations/>automations</a></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type=text/javascript src=https://dereksrose.com/js/jquery.min.64d0083866906099f942140bc1c5cba4b1bf65783c52e4a63c5c46bf9dbc41f4.js integrity="sha256-ZNAIOGaQYJn5QhQLwcXLpLG/ZXg8UuSmPFxGv528QfQ=" crossorigin=anonymous></script>
+<script type=text/javascript src=https://dereksrose.com/js/bundle.min.45159b0e20ba3878972e064b7edc464c31a9e35a0d0a6a71e3fec84efdbe2ea5.js integrity="sha256-RRWbDiC6OHiXLgZLftxGTDGp41oNCmpx4/7ITv2+LqU=" crossorigin=anonymous></script>
+<script type=text/javascript src=https://dereksrose.com/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-153109937-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script type=text/javascript src=https://dereksrose.com/js/lightbox.min.1f2212edfde1fa165886dc2438720f24214d70df6b4f0962773b7602b0317a25.js integrity="sha256-HyIS7f3h+hZYhtwkOHIPJCFNcN9rTwlidzt2ArAxeiU=" crossorigin=anonymous></script></body>
+</html>

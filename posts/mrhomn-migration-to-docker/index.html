@@ -1,62 +1,212 @@
-<!doctype html><html lang=en data-theme><head><title>Derek Rose | MrHomn: Migration to Docker</title><meta charset=utf-8><meta name=generator content="Hugo 0.83.1"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="My various home automation, electronics, coding, and/or 3D printing projects."><link rel=stylesheet href=https://dereksrose.com/css/style.min.f3c218a9155a17f7f59d47ad5fefa3b345ad9ef900cb722032f8c530fa7856fb.css integrity="sha256-88IYqRVaF/f1nUetX++js0WtnvkAy3IgMvjFMPp4Vvs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/flex.0a98e97a73f7ce3d056c1da4ac3dfafbb5e1640858c71b5ee31543d9e075edc0.css integrity="sha256-CpjpenP3zj0FbB2krD36+7XhZAhYxxte4xVD2eB17cA=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/lightbox.755b9081fac4c7d97cce7b030e7d2abeb1709a4378526f091b5449fa75076c87.css integrity="sha256-dVuQgfrEx9l8znsDDn0qvrFwmkN4Um8JG1RJ+nUHbIc=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/figure.615059e170e578e014add3ab4f7401ca633f03ec09e4aff1650eda7444793f2c.css integrity="sha256-YVBZ4XDleOAUrdOrT3QBymM/A+wJ5K/xZQ7adER5Pyw=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=https://dereksrose.com/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=https://dereksrose.com/favicons/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://dereksrose.com/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://dereksrose.com/favicons/favicon-16x16.png><link rel=canonical href=https://dereksrose.com/posts/mrhomn-migration-to-docker/><script type=text/javascript src=https://dereksrose.com/js/anatole-header.min.7fccea9612e197b0736c6262484db9af65cc9e9c1f1ea31ab6321016549ecff7.js integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="MrHomn: Migration to Docker"><meta name=twitter:description content="Proxy, Home Assistant and DB's. Oh my."></head><body><div class="sidebar ."><div class=logo-title><div class=title><img src=https://dereksrose.com/profile.png alt="profile picture"><h3 title><a href=/>Over-Engineering Is Fun</a></h3><div class=description><p>My various home automation, electronics, coding, and/or 3D printing projects.</p></div></div></div><ul class=social-links><li><a href=https://github.com/Bishma/ rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li><li><a href=https://twitter.com/Bishma rel=me aria-label=Twitter><i class="fab fa-twitter fa-2x" aria-hidden=true></i></a></li><li><a href=https://twitter.com/derek-prints rel=me aria-label="3D Printing Twitter"><i class="fab fa-twitter-square fa-2x" aria-hidden=true></i></a></li><li><a href=https://www.linkedin.com/in/dereksrose/ rel=me aria-label=LinkedIn><i class="fab fa-linkedin fa-2x" aria-hidden=true></i></a></li></ul><div class=footer><div class=by_farbox>&copy; Derek Rose 2021</div></div></div><div class=main><div class="page-top ."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><ul class=nav id=navMenu><li><a href=/ title>Home</a></li><li><a href=/posts/ title>Posts</a></li><li><a href=/about/ title>About</a></li><li class=theme-switch-item><a class=theme-switch title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></li></ul></div><div class=autopagerize_page_element><div class=content><div class="post ."><div class=post-content><div class=post-title><h3>MrHomn: Migration to Docker</h3></div><h1 id=hahahugoshortcode-s0-hbhb>Proxy, Home Assistant and DB's. Oh my.</h1><p><a href=https://dereksrose.com/posts/mrhomn/ title=MrHomn>Last time</a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running <a href=https://www.home-assistant.io/>home assistant</a> there.</p><figure style=width:70%><a data-lightbox=image-/images/mrhomn-migration-to-docker/mrhomn1.png href=https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png title=" "><img src=https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png></a></figure><h2 id=goals>Goals</h2><p>The first step to expanding is getting my existing (and extensive) system migrated from hass os to docker. This means having:</p><ul><li>A proxy / router that can serve different containers on different paths</li><li>TLS Certs (LetsEncrypt)</li><li>Home Assistant</li><li>A sql database</li><li>AppDaemon</li><li>Z-Wave JS</li></ul><p>I need to route incoming traffic between nodes in my docker stack via path. My Alexa skill has to be publicly served on port 443 and I don&rsquo;t want to have a second endpoint running, so I am implementing a path based router. I also wanted to handle my TLS cert termination at this layer as I have no need to pass encrypted traffic around inside my docker network.</p><p>I started, as one does, with <a href=https://hub.docker.com/_/nginx>Nginx</a>:alpine + <a href=https://hub.docker.com/r/certbot/certbot>Certbot</a> in seperate containers and it worked fine, but I didn&rsquo;t like needing to handle certs &ldquo;myself.&rdquo; That certbot container is just one more breakpoint. I thought about going with <a href=https://nginxproxymanager.com/>nginx proxy manager</a> because I&rsquo;ve worked with it before and I know it&rsquo;s dead simple to stand up in docker&mldr; but also I&rsquo;ve used it before and this is meant to be a learning experience. So I ended up going with <a href=https://doc.traefik.io/traefik/>Traefik</a>.</p><h2 id=compose-file-setup>Compose file setup</h2><p>My full <a href=https://github.com/Bishma/MrHomn/blob/main/docker-compose.yaml>compose file</a> is available for review. I&rsquo;ll do my best to explain each service here. This section is going to be dense but hopefully it save someone else some of my debugging time.</p><p>I&rsquo;ll go over each of my starting service definitions and attempt keep line numbers consistent.</p><h3 id=traefik>Traefik</h3><p>Starting with the container basics. I&rsquo;m tagging the current minor version of traefik from docker hub.</p><p>When I was developing I set the log level to debug, but for normal operations I think warning is sufficient. I&rsquo;m also turning on access logs and having them just go to stdout by not specifying an output file.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>3
+<!doctype html><html lang=en data-theme><head>
+<title> Derek Rose | MrHomn: Migration to Docker </title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.87.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=description content="My various home automation, electronics, coding, and/or 3D printing projects.">
+<link rel=stylesheet href=https://dereksrose.com/css/style.min.f3c218a9155a17f7f59d47ad5fefa3b345ad9ef900cb722032f8c530fa7856fb.css integrity="sha256-88IYqRVaF/f1nUetX++js0WtnvkAy3IgMvjFMPp4Vvs=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/flex.0a98e97a73f7ce3d056c1da4ac3dfafbb5e1640858c71b5ee31543d9e075edc0.css integrity="sha256-CpjpenP3zj0FbB2krD36+7XhZAhYxxte4xVD2eB17cA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/lightbox.755b9081fac4c7d97cce7b030e7d2abeb1709a4378526f091b5449fa75076c87.css integrity="sha256-dVuQgfrEx9l8znsDDn0qvrFwmkN4Um8JG1RJ+nUHbIc=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=https://dereksrose.com/css/figure.615059e170e578e014add3ab4f7401ca633f03ec09e4aff1650eda7444793f2c.css integrity="sha256-YVBZ4XDleOAUrdOrT3QBymM/A+wJ5K/xZQ7adER5Pyw=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous>
+<link rel="shortcut icon" href=https://dereksrose.com/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=https://dereksrose.com/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://dereksrose.com/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://dereksrose.com/favicons/favicon-16x16.png>
+<link rel=canonical href=https://dereksrose.com/posts/mrhomn-migration-to-docker/>
+<script type=text/javascript src=https://dereksrose.com/js/anatole-header.min.7fccea9612e197b0736c6262484db9af65cc9e9c1f1ea31ab6321016549ecff7.js integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="MrHomn: Migration to Docker">
+<meta name=twitter:description content="Proxy, Home Assistant and DB's. Oh my.">
+</head>
+<body><div class="sidebar .">
+<div class=logo-title>
+<div class=title>
+<img src=https://dereksrose.com/profile.png alt="profile picture">
+<h3 title><a href=/>Over-Engineering Is Fun</a></h3>
+<div class=description>
+<p>My various home automation, electronics, coding, and/or 3D printing projects.</p>
+</div>
+</div>
+</div>
+<ul class=social-links>
+<li>
+<a href=https://github.com/Bishma/ rel=me aria-label=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/Bishma rel=me aria-label=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/derek-prints rel=me aria-label="3D Printing Twitter">
+<i class="fab fa-twitter-square fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/dereksrose/ rel=me aria-label=LinkedIn>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+<div class=footer>
+<div class=by_farbox>&copy; Derek Rose 2021 </div>
+</div>
+</div>
+<div class=main>
+<div class="page-top .">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true></span>
+<span aria-hidden=true></span>
+<span aria-hidden=true></span>
+</a>
+<ul class=nav id=navMenu>
+<li><a href=/ title>Home</a></li>
+<li><a href=/posts/ title>Posts</a></li>
+<li><a href=/about/ title>About</a></li>
+<li class=theme-switch-item>
+<a class=theme-switch title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div class=autopagerize_page_element>
+<div class=content>
+<div class="post .">
+<div class=post-content>
+<div class=post-title>
+<h3>MrHomn: Migration to Docker</h3>
+</div>
+<h1 id=hahahugoshortcode-s0-hbhb>Proxy, Home Assistant and DB's. Oh my.</h1>
+<p><a href=https://dereksrose.com/posts/mrhomn/ title=MrHomn>Last time</a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running <a href=https://www.home-assistant.io/>home assistant</a> there.</p>
+<figure style=width:70%>
+<a data-lightbox=image-/images/mrhomn-migration-to-docker/mrhomn1.png href=https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png title=" ">
+<img src=https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png>
+</a>
+</figure>
+<h2 id=goals>Goals</h2>
+<p>The first step to expanding is getting my existing (and extensive) system migrated from hass os to docker. This means having:</p>
+<ul>
+<li>A proxy / router that can serve different containers on different paths</li>
+<li>TLS Certs (LetsEncrypt)</li>
+<li>Home Assistant</li>
+<li>A sql database</li>
+<li>AppDaemon</li>
+<li>Z-Wave JS</li>
+</ul>
+<p>I need to route incoming traffic between nodes in my docker stack via path. My Alexa skill has to be publicly served on port 443 and I don&rsquo;t want to have a second endpoint running, so I am implementing a path based router. I also wanted to handle my TLS cert termination at this layer as I have no need to pass encrypted traffic around inside my docker network.</p>
+<p>I started, as one does, with <a href=https://hub.docker.com/_/nginx>Nginx</a>:alpine + <a href=https://hub.docker.com/r/certbot/certbot>Certbot</a> in seperate containers and it worked fine, but I didn&rsquo;t like needing to handle certs &ldquo;myself.&rdquo; That certbot container is just one more breakpoint. I thought about going with <a href=https://nginxproxymanager.com/>nginx proxy manager</a> because I&rsquo;ve worked with it before and I know it&rsquo;s dead simple to stand up in docker&mldr; but also I&rsquo;ve used it before and this is meant to be a learning experience. So I ended up going with <a href=https://doc.traefik.io/traefik/>Traefik</a>.</p>
+<h2 id=compose-file-setup>Compose file setup</h2>
+<p>My full <a href=https://github.com/Bishma/MrHomn/blob/main/docker-compose.yaml>compose file</a> is available for review. I&rsquo;ll do my best to explain each service here. This section is going to be dense but hopefully it save someone else some of my debugging time.</p>
+<p>I&rsquo;ll go over each of my starting service definitions and attempt keep line numbers consistent.</p>
+<h3 id=traefik>Traefik</h3>
+<p>Starting with the container basics. I&rsquo;m tagging the current minor version of traefik from docker hub.</p>
+<p>When I was developing I set the log level to debug, but for normal operations I think warning is sufficient. I&rsquo;m also turning on access logs and having them just go to stdout by not specifying an output file.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>traefik</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>traefik</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;traefik:v2.5&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;traefik&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--log.level=WARN&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--api.insecure=true&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--accesslog=true&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>We need to set up the provider now. Obviously we&rsquo;re using docker. I&rsquo;ll be configuring the routers using docker compose labels, so the set up here is pretty simple.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>10
+</span></code></pre></td></tr></table>
+</div>
+</div><p>We need to set up the provider now. Obviously we&rsquo;re using docker. I&rsquo;ll be configuring the routers using docker compose labels, so the set up here is pretty simple.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--providers.docker=true&#34;</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--providers.docker=true&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--providers.docker.exposedbydefault=false&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>Now I want to redirect all port 80 traffic to port 443 via permanent redirect.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>12
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Now I want to redirect all port 80 traffic to port 443 via permanent redirect.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
 </span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--entrypoints.web.address=:80&#34;</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--entrypoints.web.address=:80&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--entrypoints.web.http.redirections.entryPoint.to=websecure&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--entrypoints.web.http.redirections.entryPoint.scheme=https&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--entrypoints.web.http.redirections.entrypoint.permanent=true&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>Now we get to the entry point that matters. This &ldquo;websecure&rdquo; endpoint will handle traffic for both Home Assistant and AppDaemon.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>16
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Now we get to the entry point that matters. This &ldquo;websecure&rdquo; endpoint will handle traffic for both Home Assistant and AppDaemon.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>16
 </span><span class=lnt>17
 </span><span class=lnt>18
 </span><span class=lnt>19
 </span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--entrypoints.websecure.address=:443&#34;</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=s2>&#34;--entrypoints.websecure.address=:443&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--entrypoints.websecure.forwardedHeaders.insecure&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>The host ports here (8321 and 8322) are here translated back into ports 80 and 443 respectively. I also open up the port to Traefik&rsquo;s UI.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>21
+</span></code></pre></td></tr></table>
+</div>
+</div><p>The host ports here (8321 and 8322) are here translated back into ports 80 and 443 respectively. I also open up the port to Traefik&rsquo;s UI.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
 </span><span class=lnt>24
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;8321:80&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;8322:443&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;8080:8080&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>In order to get things running I&rsquo;m just going to set up logging as JSON and a short retention. I&rsquo;ll get into more involved logging later&mldr; probably.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>25
+</span></code></pre></td></tr></table>
+</div>
+</div><p>In order to get things running I&rsquo;m just going to set up logging as JSON and a short retention. I&rsquo;ll get into more involved logging later&mldr; probably.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>25
 </span><span class=lnt>26
 </span><span class=lnt>27
 </span><span class=lnt>28
 </span><span class=lnt>29
 </span><span class=lnt>30
 </span><span class=lnt>31
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;./letsencrypt:/letsencrypt&#34;</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;/var/run/docker.sock:/var/run/docker.sock:ro&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>logging</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>json-file</span><span class=w>
 </span><span class=w>      </span><span class=nt>options</span><span class=p>:</span><span class=w>
 </span><span class=w>        </span><span class=nt>max-size</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;10m&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><h3 id=home-assistant>Home Assistant</h3><p>Pretty standard stuff. The important stuff for routing is down at the bottom.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>32
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=home-assistant>Home Assistant</h3>
+<p>Pretty standard stuff. The important stuff for routing is down at the bottom.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>32
 </span><span class=lnt>33
 </span><span class=lnt>34
 </span><span class=lnt>35
@@ -74,7 +224,9 @@
 </span><span class=lnt>47
 </span><span class=lnt>48
 </span><span class=lnt>49
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>hass</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>hass</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>homeassistant</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>homeassistant/home-assistant:2021.7</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>unless-stopped</span><span class=w>
@@ -92,19 +244,32 @@
 </span><span class=w>        </span><span class=nt>max-size</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;10m&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>sql_db</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>First we need to tell Traefik to enable routing to this container, since we turned automatic routing off. Then we&rsquo;re going to define the rules for the websecure endpoint to route to Home Assistant. And we need to tell it to use the Let&rsquo;s Encrypt cert resolver.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>50
+</span></code></pre></td></tr></table>
+</div>
+</div><p>First we need to tell Traefik to enable routing to this container, since we turned automatic routing off. Then we&rsquo;re going to define the rules for the websecure endpoint to route to Home Assistant. And we need to tell it to use the Let&rsquo;s Encrypt cert resolver.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>50
 </span><span class=lnt>51
 </span><span class=lnt>52
 </span><span class=lnt>53
 </span><span class=lnt>54
 </span><span class=lnt>55
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>labels</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>labels</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.enable=true</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.rule=Host(`my.site.com`)</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.entrypoints=websecure</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.homeassistant.tls.certresolver=myresolver</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.services.homeassistant.loadbalancer.server.port=8123</span><span class=w>
-</span></code></pre></td></tr></table></div></div><h3 id=appdaemon>AppDaemon</h3><p>The other docker service that needs to make use of Traefik&rsquo;s websecure endpoint is <a href=https://appdaemon.readthedocs.io/en/latest/>AppDaemon</a>. At the moment I&rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>56
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=appdaemon>AppDaemon</h3>
+<p>The other docker service that needs to make use of Traefik&rsquo;s websecure endpoint is <a href=https://appdaemon.readthedocs.io/en/latest/>AppDaemon</a>. At the moment I&rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>56
 </span><span class=lnt>57
 </span><span class=lnt>58
 </span><span class=lnt>59
@@ -120,7 +285,9 @@
 </span><span class=lnt>69
 </span><span class=lnt>70
 </span><span class=lnt>71
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>appdaemon</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>appdaemon</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>appdaemon</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>unless-stopped</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>acockburn/appdaemon:4.0.8</span><span class=w>
@@ -136,19 +303,32 @@
 </span><span class=w>        </span><span class=nt>max-size</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;10m&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>hass</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>The only difference there, compared to home assistant, is that our routing rule requires both my domain and an API path. This is the patch that Alexa is pointed at.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>72
+</span></code></pre></td></tr></table>
+</div>
+</div><p>The only difference there, compared to home assistant, is that our routing rule requires both my domain and an API path. This is the patch that Alexa is pointed at.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>72
 </span><span class=lnt>73
 </span><span class=lnt>74
 </span><span class=lnt>75
 </span><span class=lnt>76
 </span><span class=lnt>77
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>labels</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=nt>labels</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.enable=true</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;&amp; PathPrefix(`/api/appdaemon/`))</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.entrypoints=websecure</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.routers.appdaemon.tls.certresolver=myresolver</span><span class=w>
 </span><span class=w>      </span>- <span class=l>traefik.http.services.appdaemon.loadbalancer.server.port=5050</span><span class=w>
-</span></code></pre></td></tr></table></div></div><h3 id=z-wave-js>Z-Wave JS</h3><p>In order to give the Home Assistant Z Wave JS integration a local z wave server to talk to, I&rsquo;m using the zwave2mqtt image. For the time being I have mqtt turned off (via the UI on port 8080), but that will change soon enough.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>78
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=z-wave-js>Z-Wave JS</h3>
+<p>In order to give the Home Assistant Z Wave JS integration a local z wave server to talk to, I&rsquo;m using the zwave2mqtt image. For the time being I have mqtt turned off (via the UI on port 8080), but that will change soon enough.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>78
 </span><span class=lnt>79
 </span><span class=lnt>80
 </span><span class=lnt>81
@@ -166,7 +346,9 @@
 </span><span class=lnt>93
 </span><span class=lnt>94
 </span><span class=lnt>95
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>zwavejs</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>zwavejs</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>zwavejs</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>zwavejs/zwavejs2mqtt</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>unless-stopped</span><span class=w>
@@ -184,7 +366,14 @@
 </span><span class=w>      </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>json-file</span><span class=w>
 </span><span class=w>      </span><span class=nt>options</span><span class=p>:</span><span class=w>
 </span><span class=w>        </span><span class=nt>max-size</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;10m&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>I&rsquo;ve given this service access to my Synology&rsquo;s front USB port since I have a <a href=https://aeotec.com/z-wave-usb-stick/>Aeotec z-wave usb stick</a> there.</p><h3 id=sql>SQL</h3><p>I&rsquo;ve gone with MariaDB for SQL. This currently only drives home assistant, but I will soon be restoring some Alexa skill functionality that also requires SQL.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 96
+</span></code></pre></td></tr></table>
+</div>
+</div><p>I&rsquo;ve given this service access to my Synology&rsquo;s front USB port since I have a <a href=https://aeotec.com/z-wave-usb-stick/>Aeotec z-wave usb stick</a> there.</p>
+<h3 id=sql>SQL</h3>
+<p>I&rsquo;ve gone with MariaDB for SQL. This currently only drives home assistant, but I will soon be restoring some Alexa skill functionality that also requires SQL.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 96
 </span><span class=lnt> 97
 </span><span class=lnt> 98
 </span><span class=lnt> 99
@@ -204,7 +393,9 @@
 </span><span class=lnt>113
 </span><span class=lnt>114
 </span><span class=lnt>115
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>  </span><span class=nt>sql_db</span><span class=p>:</span><span class=w>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>  </span><span class=nt>sql_db</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>sql_db</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>linuxserver/mariadb</span><span class=w> </span><span class=c># https://hub.docker.com/r/linuxserver/mariadb</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
@@ -224,5 +415,52 @@
 </span><span class=w>      </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>json-file</span><span class=w>
 </span><span class=w>      </span><span class=nt>options</span><span class=p>:</span><span class=w>
 </span><span class=w>        </span><span class=nt>max-size</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;10m&#34;</span><span class=w>
-</span></code></pre></td></tr></table></div></div><h2 id=synology-ip-tables-fix>Synology IP Tables Fix</h2><p>To be honest I don&rsquo;t know enough about networking to know who&rsquo;s ultimately at fault here, but the default interaction between synology and docker keep bridge networks from being able to see real end user IPs. I don&rsquo;t know how many hours I spend messing with proxy protocol settings in nginx and traefik.</p><p>The fix that finally worked was altering my synology&rsquo;s iptables settings. I don&rsquo;t know what good karma finally led me to <a href=https://gist.github.com/pedrolamas/db809a2b9112166da4a2dbf8e3a72ae9>pedrolamas/docker-iptables-fix.sh</a>, but it was a turning point for this project.</p><h2 id=the-port-dance>The port dance</h2><p>For the sake of compatibility I need ingressing traffic to come in via public ports 80 and 443 but I&rsquo;m already using these ports (privately) on my host device for unrelated internal traffic routing through nginx. So home automation requests will hit my my WAF on 80/443 and then forward to ports 8321/8322 respectively on my Synology. But then docker is going map those host ports back to 80/443 😕</p><p>To keep it all straight I made a flow chart.</p><figure><a data-lightbox=image-/images/mrhomn-migration-to-docker/traefik_port_dance.png href=https://dereksrose.com/images/mrhomn-migration-to-docker/traefik_port_dance.png title=" A diagram of the port flow of incoming web requests."><img src=https://dereksrose.com/images/mrhomn-migration-to-docker/traefik_port_dance.png></a><figcaption>A diagram of the port flow of incoming web requests.</figcaption></figure><p>BTW,
-<a data-lightbox="L2ltYWdlcy9tcmhvbW4tbWlncmF0aW9uLXRvLWRvY2tlci9uZ2lueF9wb3J0X2RhbmNlLnBuZw==" href=/images/mrhomn-migration-to-docker/nginx_port_dance.png title="All the routing that nginx needed to also handle certbot.">this is what it looked like</a> when I first set it up with Nginx. I don&rsquo;t know why, but having to maintain that extra route for certbot was, if you&rsquo;ll forgive the idiom, a bridge too far.</p><h1 id=the-migration-process>The migration process</h1><p>Now that I&rsquo;m routing I can take down my existing <a href=https://www.home-assistant.io/installation/>Home Assistant OS</a> based install and move it over to my docker setup.</p><h2 id=just-the-foundation>Just the foundation</h2><p>I ultimately went with a semi start-over approach. I copied all my yaml files (<code>configuration.yaml</code>, <code>scripts.yaml</code>, <code>secrets.yaml</code>, etc) and the lovelace json files from inside <code>.storage</code>. I deleted everything that was generated by home assistant as I was working out my routing system and put the copied files in their place. Then I restarted home-assistant and manually set up all UI based integrations. This took minutes, and other that needing to clear browser cache and re-setup our mobile apps it was pretty painless.</p><h2 id=updates>Updates</h2><p>My Home Assistant doesn&rsquo;t use their handy <a href=https://www.home-assistant.io/integrations/default_config/>default_config</a> because I don&rsquo;t like having autodiscovery turned on. The downside to doing things manually is that I miss out on new developments that are normally added to this <code>default_config</code> alias.</p><p>So I went in and added some of the things I&rsquo;ve missed out on since I last did a major update including <a href=https://www.home-assistant.io/integrations/my/>my</a> and <a href=https://www.home-assistant.io/integrations/stream/>stream</a>. Then I cleaned up some other messes here and there as well.</p><h1 id=aftermath>Aftermath</h1><p>Very minor things were broken by my brute force migration.</p><p>I ran into 2 devices whose names had changed at somepoint (on the hardware) but which had their old names cached in my old install. I had to go into one script, one automation, and a couple lovelace cards to update things to the correct (newer) name.</p><p>Because I didn&rsquo;t copy over anything from auth we had to clear our browser caches and re-setup our mobile apps.</p><h1 id=coming-next>Coming next</h1><p>I&rsquo;m currently writing a very basic DR script in python. Honestly I&rsquo;m doing it manly to play with Github Copilot. Then I think I want to start playing with <a href=https://grafana.com/docs/grafana/latest/datasources/influxdb/>Influxdb and Grafana</a> to visualize some of my home assistant data.</p><p>Hopefully I don&rsquo;t run out of RAM, an upgrade isn&rsquo;t in the budget.</p></div><div class=post-footer><div class=info><span class=separator><a class=tag href=/tags/summer-of-42/>Summer of 42</a><a class=tag href=/tags/sysadmin/>sysadmin</a><a class=tag href=/tags/mrhomn/>mrhomn</a><a class=tag href=/tags/home-assistant/>home assistant</a><a class=tag href=/tags/docker/>docker</a></span></div></div></div></div></div></div><script type=text/javascript src=https://dereksrose.com/js/jquery.min.64d0083866906099f942140bc1c5cba4b1bf65783c52e4a63c5c46bf9dbc41f4.js integrity="sha256-ZNAIOGaQYJn5QhQLwcXLpLG/ZXg8UuSmPFxGv528QfQ=" crossorigin=anonymous></script><script type=text/javascript src=https://dereksrose.com/js/bundle.min.45159b0e20ba3878972e064b7edc464c31a9e35a0d0a6a71e3fec84efdbe2ea5.js integrity="sha256-RRWbDiC6OHiXLgZLftxGTDGp41oNCmpx4/7ITv2+LqU=" crossorigin=anonymous></script><script type=text/javascript src=https://dereksrose.com/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-153109937-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script><script type=text/javascript src=https://dereksrose.com/js/lightbox.min.1f2212edfde1fa165886dc2438720f24214d70df6b4f0962773b7602b0317a25.js integrity="sha256-HyIS7f3h+hZYhtwkOHIPJCFNcN9rTwlidzt2ArAxeiU=" crossorigin=anonymous></script></body></html>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id=synology-ip-tables-fix>Synology IP Tables Fix</h2>
+<p>To be honest I don&rsquo;t know enough about networking to know who&rsquo;s ultimately at fault here, but the default interaction between synology and docker keep bridge networks from being able to see real end user IPs. I don&rsquo;t know how many hours I spend messing with proxy protocol settings in nginx and traefik.</p>
+<p>The fix that finally worked was altering my synology&rsquo;s iptables settings. I don&rsquo;t know what good karma finally led me to <a href=https://gist.github.com/pedrolamas/db809a2b9112166da4a2dbf8e3a72ae9>pedrolamas/docker-iptables-fix.sh</a>, but it was a turning point for this project.</p>
+<h2 id=the-port-dance>The port dance</h2>
+<p>For the sake of compatibility I need ingressing traffic to come in via public ports 80 and 443 but I&rsquo;m already using these ports (privately) on my host device for unrelated internal traffic routing through nginx. So home automation requests will hit my my WAF on 80/443 and then forward to ports 8321/8322 respectively on my Synology. But then docker is going map those host ports back to 80/443 😕</p>
+<p>To keep it all straight I made a flow chart.</p>
+<figure>
+<a data-lightbox=image-/images/mrhomn-migration-to-docker/traefik_port_dance.png href=https://dereksrose.com/images/mrhomn-migration-to-docker/traefik_port_dance.png title=" A diagram of the port flow of incoming web requests.">
+<img src=https://dereksrose.com/images/mrhomn-migration-to-docker/traefik_port_dance.png>
+</a>
+<figcaption>
+A diagram of the port flow of incoming web requests.
+</figcaption>
+</figure>
+<p>BTW,
+<a data-lightbox="L2ltYWdlcy9tcmhvbW4tbWlncmF0aW9uLXRvLWRvY2tlci9uZ2lueF9wb3J0X2RhbmNlLnBuZw==" href=/images/mrhomn-migration-to-docker/nginx_port_dance.png title="All the routing that nginx needed to also handle certbot.">this is what it looked like</a> when I first set it up with Nginx. I don&rsquo;t know why, but having to maintain that extra route for certbot was, if you&rsquo;ll forgive the idiom, a bridge too far.</p>
+<h1 id=the-migration-process>The migration process</h1>
+<p>Now that I&rsquo;m routing I can take down my existing <a href=https://www.home-assistant.io/installation/>Home Assistant OS</a> based install and move it over to my docker setup.</p>
+<h2 id=just-the-foundation>Just the foundation</h2>
+<p>I ultimately went with a semi start-over approach. I copied all my yaml files (<code>configuration.yaml</code>, <code>scripts.yaml</code>, <code>secrets.yaml</code>, etc) and the lovelace json files from inside <code>.storage</code>. I deleted everything that was generated by home assistant as I was working out my routing system and put the copied files in their place. Then I restarted home-assistant and manually set up all UI based integrations. This took minutes, and other that needing to clear browser cache and re-setup our mobile apps it was pretty painless.</p>
+<h2 id=updates>Updates</h2>
+<p>My Home Assistant doesn&rsquo;t use their handy <a href=https://www.home-assistant.io/integrations/default_config/>default_config</a> because I don&rsquo;t like having autodiscovery turned on. The downside to doing things manually is that I miss out on new developments that are normally added to this <code>default_config</code> alias.</p>
+<p>So I went in and added some of the things I&rsquo;ve missed out on since I last did a major update including <a href=https://www.home-assistant.io/integrations/my/>my</a> and <a href=https://www.home-assistant.io/integrations/stream/>stream</a>. Then I cleaned up some other messes here and there as well.</p>
+<h1 id=aftermath>Aftermath</h1>
+<p>Very minor things were broken by my brute force migration.</p>
+<p>I ran into 2 devices whose names had changed at somepoint (on the hardware) but which had their old names cached in my old install. I had to go into one script, one automation, and a couple lovelace cards to update things to the correct (newer) name.</p>
+<p>Because I didn&rsquo;t copy over anything from auth we had to clear our browser caches and re-setup our mobile apps.</p>
+<h1 id=coming-next>Coming next</h1>
+<p>I&rsquo;m currently writing a very basic DR script in python. Honestly I&rsquo;m doing it manly to play with Github Copilot. Then I think I want to start playing with <a href=https://grafana.com/docs/grafana/latest/datasources/influxdb/>Influxdb and Grafana</a> to visualize some of my home assistant data.</p>
+<p>Hopefully I don&rsquo;t run out of RAM, an upgrade isn&rsquo;t in the budget.</p>
+</div>
+<div class=post-footer>
+<div class=info>
+<span class=separator><a class=tag href=/tags/summer-of-42/>Summer of 42</a><a class=tag href=/tags/sysadmin/>sysadmin</a><a class=tag href=/tags/mrhomn/>mrhomn</a><a class=tag href=/tags/home-assistant/>home assistant</a><a class=tag href=/tags/docker/>docker</a></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type=text/javascript src=https://dereksrose.com/js/jquery.min.64d0083866906099f942140bc1c5cba4b1bf65783c52e4a63c5c46bf9dbc41f4.js integrity="sha256-ZNAIOGaQYJn5QhQLwcXLpLG/ZXg8UuSmPFxGv528QfQ=" crossorigin=anonymous></script>
+<script type=text/javascript src=https://dereksrose.com/js/bundle.min.45159b0e20ba3878972e064b7edc464c31a9e35a0d0a6a71e3fec84efdbe2ea5.js integrity="sha256-RRWbDiC6OHiXLgZLftxGTDGp41oNCmpx4/7ITv2+LqU=" crossorigin=anonymous></script>
+<script type=text/javascript src=https://dereksrose.com/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-153109937-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script type=text/javascript src=https://dereksrose.com/js/lightbox.min.1f2212edfde1fa165886dc2438720f24214d70df6b4f0962773b7602b0317a25.js integrity="sha256-HyIS7f3h+hZYhtwkOHIPJCFNcN9rTwlidzt2ArAxeiU=" crossorigin=anonymous></script></body>
+</html>
