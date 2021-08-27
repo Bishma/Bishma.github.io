@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3d-printing on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/3d-printing/</link><description>Recent content in 3d-printing on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Aug 2021 13:55:45 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/3d-printing/index.xml" rel="self" type="application/rss+xml"/><item><title>Garage Door Chock</title><link>https://dereksrose.com/posts/garage-door-chock/</link><pubDate>Fri, 27 Aug 2021 13:55:45 -0700</pubDate><guid>https://dereksrose.com/posts/garage-door-chock/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Garage door safety and... style?&lt;/h1>
-&lt;p>Our 1950&amp;rsquo;s home has its original garage door track and spring. The whole thing has help up remarkably well but it still is aging as resistant to any repair less than a full restoration. Over almost 70 years the spring that assists door opening and also helps hold the door up has weakened. Since we have plans to rework the garage I&amp;rsquo;m not taking on that project (now) and have been making do with the fact the garage door doesn&amp;rsquo;t always hold itself up anymore.&lt;/p>
-&lt;p>For the last 18 months the fix has been a screwdriver tied near the door with string, that we can insert through a hold an prevent the door from falling. In terms of quick fixes for common life problems, this one isn&amp;rsquo;t bad but it&amp;rsquo;s not without some annoyances. There are only a couple holes in the track and they&amp;rsquo;re relatively convenient for holding the door all the way up. Also the string sometimes gets caught up in the door and fling around the screw driver.&lt;/p>
-&lt;p>So I made a simple chock out of TPU with a small handle.&lt;/p>
+&lt;p>Our 1950&amp;rsquo;s home has its original garage door, track, and spring. The whole thing has help with age, but it can&amp;rsquo;t fully resist gravity any longer. It also has been painted several times over the years and needs a full restoration. Since we have plans to rework the garage I&amp;rsquo;m not taking on that project (now) and have been making do with the fact the garage door doesn&amp;rsquo;t always hold itself up anymore.&lt;/p>
+&lt;p>For the last 18 months the fix has been a screwdriver tied near the door with string, which we can insert through a hole in the track to act as a pin to prevent the door from falling. In terms of quick fixes for common life problems, this one isn&amp;rsquo;t bad but it&amp;rsquo;s not without some annoyances. There are only a couple holes in the track and they&amp;rsquo;re relatively convenient for holding the door all the way up. Also the string sometimes gets caught up in the door and fling around the screwdriver.&lt;/p>
+&lt;p>So I made a threw together this chock out of TPU with a small PETG handle.&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -80,6 +80,8 @@ src="https://dereksrose.com/images/garage-door-chock/assembly_lg.jpg"
 Parts and tools
 &lt;/figcaption>
 &lt;/figure>
+&lt;p>I made this using 10mmx2mm magnets because it&amp;rsquo;s what I had on hand. Since I needed a bit more &lt;em>uumph&lt;/em> I stacked two magnets into each of the four holes (8 total magnets). With rare earth magnets I always like to use a file to scuff the surfaces of the magnets before I glue them in. I also used thin CA so it&amp;rsquo;s really get into the nooks and crannies.&lt;/p>
+&lt;p>I also glued the handle to the ramp. I use rubberized superglue here, but I don&amp;rsquo;t really think it was needed. I put the glue on the ramp: some on the bottom of the dovetail and some on the backstop that keeps the handle from sliding out the front side of the ramp. A little glue goes a long way.&lt;/p>
 &lt;h3 id="parts">Parts&lt;/h3>
 &lt;ul>
 &lt;li>(8) 10mmx2mm neodymium magnets&lt;/li>
@@ -91,8 +93,6 @@ Parts and tools
 &lt;ul>
 &lt;li>A file or course sandpaper for distressing magnet surfaces (optional)&lt;/li>
 &lt;/ul>
-&lt;p>I made this using 10mmx2mm magnets because it&amp;rsquo;s what I had on hand. Since I needed a bit more &lt;em>uumph&lt;/em> I stacked two magnets into each of the four holes (8 total magnets). With rare earth magnets I always like to use a file to scuff the surfaces of the magnets before I glue them in. I also used thin CA so it&amp;rsquo;s really get into the nooks and crannies.&lt;/p>
-&lt;p>I also glued the handle to the ramp. I use rubberized superglue here, but I don&amp;rsquo;t really think it was needed. I put the glue on the ramp: some on the bottom of the dovetail and some on the backstop that keeps the handle from sliding out the front side of the ramp. A little glue goes a long way.&lt;/p>
 &lt;h2 id="availability">Availability&lt;/h2>
 &lt;ul>
 &lt;li>
