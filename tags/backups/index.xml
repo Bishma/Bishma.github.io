@@ -52,8 +52,8 @@
 &lt;h2 id="set-up">Set up&lt;/h2>
 &lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
 &lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
 &lt;h3 id="synology-user">Synology User&lt;/h3>
 &lt;ol>
 &lt;li>From The Users section of the DSM Control Panel select Create &lt;br>
@@ -80,29 +80,29 @@
 &lt;/ol>
 &lt;/li>
 &lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
-&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo vim /etc/passwd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
 &lt;/ol>
 &lt;/li>
 &lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
 &lt;p>While logged into the Synology via SSH:&lt;/p>
 &lt;ol>
 &lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
 &lt;li>Uncomment these 3 lines
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
-&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
-&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>Restart the ssh service
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo synoservicectl --reload sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
 &lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
 &lt;li>&lt;code>vim ~/.ssh/authorized_keys&lt;/code>
@@ -111,8 +111,8 @@
 &lt;/ol>
 &lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology without entering a password.
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
 &lt;ol>
@@ -124,16 +124,16 @@
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
 &lt;h3 id="automation">Automation&lt;/h3>
 &lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
 &lt;p>The hyper backup job is pretty simple. Backup the &lt;code>HomeAssistant&lt;/code> folder and the MariaDB application (which at the time of this writing is only used by Home Assistant).&lt;/p>
 &lt;ol>
 &lt;li>Create a new &amp;ldquo;data backup task&amp;rdquo; with Dropbox as its destination. &lt;br>
@@ -170,6 +170,6 @@
 &lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
-find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item></channel></rss>

@@ -1,147 +1,40 @@
-<!doctype html><html lang=en data-theme><head>
-<title> Derek Rose | Appdaemon Logging </title>
-<meta charset=utf-8><meta name=generator content="Hugo 0.87.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name=description content="My various home automation, electronics, coding, and/or 3D printing projects.">
-<link rel=stylesheet href=https://dereksrose.com/css/style.min.f3c218a9155a17f7f59d47ad5fefa3b345ad9ef900cb722032f8c530fa7856fb.css integrity="sha256-88IYqRVaF/f1nUetX++js0WtnvkAy3IgMvjFMPp4Vvs=" crossorigin=anonymous type=text/css>
-<link rel=stylesheet href=https://dereksrose.com/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU=" crossorigin=anonymous type=text/css>
-<link rel=stylesheet href=https://dereksrose.com/css/flex.0a98e97a73f7ce3d056c1da4ac3dfafbb5e1640858c71b5ee31543d9e075edc0.css integrity="sha256-CpjpenP3zj0FbB2krD36+7XhZAhYxxte4xVD2eB17cA=" crossorigin=anonymous type=text/css>
-<link rel=stylesheet href=https://dereksrose.com/css/lightbox.755b9081fac4c7d97cce7b030e7d2abeb1709a4378526f091b5449fa75076c87.css integrity="sha256-dVuQgfrEx9l8znsDDn0qvrFwmkN4Um8JG1RJ+nUHbIc=" crossorigin=anonymous type=text/css>
-<link rel=stylesheet href=https://dereksrose.com/css/figure.615059e170e578e014add3ab4f7401ca633f03ec09e4aff1650eda7444793f2c.css integrity="sha256-YVBZ4XDleOAUrdOrT3QBymM/A+wJ5K/xZQ7adER5Pyw=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous>
-<link rel="shortcut icon" href=https://dereksrose.com/favicons/favicon.ico type=image/x-icon>
-<link rel=apple-touch-icon sizes=180x180 href=https://dereksrose.com/favicons/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=https://dereksrose.com/favicons/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=https://dereksrose.com/favicons/favicon-16x16.png>
-<link rel=canonical href=https://dereksrose.com/posts/appdaemon-logging/>
-<script type=text/javascript src=https://dereksrose.com/js/anatole-header.min.7fccea9612e197b0736c6262484db9af65cc9e9c1f1ea31ab6321016549ecff7.js integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c=" crossorigin=anonymous></script>
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Appdaemon Logging">
-<meta name=twitter:description content="Combined logging between Home Assistant and AppDaemon I&rsquo;ve begun using AppDaemon apps to extend Home Assistant.">
-</head>
-<body><div class="sidebar .">
-<div class=logo-title>
-<div class=title>
-<img src=https://dereksrose.com/profile.png alt="profile picture">
-<h3 title><a href=/>Over-Engineering Is Fun</a></h3>
-<div class=description>
-<p>My various home automation, electronics, coding, and/or 3D printing projects.</p>
-</div>
-</div>
-</div>
-<ul class=social-links>
-<li>
-<a href=https://github.com/Bishma/ rel=me aria-label=Github>
-<i class="fab fa-github fa-2x" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/Bishma rel=me aria-label=Twitter>
-<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/derek-prints rel=me aria-label="3D Printing Twitter">
-<i class="fab fa-twitter-square fa-2x" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/dereksrose/ rel=me aria-label=LinkedIn>
-<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
-</a>
-</li>
-</ul>
-<div class=footer>
-<div class=by_farbox>&copy; Derek Rose 2021 </div>
-</div>
-</div>
-<div class=main>
-<div class="page-top .">
-<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<!doctype html><html lang=en data-theme><head><title>Derek Rose | Appdaemon Logging</title><meta charset=utf-8><meta name=generator content="Hugo 0.109.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="My various home automation, electronics, coding, and/or 3D printing projects."><link rel=stylesheet href=https://dereksrose.com/css/style.min.f3c218a9155a17f7f59d47ad5fefa3b345ad9ef900cb722032f8c530fa7856fb.css integrity="sha256-88IYqRVaF/f1nUetX++js0WtnvkAy3IgMvjFMPp4Vvs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/flex.0a98e97a73f7ce3d056c1da4ac3dfafbb5e1640858c71b5ee31543d9e075edc0.css integrity="sha256-CpjpenP3zj0FbB2krD36+7XhZAhYxxte4xVD2eB17cA=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/lightbox.755b9081fac4c7d97cce7b030e7d2abeb1709a4378526f091b5449fa75076c87.css integrity="sha256-dVuQgfrEx9l8znsDDn0qvrFwmkN4Um8JG1RJ+nUHbIc=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://dereksrose.com/css/figure.615059e170e578e014add3ab4f7401ca633f03ec09e4aff1650eda7444793f2c.css integrity="sha256-YVBZ4XDleOAUrdOrT3QBymM/A+wJ5K/xZQ7adER5Pyw=" crossorigin=anonymous type=text/css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=https://dereksrose.com/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=https://dereksrose.com/favicons/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://dereksrose.com/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://dereksrose.com/favicons/favicon-16x16.png><link rel=canonical href=https://dereksrose.com/posts/appdaemon-logging/><script type=text/javascript src=https://dereksrose.com/js/anatole-header.min.a3fa728a9f57833a31dfb45c48caaf1e4890c8c97f07bd7133fc2359745edb5d.js integrity="sha256-o/pyip9Xgzox37RcSMqvHkiQyMl/B71xM/wjWXRe210=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="Appdaemon Logging"><meta name=twitter:description content="Combined logging between Home Assistant and AppDaemon I&rsquo;ve begun using AppDaemon apps to extend Home Assistant."></head><body><div class="sidebar ."><div class=logo-title><div class=title><img src=https://dereksrose.com/profile.png alt="profile picture"><h3 title><a href=/>Over-Engineering Is Fun</a></h3><div class=description><p>My various home automation, electronics, coding, and/or 3D printing projects.</p></div></div></div><ul class=social-links><li><a href=https://github.com/Bishma/ rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li><li><a href=https://mas.to/@bishma rel=me aria-label=Mastodon><i class="fab fa-mastodon fa-2x" aria-hidden=true></i></a></li><li><a href=https://www.linkedin.com/in/dereksrose/ rel=me aria-label=LinkedIn><i class="fab fa-linkedin fa-2x" aria-hidden=true></i></a></li></ul><div class=footer><div class=by_farbox>&copy; Derek Rose 2023</div></div></div><div class=main><div class="page-top ."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span>
 <span aria-hidden=true></span>
-<span aria-hidden=true></span>
-<span aria-hidden=true></span>
-</a>
-<ul class=nav id=navMenu>
-<li><a href=/ title>Home</a></li>
-<li><a href=/posts/ title>Posts</a></li>
-<li><a href=/about/ title>About</a></li>
-<li class=theme-switch-item>
-<a class=theme-switch title="Switch Theme">
-<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</li>
-</ul>
-</div>
-<div class=autopagerize_page_element>
-<div class=content>
-<div class="post .">
-<div class=post-content>
-<div class=post-title>
-<h3>Appdaemon Logging</h3>
-</div>
-<h1 id=combined-logging-between-home-assistant-and-appdaemon>Combined logging between Home Assistant and AppDaemon</h1>
-<p>I&rsquo;ve begun using <a href=https://appdaemon.readthedocs.io/en/latest/>AppDaemon</a> apps to extend <a href=https://www.home-assistant.io/>Home Assistant</a>. It&rsquo;s a way to write sandboxed <a href=https://www.python.org/>Python</a> apps that have access to <a href=https://www.home-assistant.io/>home-assistant</a> events, devices, services, and presence. It&rsquo;s intended to be replacement for automations that can leverage all the power of python. You can also use it as a way to create sensors in Home Assistant.</p>
-<p>My <a href=https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py>first foray</a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&rsquo;s for lunch. There is also an attribute on the sensor containing the next three days' menus. I then wrote a <a href=https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card>crude custom lovelace card</a> to display that on my frontend.</p>
-<p><img src=/images/appdaemon-logging_1-custom-card.png alt="Custom card displaying attributes from an Appdaemon Sensor"></p>
-<p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&rsquo;m using <a href=https://www.home-assistant.io/hassio/>Hass.io</a> with the <a href=https://github.com/hassio-addons/addon-log-viewer>LogViewer</a> addon, I&rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the <a href=https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722>Home Assistant Forums</a> I was able to piece together what I wanted.</p>
-<h4 id=step-1>Step 1:</h4>
-<p>I need to use the home assistant <a href=https://www.home-assistant.io/integrations/python_script/>python script component</a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>message</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>)</span>
-<span class=k>if</span> <span class=ow>not</span> <span class=n>message</span><span class=p>:</span>
-  <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=s1>&#39;No message provided&#39;</span><span class=p>)</span>
-
-<span class=c1># Send to the appropriate log level</span>
-<span class=n>received_level</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;level&#39;</span><span class=p>))</span><span class=o>.</span><span class=n>lower</span><span class=p>()</span>
-<span class=k>if</span> <span class=n>received_level</span> <span class=o>==</span> <span class=s1>&#39;debug&#39;</span><span class=p>:</span>
-  <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
-<span class=k>elif</span> <span class=n>received_level</span> <span class=o>==</span> <span class=s1>&#39;warning&#39;</span><span class=p>:</span>
-  <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
-<span class=k>elif</span> <span class=n>received_level</span> <span class=o>==</span> <span class=s1>&#39;error&#39;</span><span class=p>:</span>
-  <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
-<span class=k>else</span><span class=p>:</span>
-  <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
-</code></pre></div><p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in <code>&lt;config>/python_scripts/log.py</code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called <code>python_script.log</code>.</p>
-<h4 id=step-2>Step 2</h4>
-<p>Fine grained <a href=https://www.home-assistant.io/components/logger/>logger</a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new <code>python_script.log</code> service all the way to debug when I&rsquo;m developing a new AppDaemon app.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=c># &#34;The logger component lets you define the level of logging activities in Home Assistant.&#34;</span><span class=w>
-</span><span class=w></span><span class=c># https://www.home-assistant.io/components/logger/</span><span class=w>
-</span><span class=w></span><span class=nt>logger</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>default</span><span class=p>:</span><span class=w> </span><span class=l>warning</span><span class=w>
-</span><span class=w>  </span><span class=nt>logs</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>homeassistant.components.python_script.log.py</span><span class=p>:</span><span class=w> </span><span class=l>debug</span><span class=w>
-</span></code></pre></div><p>Each call to the <code>python_script.log</code> service will generate a log at the info level. Having a default log level of warning here has the benefit of not showing my all my AppDaemon logs twice.</p>
-<h4 id=step-3>Step 3</h4>
-<p>AppDaemon has the means to register a listener on all calls to self.log in all running AppDaemon apps. To do this you want to set up a stand-alone log handling AppDaemon app.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>appdaemon.plugins.hass.hassapi</span> <span class=k>as</span> <span class=nn>hass</span>
-
-<span class=k>class</span> <span class=nc>LogBridge</span><span class=p>(</span><span class=n>hass</span><span class=o>.</span><span class=n>Hass</span><span class=p>):</span>
-
-    <span class=k>def</span> <span class=nf>initialize</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
-        <span class=bp>self</span><span class=o>.</span><span class=n>listen_log</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>cb</span><span class=p>)</span>
-    
-    <span class=k>def</span> <span class=nf>cb</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>ts</span><span class=p>,</span> <span class=n>level</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
-        <span class=n>msg</span> <span class=o>=</span> <span class=s2>&#34;[AppDaemon] </span><span class=si>{}</span><span class=s2>: </span><span class=si>{}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>message</span><span class=p>)</span>
-        <span class=bp>self</span><span class=o>.</span><span class=n>call_service</span><span class=p>(</span><span class=s2>&#34;python_script/log&#34;</span><span class=p>,</span> <span class=n>level</span> <span class=o>=</span> <span class=n>level</span><span class=p>,</span> <span class=n>message</span> <span class=o>=</span> <span class=n>msg</span><span class=p>)</span>
-</code></pre></div><p>The callback (<code>cb</code>) formats a message for readability and then passes that and the level to the Home Assistant <code>python_script.log</code> service created above. Save this in the apps directory as <code>log_bridge.yaml</code>.</p>
-<h4 id=step-4>Step 4</h4>
-<p>Register this script as an AppDaemon app in <code>apps.yaml</code>.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>log_bridge</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>module</span><span class=p>:</span><span class=w> </span><span class=l>log_bridge</span><span class=w>
-</span><span class=w>  </span><span class=nt>class</span><span class=p>:</span><span class=w> </span><span class=l>LogBridge</span><span class=w>
-</span></code></pre></div><p>After a reboot every log line from AppDaemon pipes into home assistant.</p>
-</div>
-<div class=post-footer>
-<div class=info>
-<span class=separator><a class=tag href=/tags/home-assistant/>home-assistant</a><a class=tag href=/tags/appdaemon/>appdaemon</a></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script type=text/javascript src=https://dereksrose.com/js/jquery.min.64d0083866906099f942140bc1c5cba4b1bf65783c52e4a63c5c46bf9dbc41f4.js integrity="sha256-ZNAIOGaQYJn5QhQLwcXLpLG/ZXg8UuSmPFxGv528QfQ=" crossorigin=anonymous></script>
-<script type=text/javascript src=https://dereksrose.com/js/bundle.min.45159b0e20ba3878972e064b7edc464c31a9e35a0d0a6a71e3fec84efdbe2ea5.js integrity="sha256-RRWbDiC6OHiXLgZLftxGTDGp41oNCmpx4/7ITv2+LqU=" crossorigin=anonymous></script>
-<script type=text/javascript src=https://dereksrose.com/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-153109937-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script type=text/javascript src=https://dereksrose.com/js/lightbox.min.1f2212edfde1fa165886dc2438720f24214d70df6b4f0962773b7602b0317a25.js integrity="sha256-HyIS7f3h+hZYhtwkOHIPJCFNcN9rTwlidzt2ArAxeiU=" crossorigin=anonymous></script></body>
-</html>
+<span aria-hidden=true></span></a><ul class=nav id=navMenu><li><a href=/ title>Home</a></li><li><a href=/posts/ title>Posts</a></li><li><a href=/about/ title>About</a></li><li class=theme-switch-item><a class=theme-switch title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></li></ul></div><div class=autopagerize_page_element><div class=content><div class="post ."><div class=post-content><div class=post-title><h3>Appdaemon Logging</h3></div><h1 id=combined-logging-between-home-assistant-and-appdaemon>Combined logging between Home Assistant and AppDaemon</h1><p>I&rsquo;ve begun using <a href=https://appdaemon.readthedocs.io/en/latest/>AppDaemon</a> apps to extend <a href=https://www.home-assistant.io/>Home Assistant</a>. It&rsquo;s a way to write sandboxed <a href=https://www.python.org/>Python</a> apps that have access to <a href=https://www.home-assistant.io/>home-assistant</a> events, devices, services, and presence. It&rsquo;s intended to be replacement for automations that can leverage all the power of python. You can also use it as a way to create sensors in Home Assistant.</p><p>My <a href=https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py>first foray</a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&rsquo;s for lunch. There is also an attribute on the sensor containing the next three days&rsquo; menus. I then wrote a <a href=https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card>crude custom lovelace card</a> to display that on my frontend.</p><p><img src=/images/appdaemon-logging_1-custom-card.png alt="Custom card displaying attributes from an Appdaemon Sensor"></p><p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&rsquo;m using <a href=https://www.home-assistant.io/hassio/>Hass.io</a> with the <a href=https://github.com/hassio-addons/addon-log-viewer>LogViewer</a> addon, I&rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the <a href=https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722>Home Assistant Forums</a> I was able to piece together what I wanted.</p><h4 id=step-1>Step 1:</h4><p>I need to use the home assistant <a href=https://www.home-assistant.io/integrations/python_script/>python script component</a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>message</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=ow>not</span> <span class=n>message</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=s1>&#39;No message provided&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Send to the appropriate log level</span>
+</span></span><span class=line><span class=cl><span class=n>received_level</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;level&#39;</span><span class=p>))</span><span class=o>.</span><span class=n>lower</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>received_level</span> <span class=o>==</span> <span class=s1>&#39;debug&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>elif</span> <span class=n>received_level</span> <span class=o>==</span> <span class=s1>&#39;warning&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>elif</span> <span class=n>received_level</span> <span class=o>==</span> <span class=s1>&#39;error&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span></code></pre></div><p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in <code>&lt;config>/python_scripts/log.py</code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called <code>python_script.log</code>.</p><h4 id=step-2>Step 2</h4><p>Fine grained <a href=https://www.home-assistant.io/components/logger/>logger</a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new <code>python_script.log</code> service all the way to debug when I&rsquo;m developing a new AppDaemon app.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># &#34;The logger component lets you define the level of logging activities in Home Assistant.&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># https://www.home-assistant.io/components/logger/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>logger</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>default</span><span class=p>:</span><span class=w> </span><span class=l>warning</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>logs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>homeassistant.components.python_script.log.py</span><span class=p>:</span><span class=w> </span><span class=l>debug</span><span class=w>
+</span></span></span></code></pre></div><p>Each call to the <code>python_script.log</code> service will generate a log at the info level. Having a default log level of warning here has the benefit of not showing my all my AppDaemon logs twice.</p><h4 id=step-3>Step 3</h4><p>AppDaemon has the means to register a listener on all calls to self.log in all running AppDaemon apps. To do this you want to set up a stand-alone log handling AppDaemon app.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>appdaemon.plugins.hass.hassapi</span> <span class=k>as</span> <span class=nn>hass</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>LogBridge</span><span class=p>(</span><span class=n>hass</span><span class=o>.</span><span class=n>Hass</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>initialize</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>listen_log</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>cb</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>cb</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>ts</span><span class=p>,</span> <span class=n>level</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>msg</span> <span class=o>=</span> <span class=s2>&#34;[AppDaemon] </span><span class=si>{}</span><span class=s2>: </span><span class=si>{}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>call_service</span><span class=p>(</span><span class=s2>&#34;python_script/log&#34;</span><span class=p>,</span> <span class=n>level</span> <span class=o>=</span> <span class=n>level</span><span class=p>,</span> <span class=n>message</span> <span class=o>=</span> <span class=n>msg</span><span class=p>)</span>
+</span></span></code></pre></div><p>The callback (<code>cb</code>) formats a message for readability and then passes that and the level to the Home Assistant <code>python_script.log</code> service created above. Save this in the apps directory as <code>log_bridge.yaml</code>.</p><h4 id=step-4>Step 4</h4><p>Register this script as an AppDaemon app in <code>apps.yaml</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>log_bridge</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>module</span><span class=p>:</span><span class=w> </span><span class=l>log_bridge</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>class</span><span class=p>:</span><span class=w> </span><span class=l>LogBridge</span><span class=w>
+</span></span></span></code></pre></div><p>After a reboot every log line from AppDaemon pipes into home assistant.</p></div><div class=post-footer><div class=info><span class=separator><a class=tag href=/tags/home-assistant/>home-assistant</a><a class=tag href=/tags/appdaemon/>appdaemon</a></span></div></div></div></div></div></div><script type=text/javascript src=https://dereksrose.com/js/jquery.min.decb4e8fdab5cb7b76ec6470b6fb73d30c7ee8e248d7486f49007f3c525b7acb.js integrity="sha256-3stOj9q1y3t27GRwtvtz0wx+6OJI10hvSQB/PFJbess=" crossorigin=anonymous></script>
+<script type=text/javascript src=https://dereksrose.com/js/bundle.min.3ebad6bf39b2e7c2f899d3ed9bc97e8c0c1ead7a1b57472e3387321f673b8077.js integrity="sha256-PrrWvzmy58L4mdPtm8l+jAwerXobV0cuM4cyH2c7gHc=" crossorigin=anonymous></script>
+<script type=text/javascript src=https://dereksrose.com/js/medium-zoom.min.e1c6918cbaa90022a5612f0bd71c7bf3be6d036614c5729cebfe14f7b91fa4bc.js integrity="sha256-4caRjLqpACKlYS8L1xx7875tA2YUxXKc6/4U97kfpLw=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-153109937-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script type=text/javascript src=https://dereksrose.com/js/lightbox.min.76de40f9671361fabb5e45e99a176e1740b7cf06557da3b0ce60372bcc92962b.js integrity="sha256-dt5A+WcTYfq7XkXpmhduF0C3zwZVfaOwzmA3K8ySlis=" crossorigin=anonymous></script></body></html>

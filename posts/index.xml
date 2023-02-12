@@ -148,14 +148,14 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">traefik&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik:v2.5&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--log.level=WARN&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--api.insecure=true&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--accesslog=true&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">traefik&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik:v2.5&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;traefik&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--log.level=WARN&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--api.insecure=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--accesslog=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>We need to set up the provider now. Obviously we&amp;rsquo;re using docker. I&amp;rsquo;ll be configuring the routers using docker compose labels, so the set up here is pretty simple.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -164,9 +164,9 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">11
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker=true&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker.exposedbydefault=false&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--providers.docker.exposedbydefault=false&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Now I want to redirect all port 80 traffic to port 443 via permanent redirect.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -177,11 +177,11 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.address=:80&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.to=websecure&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.scheme=https&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entrypoint.permanent=true&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.address=:80&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.to=websecure&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entryPoint.scheme=https&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.web.http.redirections.entrypoint.permanent=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Now we get to the entry point that matters. This &amp;ldquo;websecure&amp;rdquo; endpoint will handle traffic for both Home Assistant and AppDaemon.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -193,12 +193,12 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">20
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.forwardedHeaders.insecure&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.address=:443&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--entrypoints.websecure.forwardedHeaders.insecure&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.email=me@my.site.com&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>The host ports here (8321 and 8322) are here translated back into ports 80 and 443 respectively. I also open up the port to Traefik&amp;rsquo;s UI.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -209,11 +209,11 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">24
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8321:80&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8322:443&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8080:8080&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8321:80&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8322:443&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8080:8080&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>In order to get things running I&amp;rsquo;m just going to set up logging as JSON and a short retention. I&amp;rsquo;ll get into more involved logging later&amp;hellip; probably.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -227,14 +227,14 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">31
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;./letsencrypt:/letsencrypt&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/var/run/docker.sock:/var/run/docker.sock:ro&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;./letsencrypt:/letsencrypt&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/var/run/docker.sock:/var/run/docker.sock:ro&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="home-assistant">Home Assistant&lt;/h3>
 &lt;p>Pretty standard stuff. The important stuff for routing is down at the bottom.&lt;/p>
@@ -260,25 +260,25 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">49
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">hass&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant/home-assistant:2021.7&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=${TZ}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">expose&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8123&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8123:8123&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">./hass:/config&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">sql_db&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">hass&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">homeassistant/home-assistant:2021.7&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=${TZ}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expose&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8123&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8123:8123&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./hass:/config&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sql_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>First we need to tell Traefik to enable routing to this container, since we turned automatic routing off. Then we&amp;rsquo;re going to define the rules for the websecure endpoint to route to Home Assistant. And we need to tell it to use the Let&amp;rsquo;s Encrypt cert resolver.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -291,13 +291,13 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">55
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.rule=Host(`my.site.com`)&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.entrypoints=websecure&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.tls.certresolver=myresolver&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.services.homeassistant.loadbalancer.server.port=8123&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.rule=Host(`my.site.com`)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.entrypoints=websecure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.homeassistant.tls.certresolver=myresolver&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.services.homeassistant.loadbalancer.server.port=8123&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="appdaemon">AppDaemon&lt;/h3>
 &lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
@@ -321,23 +321,23 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">71
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">appdaemon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">appdaemon&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">acockburn/appdaemon:4.0.8&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;5050:5050&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">expose&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">5050&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">./appdaemon/config:/conf&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">hass&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">appdaemon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">appdaemon&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">acockburn/appdaemon:4.0.8&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;5050:5050&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expose&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">5050&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./appdaemon/config:/conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">hass&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>The only difference there, compared to home assistant, is that our routing rule requires both my domain and an API path. This is the patch that Alexa is pointed at.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -350,13 +350,13 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">77
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;amp;&amp;amp; PathPrefix(`/api/appdaemon/`))&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.entrypoints=websecure&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.tls.certresolver=myresolver&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.services.appdaemon.loadbalancer.server.port=5050&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.enable=true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.rule=(Host(`my.site.com`) &amp;amp;&amp;amp; PathPrefix(`/api/appdaemon/`))&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.entrypoints=websecure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.routers.appdaemon.tls.certresolver=myresolver&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">traefik.http.services.appdaemon.loadbalancer.server.port=5050&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="z-wave-js">Z-Wave JS&lt;/h3>
 &lt;p>In order to give the Home Assistant Z Wave JS integration a local z wave server to talk to, I&amp;rsquo;m using the zwave2mqtt image. For the time being I have mqtt turned off (via the UI on port 8080), but that will change soon enough.&lt;/p>
@@ -382,25 +382,25 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">95
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">zwavejs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs/zwavejs2mqtt&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=${TZ}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;3000:3000&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8091:8091&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tty&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">./zwavejs:/usr/src/app/store&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">devices&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/dev/ttyACM0:/dev/ttyACM0&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">zwavejs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zwavejs/zwavejs2mqtt&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=${TZ}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;3000:3000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;8091:8091&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">tty&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./zwavejs:/usr/src/app/store&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">devices&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/dev/ttyACM0:/dev/ttyACM0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>I&amp;rsquo;ve given this service access to my Synology&amp;rsquo;s front USB port since I have a &lt;a href="https://aeotec.com/z-wave-usb-stick/">Aeotec z-wave usb stick&lt;/a> there.&lt;/p>
 &lt;h3 id="sql">SQL&lt;/h3>
@@ -429,27 +429,27 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;span class="lnt">115
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="w"> &lt;/span>&lt;span class="nt">sql_db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sql_db&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">linuxserver/mariadb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># https://hub.docker.com/r/linuxserver/mariadb&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">PUID=&amp;#34;${UID}&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">PGID=&amp;#34;${GID}&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_ROOT_PASSWORD=${MYSQL_ROOT}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=${TZ}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_DATABASE=hass&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_USER=hass&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_PASSWORD=${MYSQL_PASSWORD}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">expose&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">3306&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">./sql_db/config:/config&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sql_db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sql_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">linuxserver/mariadb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># https://hub.docker.com/r/linuxserver/mariadb&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">PUID=&amp;#34;${UID}&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">PGID=&amp;#34;${GID}&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_ROOT_PASSWORD=${MYSQL_ROOT}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=${TZ}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_DATABASE=hass&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_USER=hass&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">MYSQL_PASSWORD=${MYSQL_PASSWORD}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expose&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">3306&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./sql_db/config:/config&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="synology-ip-tables-fix">Synology IP Tables Fix&lt;/h2>
 &lt;p>To be honest I don&amp;rsquo;t know enough about networking to know who&amp;rsquo;s ultimately at fault here, but the default interaction between synology and docker keep bridge networks from being able to see real end user IPs. I don&amp;rsquo;t know how many hours I spend messing with proxy protocol settings in nginx and traefik.&lt;/p>
@@ -658,17 +658,17 @@ src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
 &lt;/figure>
 &lt;h2 id="the-end">The End&lt;/h2>
 &lt;p>There are simpler ways to do this. Don&amp;rsquo;t be like me&amp;hellip; unless you like t kitbash your way to success. I&amp;rsquo;ve been using this box for about 6 months now, and other than needing a way to stop the hygrometer from sliding around&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>, I&amp;rsquo;m pretty happy with the outcome.&lt;/p>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>Polypropylene doesn&amp;rsquo;t like to stick to much of anything so supporting the wight of the spools meant screws. And I wanted a backing that would support load and help gasket against air movement.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:2" role="doc-endnote">
+&lt;li id="fn:2">
 &lt;p>See also: Footnote 1&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>MrHomn</title><link>https://dereksrose.com/posts/mrhomn/</link><pubDate>Sun, 27 Jun 2021 15:09:54 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn/</guid><description>&lt;h1 id="my-new-home-automation-plan">My new home automation plan&lt;/h1>
+&lt;/div></description></item><item><title>MrHomn</title><link>https://dereksrose.com/posts/mrhomn/</link><pubDate>Sun, 27 Jun 2021 15:09:54 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn/</guid><description>&lt;h1 id="my-new-home-automation-plan">My new home automation plan&lt;/h1>
 &lt;figure
 style="width: 70%;"
 >
@@ -721,11 +721,11 @@ The Planned Tech Stack&amp;hellip; vaguely
 &lt;h3 id="data-analysis">Data Analysis&lt;/h3>
 &lt;h4 id="timeseries_db">timeseries_db&lt;/h4>
 &lt;p>SQL is well and good, but if you want to evaluate trends you want to be able to query for timeseries data. I am planning to use &lt;a href="https://www.influxdata.com/">InfluxDB&lt;/a>.&lt;/p>
-&lt;p>I&amp;rsquo;d' likely make use of InfluxDB as the storage backend for Prometheus.&lt;/p>
+&lt;p>I&amp;rsquo;d&amp;rsquo; likely make use of InfluxDB as the storage backend for Prometheus.&lt;/p>
 &lt;h4 id="grafana">Grafana&lt;/h4>
 &lt;p>&lt;a href="https://grafana.com/">Grafana&lt;/a> is a solid visualization platform that is common use. Understanding it at more than basic level will pay dividends.&lt;/p>
 &lt;h3 id="purpose-built-sensors">Purpose built sensors&lt;/h3>
-&lt;p>It has been decades since I did anything with hobbyist electronics and I intend to make the time to relearn it. I intend to use ESP modules and simple sensors anywhere I can figure out how to power them. I&amp;rsquo;d like to sample the temp and humidity in each space of my house. I&amp;rsquo;d like to add CO&lt;sub>2&lt;/sub>, Lux, dB, and in key areas. And I also want some manner particulate sensor(s) in my attic due to local wildfires. For added fun I can 3D Print each sensors' housing.&lt;/p>
+&lt;p>It has been decades since I did anything with hobbyist electronics and I intend to make the time to relearn it. I intend to use ESP modules and simple sensors anywhere I can figure out how to power them. I&amp;rsquo;d like to sample the temp and humidity in each space of my house. I&amp;rsquo;d like to add CO&lt;sub>2&lt;/sub>, Lux, dB, and in key areas. And I also want some manner particulate sensor(s) in my attic due to local wildfires. For added fun I can 3D Print each sensors&amp;rsquo; housing.&lt;/p>
 &lt;figure
 style="width: 60%;"
 >
@@ -783,15 +783,15 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 />
 &lt;/a>
 &lt;/figure>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>OK, yes, I promised, after naming my second home automation repo &amp;ldquo;&lt;a href="https://github.com/Bishma/home-assistant-tng">HomeAssistant TNG&lt;/a>,&amp;rdquo; that I&amp;rsquo;d name my next one &amp;ldquo;Deep Space Nine.&amp;rdquo; But &lt;a href="https://memory-alpha.fandom.com/wiki/Homn">MrHomn&lt;/a> was too good to pass up.&lt;/p>
 &lt;p>He was &lt;a href="https://memory-alpha.fandom.com/wiki/Lwaxana_Troi">Lwaxana Troy&amp;rsquo;s&lt;/a> very diligent valet in Star Trek TNG, three syllable wake words tend to work best for VUIs, &lt;a href="https://en.wikipedia.org/wiki/Carel_Struycken">Carel Struycken&lt;/a> is awesome, and Homn is a homonym of home (at least the way Lwaxana pronounced it).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
+&lt;/div></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
 &lt;p>&lt;strong>Compatible with the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
 &lt;p>We have several &lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a &lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my &lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
 &lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the &lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
@@ -1413,7 +1413,7 @@ echo $SITE
 &lt;/code>&lt;/pre>
 &lt;p>The sites I use next/prev on the most are Twitter, Feedly, and Reddit. Unfortunately when reddit opens thelightbox of a post it makes the title match the post title. So my detection amounts to Twitter, Feedly, and &amp;ldquo;Other.&amp;rdquo;&lt;/p></description></item><item><title>Codename: Bad Janet</title><link>https://dereksrose.com/posts/codename-bad-janet/</link><pubDate>Sun, 03 Nov 2019 11:11:53 -0800</pubDate><guid>https://dereksrose.com/posts/codename-bad-janet/</guid><description>&lt;h1 id="a-better-alexa-skill">A Better Alexa Skill&lt;/h1>
 &lt;p>In 2016 I was given a 1st gen Echo Dot and I immediately sought to integrate it with &lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a>. The quick way to so at the time was via the Philips Hue Bridge which allowed simple on/off control of devices. Over time more of my home was being controlled by Home Assistant and just turning things on and off wasn&amp;rsquo;t enough.&lt;/p>
-&lt;p>I could achieve most of what I wanted using custom intent scripts. This allowed me to have nicer grammar when interacting with things like my media center, gave me the ability to pass variables to Home Assistant (like &amp;ldquo;turn up the volume &lt;em>two times&lt;/em>&amp;quot;), and allowed me to get &lt;a href="https://www.home-assistant.io/docs/configuration/templating/">jinja templated&lt;/a> responses. Fast forward to 2019 and I think you can do most, if not all, of this with &lt;a href="https://www.nabucasa.com/">Nabu Casa&lt;/a> + template sensors + Alexa routines. But at the time it was the most direct means to get what I wanted.&lt;/p>
+&lt;p>I could achieve most of what I wanted using custom intent scripts. This allowed me to have nicer grammar when interacting with things like my media center, gave me the ability to pass variables to Home Assistant (like &amp;ldquo;turn up the volume &lt;em>two times&lt;/em>&amp;rdquo;), and allowed me to get &lt;a href="https://www.home-assistant.io/docs/configuration/templating/">jinja templated&lt;/a> responses. Fast forward to 2019 and I think you can do most, if not all, of this with &lt;a href="https://www.nabucasa.com/">Nabu Casa&lt;/a> + template sensors + Alexa routines. But at the time it was the most direct means to get what I wanted.&lt;/p>
 &lt;p>Now I want more. I want to be able to do fallbacks, have multi-step intents, do slot confirmations, and just generally have a good VUI. The most personally interesting way to approach this is to learn python and make use of &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> to build a full featured Alexa API. I&amp;rsquo;ll take a stepwise approach to achieving this, starting with trying to feature match my existing system with a few needed upgrades.&lt;/p>
 &lt;h2 id="minimum-viable-product">Minimum Viable Product&lt;/h2>
 &lt;h3 id="on--off-for-all-devices">On / Off For All Devices&lt;/h3>
@@ -1584,50 +1584,54 @@ echo $SITE
 &lt;h2 id="the-project">The Project&lt;/h2>
 &lt;p>It&amp;rsquo;s not very sophistocated yet, so it&amp;rsquo;s all in &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/alexa.py">this one appdaemon app&lt;/a>.&lt;/p></description></item><item><title>Appdaemon Logging</title><link>https://dereksrose.com/posts/appdaemon-logging/</link><pubDate>Mon, 22 Jul 2019 18:33:18 -0800</pubDate><guid>https://dereksrose.com/posts/appdaemon-logging/</guid><description>&lt;h1 id="combined-logging-between-home-assistant-and-appdaemon">Combined logging between Home Assistant and AppDaemon&lt;/h1>
 &lt;p>I&amp;rsquo;ve begun using &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> apps to extend &lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a>. It&amp;rsquo;s a way to write sandboxed &lt;a href="https://www.python.org/">Python&lt;/a> apps that have access to &lt;a href="https://www.home-assistant.io/">home-assistant&lt;/a> events, devices, services, and presence. It&amp;rsquo;s intended to be replacement for automations that can leverage all the power of python. You can also use it as a way to create sensors in Home Assistant.&lt;/p>
-&lt;p>My &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py">first foray&lt;/a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&amp;rsquo;s for lunch. There is also an attribute on the sensor containing the next three days' menus. I then wrote a &lt;a href="https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card">crude custom lovelace card&lt;/a> to display that on my frontend.&lt;/p>
+&lt;p>My &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py">first foray&lt;/a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&amp;rsquo;s for lunch. There is also an attribute on the sensor containing the next three days&amp;rsquo; menus. I then wrote a &lt;a href="https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card">crude custom lovelace card&lt;/a> to display that on my frontend.&lt;/p>
 &lt;p>&lt;img src="https://dereksrose.com/images/appdaemon-logging_1-custom-card.png" alt="Custom card displaying attributes from an Appdaemon Sensor">&lt;/p>
 &lt;p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&amp;rsquo;m using &lt;a href="https://www.home-assistant.io/hassio/">Hass.io&lt;/a> with the &lt;a href="https://github.com/hassio-addons/addon-log-viewer">LogViewer&lt;/a> addon, I&amp;rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the &lt;a href="https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722">Home Assistant Forums&lt;/a> I was able to piece together what I wanted.&lt;/p>
 &lt;h4 id="step-1">Step 1:&lt;/h4>
 &lt;p>I need to use the home assistant &lt;a href="https://www.home-assistant.io/integrations/python_script/">python script component&lt;/a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;message&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;No message provided&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="c1"># Send to the appropriate log level&lt;/span>
-&lt;span class="n">received_level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;level&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;debug&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">debug&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">elif&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;warning&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">warning&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">elif&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;error&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">info&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in &lt;code>&amp;lt;config&amp;gt;/python_scripts/log.py&lt;/code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called &lt;code>python_script.log&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;message&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;No message provided&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Send to the appropriate log level&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">received_level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;level&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;debug&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">debug&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">elif&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;warning&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">warning&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">elif&lt;/span> &lt;span class="n">received_level&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;error&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">info&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in &lt;code>&amp;lt;config&amp;gt;/python_scripts/log.py&lt;/code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called &lt;code>python_script.log&lt;/code>.&lt;/p>
 &lt;h4 id="step-2">Step 2&lt;/h4>
 &lt;p>Fine grained &lt;a href="https://www.home-assistant.io/components/logger/">logger&lt;/a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new &lt;code>python_script.log&lt;/code> service all the way to debug when I&amp;rsquo;m developing a new AppDaemon app.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="c"># &amp;#34;The logger component lets you define the level of logging activities in Home Assistant.&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># https://www.home-assistant.io/components/logger/&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">logger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">default&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">warning&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">logs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">homeassistant.components.python_script.log.py&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">debug&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Each call to the &lt;code>python_script.log&lt;/code> service will generate a log at the info level. Having a default log level of warning here has the benefit of not showing my all my AppDaemon logs twice.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># &amp;#34;The logger component lets you define the level of logging activities in Home Assistant.&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># https://www.home-assistant.io/components/logger/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">logger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">default&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">warning&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">homeassistant.components.python_script.log.py&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">debug&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Each call to the &lt;code>python_script.log&lt;/code> service will generate a log at the info level. Having a default log level of warning here has the benefit of not showing my all my AppDaemon logs twice.&lt;/p>
 &lt;h4 id="step-3">Step 3&lt;/h4>
 &lt;p>AppDaemon has the means to register a listener on all calls to self.log in all running AppDaemon apps. To do this you want to set up a stand-alone log handling AppDaemon app.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">appdaemon.plugins.hass.hassapi&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">hass&lt;/span>
-&lt;span class="k">class&lt;/span> &lt;span class="nc">LogBridge&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">hass&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Hass&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="k">def&lt;/span> &lt;span class="nf">initialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">listen_log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">def&lt;/span> &lt;span class="nf">cb&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ts&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="n">msg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;[AppDaemon] &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">call_service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;python_script/log&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msg&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The callback (&lt;code>cb&lt;/code>) formats a message for readability and then passes that and the level to the Home Assistant &lt;code>python_script.log&lt;/code> service created above. Save this in the apps directory as &lt;code>log_bridge.yaml&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">appdaemon.plugins.hass.hassapi&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">hass&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">LogBridge&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">hass&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Hass&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">initialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">listen_log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">cb&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ts&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">msg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;[AppDaemon] &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="si">{}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">call_service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;python_script/log&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">level&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">level&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msg&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The callback (&lt;code>cb&lt;/code>) formats a message for readability and then passes that and the level to the Home Assistant &lt;code>python_script.log&lt;/code> service created above. Save this in the apps directory as &lt;code>log_bridge.yaml&lt;/code>.&lt;/p>
 &lt;h4 id="step-4">Step 4&lt;/h4>
 &lt;p>Register this script as an AppDaemon app in &lt;code>apps.yaml&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">log_bridge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">module&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log_bridge&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">class&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">LogBridge&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After a reboot every log line from AppDaemon pipes into home assistant.&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">log_bridge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">module&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log_bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">class&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">LogBridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After a reboot every log line from AppDaemon pipes into home assistant.&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
 &lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for &lt;a href="https://www.home-assistant.io">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
 &lt;p>This solution utilizes the &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">Remote Backup&lt;/a> addon, my home &lt;a href="https://www.synology.com">Synology Diskstation NAS&lt;/a> and &lt;a href="https://www.dropbox.com">Dropbox&lt;/a> via encrypted &lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup">Hyper Backup&lt;/a> tasks.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
@@ -1681,8 +1685,8 @@ echo $SITE
 &lt;h2 id="set-up">Set up&lt;/h2>
 &lt;h3 id="generate-a-key-pair">Generate A Key Pair&lt;/h3>
 &lt;p>A public/private keypair is needed for the remote backup addon (it&amp;rsquo;s also just a good idea). This is best done (saved and securely backed up) somewhere other than the synology.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t rsa -b &lt;span class="m">4096&lt;/span> -C &lt;span class="s2">&amp;#34;hass_backup&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>I used my workstation; saving them in a backed up directory and in my password manager.&lt;/p>
 &lt;h3 id="synology-user">Synology User&lt;/h3>
 &lt;ol>
 &lt;li>From The Users section of the DSM Control Panel select Create &lt;br>
@@ -1709,29 +1713,29 @@ echo $SITE
 &lt;/ol>
 &lt;/li>
 &lt;li>Change the home directory in &lt;code>/etc/passwd&lt;/code> to be the &lt;code>homes&lt;/code> directory that the Synology created when home directories were enabled. SSHing in using the synology user is now possible, but there will be an error about not being able chdir into your home directory. This error won&amp;rsquo;t prevent fixing of the problem.
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/passwd
-&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo vim /etc/passwd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>Change &lt;code>/var/services/homes/hass_backup&lt;/code> to &lt;code>/volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>I suspect this would be unnecessary if I had enabled home directories before enabling SSH or creating the hass_backup user but I was disinclined to go back and unwind everything to find out.&lt;/li>
 &lt;/ol>
 &lt;/li>
 &lt;li>&lt;code>chmod 0750 /volume1/homes/hass_backup&lt;/code>&lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology using the hass_backup user&amp;rsquo;s password (without any errors).
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h4 id="enable-public-key-authentication">Enable Public Key Authentication&lt;/h4>
 &lt;p>While logged into the Synology via SSH:&lt;/p>
 &lt;ol>
 &lt;li>&lt;code>sudo vim /etc/ssh/sshd_config&lt;/code>&lt;/li>
 &lt;li>Uncomment these 3 lines
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
-&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
-&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#RSAAuthentication yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#PubkeyAuthentication yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#AuthorizedKeysFile .ssh/authorized_keys&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>Restart the ssh service
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo synoservicectl --reload sshd
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo synoservicectl --reload sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>&lt;code>mkdir ~/.ssh&lt;/code>&lt;/li>
 &lt;li>&lt;code>chmod 0750 ~/.ssh&lt;/code>&lt;/li>
 &lt;li>&lt;code>vim ~/.ssh/authorized_keys&lt;/code>
@@ -1740,8 +1744,8 @@ echo $SITE
 &lt;/ol>
 &lt;/li>
 &lt;li>At this point it should be possible to ssh into the synology without entering a password.
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh -i &amp;lt;location of private key&amp;gt; hass_backup@&amp;lt;synology ip address&amp;gt;:2222
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
 &lt;ol>
@@ -1753,16 +1757,16 @@ echo $SITE
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_8-service-test.png" alt="Service Test Example">&lt;/p>
 &lt;h3 id="automation">Automation&lt;/h3>
 &lt;p>This automation is taken directly from the remote backup add-on docs. The time was changed and the id was added.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">daily-backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Daily Backup at 00:30&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">time&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">at&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;00:30:00&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hassio.addon_start&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">addon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">954f2f4e_remote_backup&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hyper-backup">Hyper Backup&lt;/h3>
 &lt;p>The hyper backup job is pretty simple. Backup the &lt;code>HomeAssistant&lt;/code> folder and the MariaDB application (which at the time of this writing is only used by Home Assistant).&lt;/p>
 &lt;ol>
 &lt;li>Create a new &amp;ldquo;data backup task&amp;rdquo; with Dropbox as its destination. &lt;br>
@@ -1799,9 +1803,9 @@ echo $SITE
 &lt;li>Under task settings set notification settings for abnormal terminations. The script to run is a linux find command with delete flag &lt;br>
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_14-task-creation-general.png" alt="Task Creation Screen - Task Settings Tab"> &lt;br>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~
-find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
 &lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
 &lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their &lt;a href="https://www.home-assistant.io/components/sensor.rest/">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
 &lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">check it out&lt;/a>.&lt;/p>
@@ -1811,64 +1815,64 @@ find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;h2 id="sensors">Sensors&lt;/h2>
 &lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
 &lt;p>The first looks for the total number of alerts in my area.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active/count&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Count&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
-&lt;/span>&lt;span class="sd"> {% if value_json.zones.ORZ604 is defined %}
-&lt;/span>&lt;span class="sd"> {{ value_json.zones.ORZ604 | int }}
-&lt;/span>&lt;span class="sd"> {% elif value_json.zones.ORC039 is defined %}
-&lt;/span>&lt;span class="sd"> {{ value_json.zones.ORC039 | int }}
-&lt;/span>&lt;span class="sd"> {% else %}
-&lt;/span>&lt;span class="sd"> 0
-&lt;/span>&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/ld+json&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active/count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% if value_json.zones.ORZ604 is defined %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {{ value_json.zones.ORZ604 | int }}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% elif value_json.zones.ORC039 is defined %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {{ value_json.zones.ORC039 | int }}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% else %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/ld+json&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
 &lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Event&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
-&lt;/span>&lt;span class="sd"> {% if value_json.features[0] is defined %}
-&lt;/span>&lt;span class="sd"> {{ value_json[&amp;#39;features&amp;#39;][0][&amp;#39;properties&amp;#39;].event }}
-&lt;/span>&lt;span class="sd"> {% else %}
-&lt;/span>&lt;span class="sd"> None
-&lt;/span>&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">json_attributes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">features&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/geo+json&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="automation">Automation&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Alert Event&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% if value_json.features[0] is defined %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {{ value_json[&amp;#39;features&amp;#39;][0][&amp;#39;properties&amp;#39;].event }}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% else %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> None
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% endif %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">json_attributes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">features&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/geo+json&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="automation">Automation&lt;/h2>
 &lt;p>The automation uses a template condition to handle any change that results in a count from the first sensor that is greater than 0 (zero). If true and if this automation has not beed triggered in the last 6 hours then we send a notification via the &lt;code>notify.general&lt;/code> service. The first NWS sensors gives a handy integer to use in for range. My message template starts with a fun header (chipper voice of doom) and then concatinates all alerts together.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Notification Weather Alert&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">state&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">entity_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sensor.nws_alert_count&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{states.sensor.nws_alert_count.state | int &amp;gt; 0}}&amp;#39;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{ as_timestamp(now()) | int - as_timestamp(states.automation.nws_notification_weather_alert.attributes.last_triggered) | int &amp;gt; 21600 }}&amp;#39;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">data_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
-&lt;/span>&lt;span class="sd"> Hi There,
-&lt;/span>&lt;span class="sd">
-&lt;/span>&lt;span class="sd"> I&amp;#39;ve detected a change in national weather service advisories for Eugene.
-&lt;/span>&lt;span class="sd"> {% for i in range(states(&amp;#39;sensor.nws_alert_count&amp;#39;) | int) %}
-&lt;/span>&lt;span class="sd"> {%- if i &amp;gt; 0 -%}
-&lt;/span>&lt;span class="sd"> ---------
-&lt;/span>&lt;span class="sd"> {%- endif %}
-&lt;/span>&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.headline }}
-&lt;/span>&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.description }}
-&lt;/span>&lt;span class="sd"> {% endfor %}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">notify.general&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="still-to-come">Still to come&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">weather_alert_doooooom&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">alias&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">NWS Notification Weather Alert&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">trigger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">state&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">entity_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sensor.nws_alert_count&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{states.sensor.nws_alert_count.state | int &amp;gt; 0}}&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">condition&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">template&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">value_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{{ as_timestamp(now()) | int - as_timestamp(states.automation.nws_notification_weather_alert.attributes.last_triggered) | int &amp;gt; 21600 }}&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">action&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">data_template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Hi There,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> I&amp;#39;ve detected a change in national weather service advisories for Eugene.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% for i in range(states(&amp;#39;sensor.nws_alert_count&amp;#39;) | int) %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {%- if i &amp;gt; 0 -%}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> ---------
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {%- endif %}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.headline }}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {{ state_attr(&amp;#39;sensor.nws_alert_event&amp;#39;, &amp;#39;features&amp;#39;)[i].properties.description }}
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> {% endfor %}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">notify.general&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="still-to-come">Still to come&lt;/h2>
 &lt;p>I don&amp;rsquo;t love that I&amp;rsquo;m just blocking alerts for 6 hours. I get alert fatigue quickly, but I want to know if conditions are deteriorating. But what seems to happen most commonly is that an alert is retracted, then a new alert is issued with minimally updated information.&lt;/p>
 &lt;p>I want to add a Lovelace condition card to my outdoor climate tab that will pop up, highlighted, showing that there&amp;rsquo;s an alert. When I set up HTML notifications I may also want to push to that. I&amp;rsquo;m also considering changing the detailed sensor. Right now I like the flexibility of the full data from the API, but I don&amp;rsquo;t think I&amp;rsquo;ll want more than the headline and description.&lt;/p></description></item></channel></rss>
