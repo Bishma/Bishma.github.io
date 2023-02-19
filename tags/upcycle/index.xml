@@ -82,18 +82,23 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>To make assembly easier I &lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
+&lt;p>To make assembly easier I
+&lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html" target="_blank">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.thingiverse.com/thing:4668530/">Thingiverse&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.thingiverse.com/thing:4668530/" target="_blank">Thingiverse&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box" target="_blank">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="problem-2">Problem 2&lt;/h3>
 &lt;p>So much friction! I knew the filament spools wouldn&amp;rsquo;t roll smoothly on a narrow rod, but this was enough friction to make my extruder skip steps. Using a wooden rod was certainly exacerbating the situation.&lt;/p>
 &lt;h4 id="solution-2-bearing-assembly">Solution 2: Bearing Assembly&lt;/h4>
 &lt;p>I&amp;rsquo;m pretty sure I could have sufficiently overcome both sources of friction by making a bushing to adapt the average size of a filament spool to my small diameter rod. But I happen to have almost 50 (mediocre quality) 608 bearings that would DEFINITELY do the job&amp;hellip; perhaps too well (thay may spin too freely).&lt;/p>
 &lt;p>My first attempt (left side of the video below) didn&amp;rsquo;t leave enough clearance so it didn&amp;rsquo;t spin well and was going to wear grooves in my wooden dowel. On the right spool in the video you can see how adding just 0.15mm of tolerance got it dialed in.&lt;/p>
-&lt;p>This build warranted it&amp;rsquo;s &lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
+&lt;p>This build warranted it&amp;rsquo;s
+&lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
 &lt;/div>
@@ -149,7 +154,10 @@ loading="lazy">
 &lt;h3 id="problem-4">Problem 4&lt;/h3>
 &lt;p>I want to keep these 3 spools ready to go without much fuss. That meant feeding the filament from all spools without introducing a place for humidity to creep in.&lt;/p>
 &lt;h4 id="solution-4">Solution 4&lt;/h4>
-&lt;p>The folks who feed multi-filament systems (Like an &lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#">MMU&lt;/a> or a &lt;a href="https://www.mosaicmfg.com/products/palette-3">Pallete&lt;/a>) already have this figured out. I downloaded some &lt;a href="https://www.thingiverse.com/thing:4853256">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
+&lt;p>The folks who feed multi-filament systems (Like an
+&lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#" target="_blank">MMU&lt;/a> or a
+&lt;a href="https://www.mosaicmfg.com/products/palette-3" target="_blank">Pallete&lt;/a>) already have this figured out. I downloaded some
+&lt;a href="https://www.thingiverse.com/thing:4853256" target="_blank">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
 &lt;figure
 style="width: 60%;"
 >

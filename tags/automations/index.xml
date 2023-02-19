@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>automations on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/automations/</link><description>Recent content in automations on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 02 Feb 2020 10:54:44 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/automations/index.xml" rel="self" type="application/rss+xml"/><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>&lt;h1 id="context-aware-mouse-button-shortcuts-in-gnome">Context Aware Mouse Button Shortcuts in Gnome&lt;/h1>
 &lt;p>The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey. It was my go to for customizing controls and making macros. A lot of the things I used are different enough now that the AHK script wouldn&amp;rsquo;t be applicable anyway, but my context aware mouse buttons have been a huge hit to the way I work and play. I use a 9 button Logitech Vertical Mouse. It&amp;rsquo;s a form factor I prefer and it has helped so much with my RSI that I have one at home and one at work. The only bad thing I have to say about it concerns the lack of support it has in linux.&lt;/p>
-&lt;p>Thankfully I&amp;rsquo;ve &lt;a href="https://github.com/Bishma/.xbindkeys">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of &lt;a href="https://linux.die.net/man/1/xbindkeys">xbindkeys&lt;/a>, &lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html">xdotool&lt;/a>, and a bash script.&lt;/p>
+&lt;p>Thankfully I&amp;rsquo;ve
+&lt;a href="https://github.com/Bishma/.xbindkeys" target="_blank">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of
+&lt;a href="https://linux.die.net/man/1/xbindkeys" target="_blank">xbindkeys&lt;/a>,
+&lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html" target="_blank">xdotool&lt;/a>, and a bash script.&lt;/p>
 &lt;h2 id="problem-1-determine-the-active-window">Problem 1: Determine the Active Window&lt;/h2>
 &lt;p>The way I tend to work I can get away with simply knowing the process name and window title of the window that is currently focused.&lt;/p>
 &lt;pre>&lt;code># The window title is available straight from xdotool
@@ -24,8 +27,13 @@ echo $SITE
 }
 &lt;/code>&lt;/pre>
 &lt;p>The sites I use next/prev on the most are Twitter, Feedly, and Reddit. Unfortunately when reddit opens thelightbox of a post it makes the title match the post title. So my detection amounts to Twitter, Feedly, and &amp;ldquo;Other.&amp;rdquo;&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
-&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for &lt;a href="https://www.home-assistant.io">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
-&lt;p>This solution utilizes the &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">Remote Backup&lt;/a> addon, my home &lt;a href="https://www.synology.com">Synology Diskstation NAS&lt;/a> and &lt;a href="https://www.dropbox.com">Dropbox&lt;/a> via encrypted &lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup">Hyper Backup&lt;/a> tasks.&lt;/p>
+&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for
+&lt;a href="https://www.home-assistant.io" target="_blank">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
+&lt;p>This solution utilizes the
+&lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup" target="_blank">Remote Backup&lt;/a> addon, my home
+&lt;a href="https://www.synology.com" target="_blank">Synology Diskstation NAS&lt;/a> and
+&lt;a href="https://www.dropbox.com" target="_blank">Dropbox&lt;/a> via encrypted
+&lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup" target="_blank">Hyper Backup&lt;/a> tasks.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="durability">Durability&lt;/h3>
 &lt;p>We&amp;rsquo;ve grown fond enough of the system that I consider it worth at least 3-2-1 for its backups. The chances of meaningful loss with this configuration is very low.&lt;/p>
@@ -141,7 +149,8 @@ echo $SITE
 &lt;/ol>
 &lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
 &lt;ol>
-&lt;li>Add the repository and install the add-on &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">per its instructions&lt;/a>.&lt;/li>
+&lt;li>Add the repository and install the add-on
+&lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup" target="_blank">per its instructions&lt;/a>.&lt;/li>
 &lt;li>Configure it with the everything that was just set up. &lt;br>
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_7-remote-backup-config.png" alt="Remote Backup Creation Screen">&lt;/li>
 &lt;/ol>
@@ -199,11 +208,15 @@ echo $SITE
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
 &lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
-&lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their &lt;a href="https://www.home-assistant.io/components/sensor.rest/">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
-&lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">check it out&lt;/a>.&lt;/p>
+&lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums
+&lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11" target="_blank">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their
+&lt;a href="https://www.home-assistant.io/components/sensor.rest/" target="_blank">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
+&lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should
+&lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11" target="_blank">check it out&lt;/a>.&lt;/p>
 &lt;p>&lt;img src="https://dereksrose.com/images/NWS-Alerts_1-telegram-example.png" alt="Example of the NWS Alert Text sent through Telegram.">&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as &lt;code>notification.general&lt;/code>. That was set up using the &lt;a href="https://www.home-assistant.io/components/notify.telegram/">notification component&amp;rsquo;s docs&lt;/a>.&lt;/p>
+&lt;p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as &lt;code>notification.general&lt;/code>. That was set up using the
+&lt;a href="https://www.home-assistant.io/components/notify.telegram/" target="_blank">notification component&amp;rsquo;s docs&lt;/a>.&lt;/p>
 &lt;h2 id="sensors">Sensors&lt;/h2>
 &lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
 &lt;p>The first looks for the total number of alerts in my area.&lt;/p>
@@ -222,7 +235,8 @@ echo $SITE
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/ld+json&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on
+&lt;a href="https://alerts.weather.gov/" target="_blank">this page&lt;/a>.&lt;/p>
 &lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">

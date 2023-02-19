@@ -105,7 +105,9 @@ target="_blank">Thingiverse&lt;/a>&lt;/li>
 href="https://www.prusaprinters.org/prints/74780"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>MrHomn: Migration to Docker</title><link>https://dereksrose.com/posts/mrhomn-migration-to-docker/</link><pubDate>Sun, 18 Jul 2021 14:55:16 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn-migration-to-docker/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Proxy, Home Assistant and DB&amp;#39;s. Oh my.&lt;/h1>
-&lt;p>&lt;a href="https://dereksrose.com/posts/mrhomn/" title="MrHomn">Last time&lt;/a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running &lt;a href="https://www.home-assistant.io/">home assistant&lt;/a> there.&lt;/p>
+&lt;p>
+&lt;a href="https://dereksrose.com/posts/mrhomn/" title="MrHomn">Last time&lt;/a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running
+&lt;a href="https://www.home-assistant.io/" target="_blank">home assistant&lt;/a> there.&lt;/p>
 &lt;figure
 style="width: 70%;"
 >
@@ -130,9 +132,14 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;li>Z-Wave JS&lt;/li>
 &lt;/ul>
 &lt;p>I need to route incoming traffic between nodes in my docker stack via path. My Alexa skill has to be publicly served on port 443 and I don&amp;rsquo;t want to have a second endpoint running, so I am implementing a path based router. I also wanted to handle my TLS cert termination at this layer as I have no need to pass encrypted traffic around inside my docker network.&lt;/p>
-&lt;p>I started, as one does, with &lt;a href="https://hub.docker.com/_/nginx">Nginx&lt;/a>:alpine + &lt;a href="https://hub.docker.com/r/certbot/certbot">Certbot&lt;/a> in seperate containers and it worked fine, but I didn&amp;rsquo;t like needing to handle certs &amp;ldquo;myself.&amp;rdquo; That certbot container is just one more breakpoint. I thought about going with &lt;a href="https://nginxproxymanager.com/">nginx proxy manager&lt;/a> because I&amp;rsquo;ve worked with it before and I know it&amp;rsquo;s dead simple to stand up in docker&amp;hellip; but also I&amp;rsquo;ve used it before and this is meant to be a learning experience. So I ended up going with &lt;a href="https://doc.traefik.io/traefik/">Traefik&lt;/a>.&lt;/p>
+&lt;p>I started, as one does, with
+&lt;a href="https://hub.docker.com/_/nginx" target="_blank">Nginx&lt;/a>:alpine +
+&lt;a href="https://hub.docker.com/r/certbot/certbot" target="_blank">Certbot&lt;/a> in seperate containers and it worked fine, but I didn&amp;rsquo;t like needing to handle certs &amp;ldquo;myself.&amp;rdquo; That certbot container is just one more breakpoint. I thought about going with
+&lt;a href="https://nginxproxymanager.com/" target="_blank">nginx proxy manager&lt;/a> because I&amp;rsquo;ve worked with it before and I know it&amp;rsquo;s dead simple to stand up in docker&amp;hellip; but also I&amp;rsquo;ve used it before and this is meant to be a learning experience. So I ended up going with
+&lt;a href="https://doc.traefik.io/traefik/" target="_blank">Traefik&lt;/a>.&lt;/p>
 &lt;h2 id="compose-file-setup">Compose file setup&lt;/h2>
-&lt;p>My full &lt;a href="https://github.com/Bishma/MrHomn/blob/main/docker-compose.yaml">compose file&lt;/a> is available for review. I&amp;rsquo;ll do my best to explain each service here. This section is going to be dense but hopefully it save someone else some of my debugging time.&lt;/p>
+&lt;p>My full
+&lt;a href="https://github.com/Bishma/MrHomn/blob/main/docker-compose.yaml" target="_blank">compose file&lt;/a> is available for review. I&amp;rsquo;ll do my best to explain each service here. This section is going to be dense but hopefully it save someone else some of my debugging time.&lt;/p>
 &lt;p>I&amp;rsquo;ll go over each of my starting service definitions and attempt keep line numbers consistent.&lt;/p>
 &lt;h3 id="traefik">Traefik&lt;/h3>
 &lt;p>Starting with the container basics. I&amp;rsquo;m tagging the current minor version of traefik from docker hub.&lt;/p>
@@ -300,7 +307,8 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="appdaemon">AppDaemon&lt;/h3>
-&lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
+&lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is
+&lt;a href="https://appdaemon.readthedocs.io/en/latest/" target="_blank">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">56
@@ -402,7 +410,8 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>I&amp;rsquo;ve given this service access to my Synology&amp;rsquo;s front USB port since I have a &lt;a href="https://aeotec.com/z-wave-usb-stick/">Aeotec z-wave usb stick&lt;/a> there.&lt;/p>
+&lt;/div>&lt;p>I&amp;rsquo;ve given this service access to my Synology&amp;rsquo;s front USB port since I have a
+&lt;a href="https://aeotec.com/z-wave-usb-stick/" target="_blank">Aeotec z-wave usb stick&lt;/a> there.&lt;/p>
 &lt;h3 id="sql">SQL&lt;/h3>
 &lt;p>I&amp;rsquo;ve gone with MariaDB for SQL. This currently only drives home assistant, but I will soon be restoring some Alexa skill functionality that also requires SQL.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -453,7 +462,8 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>
 &lt;/div>&lt;h2 id="synology-ip-tables-fix">Synology IP Tables Fix&lt;/h2>
 &lt;p>To be honest I don&amp;rsquo;t know enough about networking to know who&amp;rsquo;s ultimately at fault here, but the default interaction between synology and docker keep bridge networks from being able to see real end user IPs. I don&amp;rsquo;t know how many hours I spend messing with proxy protocol settings in nginx and traefik.&lt;/p>
-&lt;p>The fix that finally worked was altering my synology&amp;rsquo;s iptables settings. I don&amp;rsquo;t know what good karma finally led me to &lt;a href="https://gist.github.com/pedrolamas/db809a2b9112166da4a2dbf8e3a72ae9">pedrolamas/docker-iptables-fix.sh&lt;/a>, but it was a turning point for this project.&lt;/p>
+&lt;p>The fix that finally worked was altering my synology&amp;rsquo;s iptables settings. I don&amp;rsquo;t know what good karma finally led me to
+&lt;a href="https://gist.github.com/pedrolamas/db809a2b9112166da4a2dbf8e3a72ae9" target="_blank">pedrolamas/docker-iptables-fix.sh&lt;/a>, but it was a turning point for this project.&lt;/p>
 &lt;h2 id="the-port-dance">The port dance&lt;/h2>
 &lt;p>For the sake of compatibility I need ingressing traffic to come in via public ports 80 and 443 but I&amp;rsquo;m already using these ports (privately) on my host device for unrelated internal traffic routing through nginx. So home automation requests will hit my my WAF on 80/443 and then forward to ports 8321/8322 respectively on my Synology. But then docker is going map those host ports back to 80/443 😕&lt;/p>
 &lt;p>To keep it all straight I made a flow chart.&lt;/p>
@@ -479,18 +489,23 @@ href="https://dereksrose.com/images/mrhomn-migration-to-docker/nginx_port_dance.
 title="All the routing that nginx needed to also handle certbot."
 >this is what it looked like&lt;/a> when I first set it up with Nginx. I don&amp;rsquo;t know why, but having to maintain that extra route for certbot was, if you&amp;rsquo;ll forgive the idiom, a bridge too far.&lt;/p>
 &lt;h1 id="the-migration-process">The migration process&lt;/h1>
-&lt;p>Now that I&amp;rsquo;m routing I can take down my existing &lt;a href="https://www.home-assistant.io/installation/">Home Assistant OS&lt;/a> based install and move it over to my docker setup.&lt;/p>
+&lt;p>Now that I&amp;rsquo;m routing I can take down my existing
+&lt;a href="https://www.home-assistant.io/installation/" target="_blank">Home Assistant OS&lt;/a> based install and move it over to my docker setup.&lt;/p>
 &lt;h2 id="just-the-foundation">Just the foundation&lt;/h2>
 &lt;p>I ultimately went with a semi start-over approach. I copied all my yaml files (&lt;code>configuration.yaml&lt;/code>, &lt;code>scripts.yaml&lt;/code>, &lt;code>secrets.yaml&lt;/code>, etc) and the lovelace json files from inside &lt;code>.storage&lt;/code>. I deleted everything that was generated by home assistant as I was working out my routing system and put the copied files in their place. Then I restarted home-assistant and manually set up all UI based integrations. This took minutes, and other that needing to clear browser cache and re-setup our mobile apps it was pretty painless.&lt;/p>
 &lt;h2 id="updates">Updates&lt;/h2>
-&lt;p>My Home Assistant doesn&amp;rsquo;t use their handy &lt;a href="https://www.home-assistant.io/integrations/default_config/">default_config&lt;/a> because I don&amp;rsquo;t like having autodiscovery turned on. The downside to doing things manually is that I miss out on new developments that are normally added to this &lt;code>default_config&lt;/code> alias.&lt;/p>
-&lt;p>So I went in and added some of the things I&amp;rsquo;ve missed out on since I last did a major update including &lt;a href="https://www.home-assistant.io/integrations/my/">my&lt;/a> and &lt;a href="https://www.home-assistant.io/integrations/stream/">stream&lt;/a>. Then I cleaned up some other messes here and there as well.&lt;/p>
+&lt;p>My Home Assistant doesn&amp;rsquo;t use their handy
+&lt;a href="https://www.home-assistant.io/integrations/default_config/" target="_blank">default_config&lt;/a> because I don&amp;rsquo;t like having autodiscovery turned on. The downside to doing things manually is that I miss out on new developments that are normally added to this &lt;code>default_config&lt;/code> alias.&lt;/p>
+&lt;p>So I went in and added some of the things I&amp;rsquo;ve missed out on since I last did a major update including
+&lt;a href="https://www.home-assistant.io/integrations/my/" target="_blank">my&lt;/a> and
+&lt;a href="https://www.home-assistant.io/integrations/stream/" target="_blank">stream&lt;/a>. Then I cleaned up some other messes here and there as well.&lt;/p>
 &lt;h1 id="aftermath">Aftermath&lt;/h1>
 &lt;p>Very minor things were broken by my brute force migration.&lt;/p>
 &lt;p>I ran into 2 devices whose names had changed at somepoint (on the hardware) but which had their old names cached in my old install. I had to go into one script, one automation, and a couple lovelace cards to update things to the correct (newer) name.&lt;/p>
 &lt;p>Because I didn&amp;rsquo;t copy over anything from auth we had to clear our browser caches and re-setup our mobile apps.&lt;/p>
 &lt;h1 id="coming-next">Coming next&lt;/h1>
-&lt;p>I&amp;rsquo;m currently writing a very basic DR script in python. Honestly I&amp;rsquo;m doing it manly to play with Github Copilot. Then I think I want to start playing with &lt;a href="https://grafana.com/docs/grafana/latest/datasources/influxdb/">Influxdb and Grafana&lt;/a> to visualize some of my home assistant data.&lt;/p>
+&lt;p>I&amp;rsquo;m currently writing a very basic DR script in python. Honestly I&amp;rsquo;m doing it manly to play with Github Copilot. Then I think I want to start playing with
+&lt;a href="https://grafana.com/docs/grafana/latest/datasources/influxdb/" target="_blank">Influxdb and Grafana&lt;/a> to visualize some of my home assistant data.&lt;/p>
 &lt;p>Hopefully I don&amp;rsquo;t run out of RAM, an upgrade isn&amp;rsquo;t in the budget.&lt;/p></description></item><item><title>Drybox</title><link>https://dereksrose.com/posts/drybox/</link><pubDate>Sun, 27 Jun 2021 18:05:02 -0700</pubDate><guid>https://dereksrose.com/posts/drybox/</guid><description>&lt;h1 id="multi-roll-filament-dry-box">Multi-roll Filament Dry Box&lt;/h1>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
@@ -575,18 +590,23 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>To make assembly easier I &lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
+&lt;p>To make assembly easier I
+&lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html" target="_blank">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.thingiverse.com/thing:4668530/">Thingiverse&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.thingiverse.com/thing:4668530/" target="_blank">Thingiverse&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box" target="_blank">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="problem-2">Problem 2&lt;/h3>
 &lt;p>So much friction! I knew the filament spools wouldn&amp;rsquo;t roll smoothly on a narrow rod, but this was enough friction to make my extruder skip steps. Using a wooden rod was certainly exacerbating the situation.&lt;/p>
 &lt;h4 id="solution-2-bearing-assembly">Solution 2: Bearing Assembly&lt;/h4>
 &lt;p>I&amp;rsquo;m pretty sure I could have sufficiently overcome both sources of friction by making a bushing to adapt the average size of a filament spool to my small diameter rod. But I happen to have almost 50 (mediocre quality) 608 bearings that would DEFINITELY do the job&amp;hellip; perhaps too well (thay may spin too freely).&lt;/p>
 &lt;p>My first attempt (left side of the video below) didn&amp;rsquo;t leave enough clearance so it didn&amp;rsquo;t spin well and was going to wear grooves in my wooden dowel. On the right spool in the video you can see how adding just 0.15mm of tolerance got it dialed in.&lt;/p>
-&lt;p>This build warranted it&amp;rsquo;s &lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
+&lt;p>This build warranted it&amp;rsquo;s
+&lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
 &lt;/div>
@@ -642,7 +662,10 @@ loading="lazy">
 &lt;h3 id="problem-4">Problem 4&lt;/h3>
 &lt;p>I want to keep these 3 spools ready to go without much fuss. That meant feeding the filament from all spools without introducing a place for humidity to creep in.&lt;/p>
 &lt;h4 id="solution-4">Solution 4&lt;/h4>
-&lt;p>The folks who feed multi-filament systems (Like an &lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#">MMU&lt;/a> or a &lt;a href="https://www.mosaicmfg.com/products/palette-3">Pallete&lt;/a>) already have this figured out. I downloaded some &lt;a href="https://www.thingiverse.com/thing:4853256">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
+&lt;p>The folks who feed multi-filament systems (Like an
+&lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#" target="_blank">MMU&lt;/a> or a
+&lt;a href="https://www.mosaicmfg.com/products/palette-3" target="_blank">Pallete&lt;/a>) already have this figured out. I downloaded some
+&lt;a href="https://www.thingiverse.com/thing:4853256" target="_blank">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
 &lt;figure
 style="width: 60%;"
 >
@@ -683,7 +706,8 @@ src="https://dereksrose.com/images/mrhomn/mrhomn1.jpg"
 &lt;/a>
 &lt;/figure>
 &lt;p>When I decided to leave my job of over 15 years I knew that I wanted a bit of a career rewind. The last several years have seen me in full-time management positions and my programming, sysadmin, and SRE skills have gotten rusty. Since I learn by doing I wanted a project that would get me up-to-date and which I&amp;rsquo;d have fun implementing.&lt;/p>
-&lt;p>&lt;a href="https://github.com/Bishma/MrHomn">MrHomn&lt;/a> is the 3rd generation of my home automation setup&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. Which I plan to expand out to utilize common open source tools all operating in a docker-compose stack.&lt;/p>
+&lt;p>
+&lt;a href="https://github.com/Bishma/MrHomn" target="_blank">MrHomn&lt;/a> is the 3rd generation of my home automation setup&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. Which I plan to expand out to utilize common open source tools all operating in a docker-compose stack.&lt;/p>
 &lt;h2 id="stack-elements">Stack Elements&lt;/h2>
 &lt;figure
 style="width: 70%;"
@@ -702,28 +726,40 @@ The Planned Tech Stack&amp;hellip; vaguely
 &lt;/figcaption>
 &lt;/figure>
 &lt;h3 id="synology">Synology&lt;/h3>
-&lt;p>I&amp;rsquo;ll be using my &lt;a href="https://www.synology.com/en-us">Diskstation&lt;/a> as my storage pool, docker host, and backup agent.&lt;/p>
+&lt;p>I&amp;rsquo;ll be using my
+&lt;a href="https://www.synology.com/en-us" target="_blank">Diskstation&lt;/a> as my storage pool, docker host, and backup agent.&lt;/p>
 &lt;h3 id="hass">hass&lt;/h3>
-&lt;p>&lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a> is the brain of the setup. It provides the UI&amp;rsquo;s, device integrations, data recording, state tracking, events, and more.&lt;/p>
+&lt;p>
+&lt;a href="https://www.home-assistant.io/" target="_blank">Home Assistant&lt;/a> is the brain of the setup. It provides the UI&amp;rsquo;s, device integrations, data recording, state tracking, events, and more.&lt;/p>
 &lt;h3 id="sql_db">sql_db&lt;/h3>
-&lt;p>I&amp;rsquo;ve gone with &lt;a href="https://mariadb.org/">MariaDB&lt;/a> for now. Home Assistant makes use of &lt;a href="https://www.sqlalchemy.org/">SQLAcadamy&lt;/a> which opens up a lot of DB options. At some point I may have more specific needs but for now the versatility of MariaDB seems like a good choice.&lt;/p>
+&lt;p>I&amp;rsquo;ve gone with
+&lt;a href="https://mariadb.org/" target="_blank">MariaDB&lt;/a> for now. Home Assistant makes use of
+&lt;a href="https://www.sqlalchemy.org/" target="_blank">SQLAcadamy&lt;/a> which opens up a lot of DB options. At some point I may have more specific needs but for now the versatility of MariaDB seems like a good choice.&lt;/p>
 &lt;h3 id="appdaemon">appdaemon&lt;/h3>
-&lt;p>&lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> is a great way to incorporate loosely coupled Python apps with home assistant. Most critically this is how I&amp;rsquo;ll be creating my APIs to Home Assistant. My existing alexa skill connects to an &lt;a href="https://appdaemon.readthedocs.io/en/latest/AD_API_REFERENCE.html#alexa">appdaemon api&lt;/a> which makes use of &lt;code>sql_db&lt;/code>.&lt;/p>
+&lt;p>
+&lt;a href="https://appdaemon.readthedocs.io/en/latest/" target="_blank">AppDaemon&lt;/a> is a great way to incorporate loosely coupled Python apps with home assistant. Most critically this is how I&amp;rsquo;ll be creating my APIs to Home Assistant. My existing alexa skill connects to an
+&lt;a href="https://appdaemon.readthedocs.io/en/latest/AD_API_REFERENCE.html#alexa" target="_blank">appdaemon api&lt;/a> which makes use of &lt;code>sql_db&lt;/code>.&lt;/p>
 &lt;h3 id="nginx">nginx&lt;/h3>
-&lt;p>Initially, at least, I&amp;rsquo;m going to need a public API to support my Alexa skill. &lt;a href="https://www.nginx.com/">Nginx&lt;/a> is how I&amp;rsquo;ll be handling internal and external routing within my stack.&lt;/p>
+&lt;p>Initially, at least, I&amp;rsquo;m going to need a public API to support my Alexa skill.
+&lt;a href="https://www.nginx.com/" target="_blank">Nginx&lt;/a> is how I&amp;rsquo;ll be handling internal and external routing within my stack.&lt;/p>
 &lt;h2 id="near-future-goals">Near Future Goals&lt;/h2>
 &lt;h4 id="monitoring">Monitoring&lt;/h4>
-&lt;p>I&amp;rsquo;m currently weighing &lt;a href="https://prometheus.io/">Prometheus&lt;/a> vs &lt;a href="https://www.zabbix.com/">Zabbix&lt;/a>. I&amp;rsquo;d learn more implementing Prometheus but it&amp;rsquo;s overkill for this project.&lt;/p>
+&lt;p>I&amp;rsquo;m currently weighing
+&lt;a href="https://prometheus.io/" target="_blank">Prometheus&lt;/a> vs
+&lt;a href="https://www.zabbix.com/" target="_blank">Zabbix&lt;/a>. I&amp;rsquo;d learn more implementing Prometheus but it&amp;rsquo;s overkill for this project.&lt;/p>
 &lt;h4 id="log-management">Log Management&lt;/h4>
-&lt;p>TBD, but I&amp;rsquo;m leaning toward &lt;a href="https://hub.docker.com/r/graylog/graylog">Greylog&lt;/a>.&lt;/p>
+&lt;p>TBD, but I&amp;rsquo;m leaning toward
+&lt;a href="https://hub.docker.com/r/graylog/graylog" target="_blank">Greylog&lt;/a>.&lt;/p>
 &lt;h4 id="rum-and-synthetics">RUM and Synthetics&lt;/h4>
 &lt;p>This is running on my local network. I&amp;rsquo;m not going to have enough traffic for these to be of any use but it is one of the things I&amp;rsquo;d like to grain some practical experience with. ¯\_(ツ)_/¯&lt;/p>
 &lt;h3 id="data-analysis">Data Analysis&lt;/h3>
 &lt;h4 id="timeseries_db">timeseries_db&lt;/h4>
-&lt;p>SQL is well and good, but if you want to evaluate trends you want to be able to query for timeseries data. I am planning to use &lt;a href="https://www.influxdata.com/">InfluxDB&lt;/a>.&lt;/p>
+&lt;p>SQL is well and good, but if you want to evaluate trends you want to be able to query for timeseries data. I am planning to use
+&lt;a href="https://www.influxdata.com/" target="_blank">InfluxDB&lt;/a>.&lt;/p>
 &lt;p>I&amp;rsquo;d&amp;rsquo; likely make use of InfluxDB as the storage backend for Prometheus.&lt;/p>
 &lt;h4 id="grafana">Grafana&lt;/h4>
-&lt;p>&lt;a href="https://grafana.com/">Grafana&lt;/a> is a solid visualization platform that is common use. Understanding it at more than basic level will pay dividends.&lt;/p>
+&lt;p>
+&lt;a href="https://grafana.com/" target="_blank">Grafana&lt;/a> is a solid visualization platform that is common use. Understanding it at more than basic level will pay dividends.&lt;/p>
 &lt;h3 id="purpose-built-sensors">Purpose built sensors&lt;/h3>
 &lt;p>It has been decades since I did anything with hobbyist electronics and I intend to make the time to relearn it. I intend to use ESP modules and simple sensors anywhere I can figure out how to power them. I&amp;rsquo;d like to sample the temp and humidity in each space of my house. I&amp;rsquo;d like to add CO&lt;sub>2&lt;/sub>, Lux, dB, and in key areas. And I also want some manner particulate sensor(s) in my attic due to local wildfires. For added fun I can 3D Print each sensors&amp;rsquo; housing.&lt;/p>
 &lt;figure
@@ -739,12 +775,14 @@ src="https://dereksrose.com/images/mrhomn/arduino-example.png"
 />
 &lt;/a>
 &lt;figcaption>
-&lt;a href="https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/">Photo from&lt;/a>
+&lt;a href="https://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-an-arduino/" target="_blank">Photo from&lt;/a>
 &lt;/figcaption>
 &lt;/figure>
 &lt;p>Additionally I&amp;rsquo;m planning to build an RPi based outdoor weather station.&lt;/p>
 &lt;h4 id="esphome">ESPHome&lt;/h4>
-&lt;p>Those purpose built sensors have to tell someone what they sense. That someone is &lt;a href="https://github.com/esphome/esphome">ESPHome&lt;/a> which I plan to deploy in the &lt;a href="https://hub.docker.com/r/esphome/esphome">docker&lt;/a> stack.&lt;/p>
+&lt;p>Those purpose built sensors have to tell someone what they sense. That someone is
+&lt;a href="https://github.com/esphome/esphome" target="_blank">ESPHome&lt;/a> which I plan to deploy in the
+&lt;a href="https://hub.docker.com/r/esphome/esphome" target="_blank">docker&lt;/a> stack.&lt;/p>
 &lt;h3 id="telegram-chatbot">Telegram Chatbot&lt;/h3>
 &lt;p>My goal is to be able to duplicate a natural language interface for both voice assistants and telegram. Telegram has the extra benefit of being able to present options as buttons.&lt;/p>
 &lt;h3 id="no-hardware-requiring-the-cloud">No hardware requiring the cloud&lt;/h3>
@@ -753,8 +791,10 @@ src="https://dereksrose.com/images/mrhomn/arduino-example.png"
 &lt;p>The little bit of research that I&amp;rsquo;ve done so far suggests that the weak point in the realm of open/local voice assistants is wake work detection. Every time an OSS project starts to get close it gets snapped up by companies looking to compete with Amazon and Google.&lt;/p>
 &lt;p>All of that is to say that I want to replace Alexa. I&amp;rsquo;ll be doing various experiments to see how viable it is.&lt;/p>
 &lt;h4 id="doorbell">Doorbell&lt;/h4>
-&lt;p>I&amp;rsquo;m hearing that the &lt;a href="https://amcrest.com/smarthome-2-megapixel-wireless-doorbell-security-camera-1920-x-1080p-wifi-doorbell-camera-ip55-weatherproof-two-way-audio-ad110.html">Amcrest wifi doorbell&lt;/a> is decent hardware with a terrible app to back it up. But it has the big plus of not being cloud based. I can mimic alerting with Home Assistant + Telegram Bot, unfortunately that won&amp;rsquo;t replicate intercom functionality. There&amp;rsquo;s enough chance that we won&amp;rsquo;t be happy with the end result that I&amp;rsquo;m not willing to spend the money on one yet.&lt;/p>
-&lt;p>We have a couple Amcrest PTZ cameras connected to home assistant via &lt;a href="https://www.synology.com/en-us/surveillance">Synology Surveillance Station&lt;/a>.&lt;/p>
+&lt;p>I&amp;rsquo;m hearing that the
+&lt;a href="https://amcrest.com/smarthome-2-megapixel-wireless-doorbell-security-camera-1920-x-1080p-wifi-doorbell-camera-ip55-weatherproof-two-way-audio-ad110.html" target="_blank">Amcrest wifi doorbell&lt;/a> is decent hardware with a terrible app to back it up. But it has the big plus of not being cloud based. I can mimic alerting with Home Assistant + Telegram Bot, unfortunately that won&amp;rsquo;t replicate intercom functionality. There&amp;rsquo;s enough chance that we won&amp;rsquo;t be happy with the end result that I&amp;rsquo;m not willing to spend the money on one yet.&lt;/p>
+&lt;p>We have a couple Amcrest PTZ cameras connected to home assistant via
+&lt;a href="https://www.synology.com/en-us/surveillance" target="_blank">Synology Surveillance Station&lt;/a>.&lt;/p>
 &lt;h3 id="pytorch">PyTorch&lt;/h3>
 &lt;h4 id="nvidia-jetson">Nvidia Jetson&lt;/h4>
 &lt;p>This is a very affordable device that should be capable of keeping up with the tiny amount of learning and inference I&amp;rsquo;ll &amp;ldquo;need&amp;rdquo; for my house.&lt;/p>
@@ -787,14 +827,24 @@ src="https://dereksrose.com/images/mrhomn/mrhomn2.jpg"
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>OK, yes, I promised, after naming my second home automation repo &amp;ldquo;&lt;a href="https://github.com/Bishma/home-assistant-tng">HomeAssistant TNG&lt;/a>,&amp;rdquo; that I&amp;rsquo;d name my next one &amp;ldquo;Deep Space Nine.&amp;rdquo; But &lt;a href="https://memory-alpha.fandom.com/wiki/Homn">MrHomn&lt;/a> was too good to pass up.&lt;/p>
-&lt;p>He was &lt;a href="https://memory-alpha.fandom.com/wiki/Lwaxana_Troi">Lwaxana Troy&amp;rsquo;s&lt;/a> very diligent valet in Star Trek TNG, three syllable wake words tend to work best for VUIs, &lt;a href="https://en.wikipedia.org/wiki/Carel_Struycken">Carel Struycken&lt;/a> is awesome, and Homn is a homonym of home (at least the way Lwaxana pronounced it).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>OK, yes, I promised, after naming my second home automation repo &amp;ldquo;
+&lt;a href="https://github.com/Bishma/home-assistant-tng" target="_blank">HomeAssistant TNG&lt;/a>,&amp;rdquo; that I&amp;rsquo;d name my next one &amp;ldquo;Deep Space Nine.&amp;rdquo; But
+&lt;a href="https://memory-alpha.fandom.com/wiki/Homn" target="_blank">MrHomn&lt;/a> was too good to pass up.&lt;/p>
+&lt;p>He was
+&lt;a href="https://memory-alpha.fandom.com/wiki/Lwaxana_Troi" target="_blank">Lwaxana Troy&amp;rsquo;s&lt;/a> very diligent valet in Star Trek TNG, three syllable wake words tend to work best for VUIs,
+&lt;a href="https://en.wikipedia.org/wiki/Carel_Struycken" target="_blank">Carel Struycken&lt;/a> is awesome, and Homn is a homonym of home (at least the way Lwaxana pronounced it).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
-&lt;p>&lt;strong>Compatible with the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
-&lt;p>We have several &lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a &lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my &lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
-&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the &lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
+&lt;p>&lt;strong>Compatible with the
+&lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>We have several
+&lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/" target="_blank">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a
+&lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my
+&lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160" target="_blank">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
+&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the
+&lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the
+&lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/" target="_blank">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -846,7 +896,8 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
+&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a
+&lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/" target="_blank">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
 &lt;p>Here&amp;rsquo;s what&amp;rsquo;s included.&lt;/p>
 &lt;h2 id="one-piece-hooks">One Piece Hooks&lt;/h2>
 &lt;p>On work carts it&amp;rsquo;s nice to be able to hang tools off the size. I ended up making a couple sizes as a design compromise. The &amp;ldquo;narrow&amp;rdquo; version is 4mm square and plenty strong (especially when printed with 3 perimeters)&lt;/p>
@@ -1063,10 +1114,13 @@ loading="lazy">
 &lt;a
 href="https://www.prusaprinters.org/prints/57188"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Just A Super [glue] Organizer</title><link>https://dereksrose.com/posts/caddy/</link><pubDate>Sat, 23 Jan 2021 18:36:03 -0800</pubDate><guid>https://dereksrose.com/posts/caddy/</guid><description>&lt;h1 id="the-caddy">The CAddy&lt;/h1>
-&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer, &lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
-&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
+&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer,
+&lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg" target="_blank">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
+&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically
+&lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate" target="_blank">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -1141,7 +1195,8 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest on prusaprinters.org&lt;/a>.&lt;/p>
+&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a
+&lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/" target="_blank">contest on prusaprinters.org&lt;/a>.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;p>Because it&amp;rsquo;s not a Derek project if its not over-engineered I&amp;rsquo;ve packed as many features as I could make fit.&lt;/p>
 &lt;ul>
@@ -1152,7 +1207,8 @@ href="https://dereksrose.com/images/CAddy/models.png"
 title="Fusion 360 rendering showing the tray&amp;#39;s front view, with and without text labels."
 >optional labels&lt;/a>
 &lt;ul>
-&lt;li>Sized for 50g bottles of &lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html">Hobby King glues&lt;/a>&lt;/li>
+&lt;li>Sized for 50g bottles of
+&lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html" target="_blank">Hobby King glues&lt;/a>&lt;/li>
 &lt;li>Specifically, the ovals that are
 &lt;a
 data-lightbox="features"
@@ -1177,9 +1233,11 @@ title="Assembly of the utility knife."
 &lt;li>The end of the molecule is a textured handle&lt;/li>
 &lt;/ul>
 &lt;h2 id="design">Design&lt;/h2>
-&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
+&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in
+&lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg" target="_blank">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
 &lt;p>Secondly, I was able to find a step model of a #1 utility knife on
-&lt;a href="https://grabcad.com/library/utility-blade-3">grabcad&lt;/a>, size a handle around it, and perform a &lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
+&lt;a href="https://grabcad.com/library/utility-blade-3" target="_blank">grabcad&lt;/a>, size a handle around it, and perform a
+&lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html" target="_blank">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
 &lt;h2 id="printing">Printing&lt;/h2>
 &lt;h3 id="settings-and-assembly">Settings and Assembly&lt;/h3>
 &lt;h4 id="tray">Tray&lt;/h4>
@@ -1205,7 +1263,8 @@ title="Assembly of the utility knife."
 &lt;a
 href="https://www.prusaprinters.org/prints/53618"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Patio Umbrella Stand Cap</title><link>https://dereksrose.com/posts/umbrella-stand-cap/</link><pubDate>Sun, 10 Jan 2021 14:09:58 -0800</pubDate><guid>https://dereksrose.com/posts/umbrella-stand-cap/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Our Winter Umbrella&lt;/h1>
 &lt;p>When we take our outdoor umbrella down for the season we like to put something over the remaining part of the stand. In years past we made use of an old travel mug, a plastic bag, and some duct tape. This year as we were taking it down Bonnie said, &amp;ldquo;hey, I&amp;rsquo;ll bet you can design and print a cap for that.&amp;rdquo; Spoiler: she was right.&lt;/p>
 &lt;link rel="stylesheet"
@@ -1334,9 +1393,12 @@ target="_blank">Prusaprinters&lt;/a></description></item><item><title>About</tit
 &lt;/div>
 &lt;div class="flex-column">&lt;h3 id="availability">Availability&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu">Github Repo&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.thingiverse.com/dereksrose/designs">Thingiverse&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.prusaprinters.org/social/28313-dereksrose/prints">PrusaPrinters&lt;/a>&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://github.com/Bishma/admafu" target="_blank">Github Repo&lt;/a>&lt;/li>&lt;/p>
+&lt;li>
+&lt;p>&lt;a href="https://www.thingiverse.com/dereksrose/designs" target="_blank">Thingiverse&lt;/a>&lt;/li>&lt;/p>
+&lt;li>
+&lt;p>&lt;a href="https://www.prusaprinters.org/social/28313-dereksrose/prints" target="_blank">PrusaPrinters&lt;/a>&lt;/li>&lt;/p>
 &lt;/ul>
 &lt;/div>
 &lt;/div></description></item><item><title>Spool Bearing Assembly</title><link>https://dereksrose.com/posts/spool-bearing-assembly/</link><pubDate>Wed, 25 Nov 2020 16:08:04 -0800</pubDate><guid>https://dereksrose.com/posts/spool-bearing-assembly/</guid><description>&lt;h1 id="filament-spool-bearing-assembly-for-a-34-dowel">Filament Spool Bearing Assembly for a 3/4&amp;quot; dowel&lt;/h1>
@@ -1439,7 +1501,10 @@ loading="lazy">
 &lt;/ul>
 &lt;p>This was my first 3D design but so far it&amp;rsquo;s holding up.&lt;/p></description></item><item><title>Mouse shortcuts with xbindkeys &amp; xdotool</title><link>https://dereksrose.com/posts/mouse-buttons/</link><pubDate>Sun, 02 Feb 2020 10:54:44 -0800</pubDate><guid>https://dereksrose.com/posts/mouse-buttons/</guid><description>&lt;h1 id="context-aware-mouse-button-shortcuts-in-gnome">Context Aware Mouse Button Shortcuts in Gnome&lt;/h1>
 &lt;p>The thing I&amp;rsquo;ve missed the most, since switching to full time linux, is AutoHotKey. It was my go to for customizing controls and making macros. A lot of the things I used are different enough now that the AHK script wouldn&amp;rsquo;t be applicable anyway, but my context aware mouse buttons have been a huge hit to the way I work and play. I use a 9 button Logitech Vertical Mouse. It&amp;rsquo;s a form factor I prefer and it has helped so much with my RSI that I have one at home and one at work. The only bad thing I have to say about it concerns the lack of support it has in linux.&lt;/p>
-&lt;p>Thankfully I&amp;rsquo;ve &lt;a href="https://github.com/Bishma/.xbindkeys">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of &lt;a href="https://linux.die.net/man/1/xbindkeys">xbindkeys&lt;/a>, &lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html">xdotool&lt;/a>, and a bash script.&lt;/p>
+&lt;p>Thankfully I&amp;rsquo;ve
+&lt;a href="https://github.com/Bishma/.xbindkeys" target="_blank">found an approach&lt;/a> that replicates the mouse button shortcuts I used the most via a combination of
+&lt;a href="https://linux.die.net/man/1/xbindkeys" target="_blank">xbindkeys&lt;/a>,
+&lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html" target="_blank">xdotool&lt;/a>, and a bash script.&lt;/p>
 &lt;h2 id="problem-1-determine-the-active-window">Problem 1: Determine the Active Window&lt;/h2>
 &lt;p>The way I tend to work I can get away with simply knowing the process name and window title of the window that is currently focused.&lt;/p>
 &lt;pre>&lt;code># The window title is available straight from xdotool
@@ -1463,13 +1528,18 @@ echo $SITE
 }
 &lt;/code>&lt;/pre>
 &lt;p>The sites I use next/prev on the most are Twitter, Feedly, and Reddit. Unfortunately when reddit opens thelightbox of a post it makes the title match the post title. So my detection amounts to Twitter, Feedly, and &amp;ldquo;Other.&amp;rdquo;&lt;/p></description></item><item><title>Codename: Bad Janet</title><link>https://dereksrose.com/posts/codename-bad-janet/</link><pubDate>Sun, 03 Nov 2019 11:11:53 -0800</pubDate><guid>https://dereksrose.com/posts/codename-bad-janet/</guid><description>&lt;h1 id="a-better-alexa-skill">A Better Alexa Skill&lt;/h1>
-&lt;p>In 2016 I was given a 1st gen Echo Dot and I immediately sought to integrate it with &lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a>. The quick way to so at the time was via the Philips Hue Bridge which allowed simple on/off control of devices. Over time more of my home was being controlled by Home Assistant and just turning things on and off wasn&amp;rsquo;t enough.&lt;/p>
-&lt;p>I could achieve most of what I wanted using custom intent scripts. This allowed me to have nicer grammar when interacting with things like my media center, gave me the ability to pass variables to Home Assistant (like &amp;ldquo;turn up the volume &lt;em>two times&lt;/em>&amp;rdquo;), and allowed me to get &lt;a href="https://www.home-assistant.io/docs/configuration/templating/">jinja templated&lt;/a> responses. Fast forward to 2019 and I think you can do most, if not all, of this with &lt;a href="https://www.nabucasa.com/">Nabu Casa&lt;/a> + template sensors + Alexa routines. But at the time it was the most direct means to get what I wanted.&lt;/p>
-&lt;p>Now I want more. I want to be able to do fallbacks, have multi-step intents, do slot confirmations, and just generally have a good VUI. The most personally interesting way to approach this is to learn python and make use of &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> to build a full featured Alexa API. I&amp;rsquo;ll take a stepwise approach to achieving this, starting with trying to feature match my existing system with a few needed upgrades.&lt;/p>
+&lt;p>In 2016 I was given a 1st gen Echo Dot and I immediately sought to integrate it with
+&lt;a href="https://www.home-assistant.io/" target="_blank">Home Assistant&lt;/a>. The quick way to so at the time was via the Philips Hue Bridge which allowed simple on/off control of devices. Over time more of my home was being controlled by Home Assistant and just turning things on and off wasn&amp;rsquo;t enough.&lt;/p>
+&lt;p>I could achieve most of what I wanted using custom intent scripts. This allowed me to have nicer grammar when interacting with things like my media center, gave me the ability to pass variables to Home Assistant (like &amp;ldquo;turn up the volume &lt;em>two times&lt;/em>&amp;rdquo;), and allowed me to get
+&lt;a href="https://www.home-assistant.io/docs/configuration/templating/" target="_blank">jinja templated&lt;/a> responses. Fast forward to 2019 and I think you can do most, if not all, of this with
+&lt;a href="https://www.nabucasa.com/" target="_blank">Nabu Casa&lt;/a> + template sensors + Alexa routines. But at the time it was the most direct means to get what I wanted.&lt;/p>
+&lt;p>Now I want more. I want to be able to do fallbacks, have multi-step intents, do slot confirmations, and just generally have a good VUI. The most personally interesting way to approach this is to learn python and make use of
+&lt;a href="https://appdaemon.readthedocs.io/en/latest/" target="_blank">AppDaemon&lt;/a> to build a full featured Alexa API. I&amp;rsquo;ll take a stepwise approach to achieving this, starting with trying to feature match my existing system with a few needed upgrades.&lt;/p>
 &lt;h2 id="minimum-viable-product">Minimum Viable Product&lt;/h2>
 &lt;h3 id="on--off-for-all-devices">On / Off For All Devices&lt;/h3>
 &lt;p>This was an interesting and entirely unnecessary problem to solve. We can do this outside of my skill because we also use Nabu Casa and the home assistant skill. I choose to duplicate the functionality as a personal challenge and because we get into the habit of invoking the skill and forget that the basics aren&amp;rsquo;t part of it.&lt;/p>
-&lt;p>This presented the problem of needing to get a device registry to Alexa. I didn&amp;rsquo;t want to have to hard-code any devices into my intent slots and &lt;a href="https://developer.amazon.com/docs/smapi/catalog-url-reference.html">Catalog Management&lt;/a> was more involved than I wanted to get for something only a couple people will use. I understand there are additional options if you make a skill that&amp;rsquo;s the &amp;ldquo;home automation&amp;rdquo; type but I didn&amp;rsquo;t investigate that very far because those need to be hosted in AWS Lambda, and I want to keep things local.&lt;/p>
+&lt;p>This presented the problem of needing to get a device registry to Alexa. I didn&amp;rsquo;t want to have to hard-code any devices into my intent slots and
+&lt;a href="https://developer.amazon.com/docs/smapi/catalog-url-reference.html" target="_blank">Catalog Management&lt;/a> was more involved than I wanted to get for something only a couple people will use. I understand there are additional options if you make a skill that&amp;rsquo;s the &amp;ldquo;home automation&amp;rdquo; type but I didn&amp;rsquo;t investigate that very far because those need to be hosted in AWS Lambda, and I want to keep things local.&lt;/p>
 &lt;p>In the end I used a Search Query slot and then have my AppDaemon app search Home Assistant for the unbounded phrase. This will be the first place that I want to add validation and/or confirmation. Here is what is is able to search and control.&lt;/p>
 &lt;h4 id="example-phrases">Example Phrases&lt;/h4>
 &lt;ul>
@@ -1633,13 +1703,24 @@ echo $SITE
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="the-project">The Project&lt;/h2>
-&lt;p>It&amp;rsquo;s not very sophistocated yet, so it&amp;rsquo;s all in &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/alexa.py">this one appdaemon app&lt;/a>.&lt;/p></description></item><item><title>Appdaemon Logging</title><link>https://dereksrose.com/posts/appdaemon-logging/</link><pubDate>Mon, 22 Jul 2019 18:33:18 -0800</pubDate><guid>https://dereksrose.com/posts/appdaemon-logging/</guid><description>&lt;h1 id="combined-logging-between-home-assistant-and-appdaemon">Combined logging between Home Assistant and AppDaemon&lt;/h1>
-&lt;p>I&amp;rsquo;ve begun using &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a> apps to extend &lt;a href="https://www.home-assistant.io/">Home Assistant&lt;/a>. It&amp;rsquo;s a way to write sandboxed &lt;a href="https://www.python.org/">Python&lt;/a> apps that have access to &lt;a href="https://www.home-assistant.io/">home-assistant&lt;/a> events, devices, services, and presence. It&amp;rsquo;s intended to be replacement for automations that can leverage all the power of python. You can also use it as a way to create sensors in Home Assistant.&lt;/p>
-&lt;p>My &lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py">first foray&lt;/a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&amp;rsquo;s for lunch. There is also an attribute on the sensor containing the next three days&amp;rsquo; menus. I then wrote a &lt;a href="https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card">crude custom lovelace card&lt;/a> to display that on my frontend.&lt;/p>
+&lt;p>It&amp;rsquo;s not very sophistocated yet, so it&amp;rsquo;s all in
+&lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/alexa.py" target="_blank">this one appdaemon app&lt;/a>.&lt;/p></description></item><item><title>Appdaemon Logging</title><link>https://dereksrose.com/posts/appdaemon-logging/</link><pubDate>Mon, 22 Jul 2019 18:33:18 -0800</pubDate><guid>https://dereksrose.com/posts/appdaemon-logging/</guid><description>&lt;h1 id="combined-logging-between-home-assistant-and-appdaemon">Combined logging between Home Assistant and AppDaemon&lt;/h1>
+&lt;p>I&amp;rsquo;ve begun using
+&lt;a href="https://appdaemon.readthedocs.io/en/latest/" target="_blank">AppDaemon&lt;/a> apps to extend
+&lt;a href="https://www.home-assistant.io/" target="_blank">Home Assistant&lt;/a>. It&amp;rsquo;s a way to write sandboxed
+&lt;a href="https://www.python.org/" target="_blank">Python&lt;/a> apps that have access to
+&lt;a href="https://www.home-assistant.io/" target="_blank">home-assistant&lt;/a> events, devices, services, and presence. It&amp;rsquo;s intended to be replacement for automations that can leverage all the power of python. You can also use it as a way to create sensors in Home Assistant.&lt;/p>
+&lt;p>My
+&lt;a href="https://github.com/Bishma/home-assistant-tng/blob/master/appdaemon/apps/lunch-schedule.py" target="_blank">first foray&lt;/a> into AppDaemon (and the Python Language) makes use of an API we have at work to read our next three lunch menus and turn them into a Home Assistant sensor. If lunch is being served the sensor will contain what&amp;rsquo;s for lunch. There is also an attribute on the sensor containing the next three days&amp;rsquo; menus. I then wrote a
+&lt;a href="https://github.com/Bishma/custom-lovelace-cards/tree/master/list-item-card" target="_blank">crude custom lovelace card&lt;/a> to display that on my frontend.&lt;/p>
 &lt;p>&lt;img src="https://dereksrose.com/images/appdaemon-logging_1-custom-card.png" alt="Custom card displaying attributes from an Appdaemon Sensor">&lt;/p>
-&lt;p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&amp;rsquo;m using &lt;a href="https://www.home-assistant.io/hassio/">Hass.io&lt;/a> with the &lt;a href="https://github.com/hassio-addons/addon-log-viewer">LogViewer&lt;/a> addon, I&amp;rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the &lt;a href="https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722">Home Assistant Forums&lt;/a> I was able to piece together what I wanted.&lt;/p>
+&lt;p>In working through this I found that needing to keep track of multiple logs was tedious. And since I&amp;rsquo;m using
+&lt;a href="https://www.home-assistant.io/hassio/" target="_blank">Hass.io&lt;/a> with the
+&lt;a href="https://github.com/hassio-addons/addon-log-viewer" target="_blank">LogViewer&lt;/a> addon, I&amp;rsquo;d like my AppDaemon app logs to be visible there. After a lucky find in the
+&lt;a href="https://community.home-assistant.io/t/adding-logs-from-appdaemon-to-the-main-home-assistant-log/105722" target="_blank">Home Assistant Forums&lt;/a> I was able to piece together what I wanted.&lt;/p>
 &lt;h4 id="step-1">Step 1:&lt;/h4>
-&lt;p>I need to use the home assistant &lt;a href="https://www.home-assistant.io/integrations/python_script/">python script component&lt;/a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.&lt;/p>
+&lt;p>I need to use the home assistant
+&lt;a href="https://www.home-assistant.io/integrations/python_script/" target="_blank">python script component&lt;/a> to expose a generic logging service. I can use the resulting service in AppDaemon to pass logs into Home Assistant for logging.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">message&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;message&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">message&lt;/span>&lt;span class="p">:&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;No message provided&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
@@ -1656,7 +1737,8 @@ echo $SITE
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logger&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">info&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This accepts a message and an optional level. If no level is passed it logs as INFO. This is saved in &lt;code>&amp;lt;config&amp;gt;/python_scripts/log.py&lt;/code>. Once this is added (and Home Assistant restarted with the python script component enabled) I have a service called &lt;code>python_script.log&lt;/code>.&lt;/p>
 &lt;h4 id="step-2">Step 2&lt;/h4>
-&lt;p>Fine grained &lt;a href="https://www.home-assistant.io/components/logger/">logger&lt;/a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new &lt;code>python_script.log&lt;/code> service all the way to debug when I&amp;rsquo;m developing a new AppDaemon app.&lt;/p>
+&lt;p>Fine grained
+&lt;a href="https://www.home-assistant.io/components/logger/" target="_blank">logger&lt;/a> configs allow me to keep my Home Assistant logs outputting at my desired level (warning) while allowing me to turn things that come through my new &lt;code>python_script.log&lt;/code> service all the way to debug when I&amp;rsquo;m developing a new AppDaemon app.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># &amp;#34;The logger component lets you define the level of logging activities in Home Assistant.&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># https://www.home-assistant.io/components/logger/&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">logger&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -1683,8 +1765,13 @@ echo $SITE
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">module&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log_bridge&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">class&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">LogBridge&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After a reboot every log line from AppDaemon pipes into home assistant.&lt;/p></description></item><item><title>Automated Offsite Snapshots</title><link>https://dereksrose.com/posts/automated-offsite-snapshots/</link><pubDate>Sat, 09 Feb 2019 18:39:04 -0800</pubDate><guid>https://dereksrose.com/posts/automated-offsite-snapshots/</guid><description>&lt;h1 id="adding-home-assistant-to-my-synologydropbox-backup-routine">Adding Home Assistant to My Synology/Dropbox Backup Routine&lt;/h1>
-&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for &lt;a href="https://www.home-assistant.io">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
-&lt;p>This solution utilizes the &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">Remote Backup&lt;/a> addon, my home &lt;a href="https://www.synology.com">Synology Diskstation NAS&lt;/a> and &lt;a href="https://www.dropbox.com">Dropbox&lt;/a> via encrypted &lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup">Hyper Backup&lt;/a> tasks.&lt;/p>
+&lt;p>There was a time when I felt comfortable using GitHub as my main backup solution for
+&lt;a href="https://www.home-assistant.io" target="_blank">Home Assistant&lt;/a>. I would backup my secrets.yaml via my workstation backup routine (on the rare times that it changed) and I considered the database to be expendable. As Add-Ons have started becoming commonplace and various components have started moving from yaml to integrations I no longer consider this sufficient.&lt;/p>
+&lt;p>This solution utilizes the
+&lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup" target="_blank">Remote Backup&lt;/a> addon, my home
+&lt;a href="https://www.synology.com" target="_blank">Synology Diskstation NAS&lt;/a> and
+&lt;a href="https://www.dropbox.com" target="_blank">Dropbox&lt;/a> via encrypted
+&lt;a href="https://www.synology.com/en-us/dsm/feature/hyper_backup" target="_blank">Hyper Backup&lt;/a> tasks.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="durability">Durability&lt;/h3>
 &lt;p>We&amp;rsquo;ve grown fond enough of the system that I consider it worth at least 3-2-1 for its backups. The chances of meaningful loss with this configuration is very low.&lt;/p>
@@ -1800,7 +1887,8 @@ echo $SITE
 &lt;/ol>
 &lt;h3 id="hass46io-remote-backup-plugin">Hass.io remote backup plugin&lt;/h3>
 &lt;ol>
-&lt;li>Add the repository and install the add-on &lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup">per its instructions&lt;/a>.&lt;/li>
+&lt;li>Add the repository and install the add-on
+&lt;a href="https://github.com/carstenschroeder/hassio-addons/tree/master/remote-backup" target="_blank">per its instructions&lt;/a>.&lt;/li>
 &lt;li>Configure it with the everything that was just set up. &lt;br>
 &lt;img src="https://dereksrose.com/images/automated-offsite-snapshots_7-remote-backup-config.png" alt="Remote Backup Creation Screen">&lt;/li>
 &lt;/ol>
@@ -1858,11 +1946,15 @@ echo $SITE
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">find /volume1/Backups/HomeAssistant/ -type f -mtime +14 -delete
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That change to the home directory at the beginning of this script bypasses a bug currently in syology with non-admin user scripts. Without that the script will throw a permission error.&lt;/p></description></item><item><title>NWS Alerts</title><link>https://dereksrose.com/posts/nws-alerts/</link><pubDate>Sun, 18 Nov 2018 19:47:48 -0800</pubDate><guid>https://dereksrose.com/posts/nws-alerts/</guid><description>&lt;h1 id="31-weather-alerts-sent-to-telegram-via-home-assistant">3.1 Weather Alerts sent to Telegram via Home Assistant&lt;/h1>
 &lt;p>&lt;strong>Updated 2018-11-20&lt;/strong>&lt;/p>
-&lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their &lt;a href="https://www.home-assistant.io/components/sensor.rest/">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
-&lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should &lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11">check it out&lt;/a>.&lt;/p>
+&lt;p>User &lt;em>finity&lt;/em> on the Home Assistant Forums
+&lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11" target="_blank">posted a some REST sensors&lt;/a> for getting National Weather Service alerts from home assistant. I took this idea (and copy and pasted their
+&lt;a href="https://www.home-assistant.io/components/sensor.rest/" target="_blank">REST sensor&lt;/a>) to use as an automation that will send me alerts via Telegram. As &lt;em>finity&lt;/em> points out, this is a nice way to insulate you from the possible shutdown the of the Weather Underground API. It&amp;rsquo;s also a fun use of a valuable public API. &lt;strong>Note:&lt;/strong> The National Weather Service APIs are only available for US locations.&lt;/p>
+&lt;p>&lt;em>finity&amp;rsquo;s&lt;/em> implementation is much more involved than mine and includes their Echos vocalizing the the weather alert. You should
+&lt;a href="https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853/11" target="_blank">check it out&lt;/a>.&lt;/p>
 &lt;p>&lt;img src="https://dereksrose.com/images/NWS-Alerts_1-telegram-example.png" alt="Example of the NWS Alert Text sent through Telegram.">&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as &lt;code>notification.general&lt;/code>. That was set up using the &lt;a href="https://www.home-assistant.io/components/notify.telegram/">notification component&amp;rsquo;s docs&lt;/a>.&lt;/p>
+&lt;p>At this point I have already set up a Telegram bot named Janet (same as the invocation for my alexa skill) as &lt;code>notification.general&lt;/code>. That was set up using the
+&lt;a href="https://www.home-assistant.io/components/notify.telegram/" target="_blank">notification component&amp;rsquo;s docs&lt;/a>.&lt;/p>
 &lt;h2 id="sensors">Sensors&lt;/h2>
 &lt;p>Two REST sensors are used to pull from Nation Weather Service APIs.&lt;/p>
 &lt;p>The first looks for the total number of alerts in my area.&lt;/p>
@@ -1881,7 +1973,8 @@ echo $SITE
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">User-Agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Homeassistant&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">Accept&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/ld+json&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scan_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">300&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on &lt;a href="https://alerts.weather.gov/">this page&lt;/a>.&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This looks for alerts in my zone &lt;code>ORZ604&lt;/code>, failing that it looks for alerts in my county &lt;code>ORC039&lt;/code>, failing that it sets a value of 0 (zero). I have this set to update every 300 seconds (5 minutes). You can find your zone and county IDs on
+&lt;a href="https://alerts.weather.gov/" target="_blank">this page&lt;/a>.&lt;/p>
 &lt;p>The second sensor requests the actual alert data from my zone and county and feeds any existing value into its sensor attributes under &lt;code>features&lt;/code>. If there is no data, then the attribute is set to None. This has the limitation of only setting the first alert in the area to the sensor&amp;rsquo;s state, but at the moment I&amp;rsquo;m not using the state anyway. The full features array is stored to the sensor&amp;rsquo;s attributes, so I can loop through all events in my automation.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-YAML" data-lang="YAML">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">platform&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rest&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://api.weather.gov/alerts/active?zone=ORZ604,ORC039&lt;/span>&lt;span class="w">

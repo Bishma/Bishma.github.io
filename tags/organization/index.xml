@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>organization on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/organization/</link><description>Recent content in organization on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 23 Jan 2021 18:36:03 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/organization/index.xml" rel="self" type="application/rss+xml"/><item><title>Just A Super [glue] Organizer</title><link>https://dereksrose.com/posts/caddy/</link><pubDate>Sat, 23 Jan 2021 18:36:03 -0800</pubDate><guid>https://dereksrose.com/posts/caddy/</guid><description>&lt;h1 id="the-caddy">The CAddy&lt;/h1>
-&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer, &lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
-&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
+&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer,
+&lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg" target="_blank">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
+&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically
+&lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate" target="_blank">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -75,7 +77,8 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest on prusaprinters.org&lt;/a>.&lt;/p>
+&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a
+&lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/" target="_blank">contest on prusaprinters.org&lt;/a>.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;p>Because it&amp;rsquo;s not a Derek project if its not over-engineered I&amp;rsquo;ve packed as many features as I could make fit.&lt;/p>
 &lt;ul>
@@ -86,7 +89,8 @@ href="https://dereksrose.com/images/CAddy/models.png"
 title="Fusion 360 rendering showing the tray&amp;#39;s front view, with and without text labels."
 >optional labels&lt;/a>
 &lt;ul>
-&lt;li>Sized for 50g bottles of &lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html">Hobby King glues&lt;/a>&lt;/li>
+&lt;li>Sized for 50g bottles of
+&lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html" target="_blank">Hobby King glues&lt;/a>&lt;/li>
 &lt;li>Specifically, the ovals that are
 &lt;a
 data-lightbox="features"
@@ -111,9 +115,11 @@ title="Assembly of the utility knife."
 &lt;li>The end of the molecule is a textured handle&lt;/li>
 &lt;/ul>
 &lt;h2 id="design">Design&lt;/h2>
-&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
+&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in
+&lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg" target="_blank">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
 &lt;p>Secondly, I was able to find a step model of a #1 utility knife on
-&lt;a href="https://grabcad.com/library/utility-blade-3">grabcad&lt;/a>, size a handle around it, and perform a &lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
+&lt;a href="https://grabcad.com/library/utility-blade-3" target="_blank">grabcad&lt;/a>, size a handle around it, and perform a
+&lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html" target="_blank">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
 &lt;h2 id="printing">Printing&lt;/h2>
 &lt;h3 id="settings-and-assembly">Settings and Assembly&lt;/h3>
 &lt;h4 id="tray">Tray&lt;/h4>
@@ -139,5 +145,6 @@ title="Assembly of the utility knife."
 &lt;a
 href="https://www.prusaprinters.org/prints/53618"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

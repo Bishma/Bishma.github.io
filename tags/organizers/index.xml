@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>organizers on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/organizers/</link><description>Recent content in organizers on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 Feb 2021 11:16:24 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/organizers/index.xml" rel="self" type="application/rss+xml"/><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
-&lt;p>&lt;strong>Compatible with the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
-&lt;p>We have several &lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a &lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my &lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
-&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the &lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
+&lt;p>&lt;strong>Compatible with the
+&lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>We have several
+&lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/" target="_blank">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a
+&lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my
+&lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160" target="_blank">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
+&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the
+&lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the
+&lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/" target="_blank">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -53,7 +59,8 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
+&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a
+&lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/" target="_blank">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
 &lt;p>Here&amp;rsquo;s what&amp;rsquo;s included.&lt;/p>
 &lt;h2 id="one-piece-hooks">One Piece Hooks&lt;/h2>
 &lt;p>On work carts it&amp;rsquo;s nice to be able to hang tools off the size. I ended up making a couple sizes as a design compromise. The &amp;ldquo;narrow&amp;rdquo; version is 4mm square and plenty strong (especially when printed with 3 perimeters)&lt;/p>
@@ -270,5 +277,6 @@ loading="lazy">
 &lt;a
 href="https://www.prusaprinters.org/prints/57188"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

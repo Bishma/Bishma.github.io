@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/docker/</link><description>Recent content in docker on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 18 Jul 2021 14:55:16 -0700</lastBuildDate><atom:link href="https://dereksrose.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>MrHomn: Migration to Docker</title><link>https://dereksrose.com/posts/mrhomn-migration-to-docker/</link><pubDate>Sun, 18 Jul 2021 14:55:16 -0700</pubDate><guid>https://dereksrose.com/posts/mrhomn-migration-to-docker/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Proxy, Home Assistant and DB&amp;#39;s. Oh my.&lt;/h1>
-&lt;p>&lt;a href="https://dereksrose.com/posts/mrhomn/" title="MrHomn">Last time&lt;/a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running &lt;a href="https://www.home-assistant.io/">home assistant&lt;/a> there.&lt;/p>
+&lt;p>
+&lt;a href="https://dereksrose.com/posts/mrhomn/" title="MrHomn">Last time&lt;/a> on the MrHomn project I talked about wanting to expand my home automation system and deciding to do it via docker-compose. This is mainly because I wanted to learn more about deploying containerized apps using naked docker-compose. The other reason is that I have a lot of spare compute and IO resources on my NAS and docker was the most direct approach to running
+&lt;a href="https://www.home-assistant.io/" target="_blank">home assistant&lt;/a> there.&lt;/p>
 &lt;figure
 style="width: 70%;"
 >
@@ -24,9 +26,14 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;li>Z-Wave JS&lt;/li>
 &lt;/ul>
 &lt;p>I need to route incoming traffic between nodes in my docker stack via path. My Alexa skill has to be publicly served on port 443 and I don&amp;rsquo;t want to have a second endpoint running, so I am implementing a path based router. I also wanted to handle my TLS cert termination at this layer as I have no need to pass encrypted traffic around inside my docker network.&lt;/p>
-&lt;p>I started, as one does, with &lt;a href="https://hub.docker.com/_/nginx">Nginx&lt;/a>:alpine + &lt;a href="https://hub.docker.com/r/certbot/certbot">Certbot&lt;/a> in seperate containers and it worked fine, but I didn&amp;rsquo;t like needing to handle certs &amp;ldquo;myself.&amp;rdquo; That certbot container is just one more breakpoint. I thought about going with &lt;a href="https://nginxproxymanager.com/">nginx proxy manager&lt;/a> because I&amp;rsquo;ve worked with it before and I know it&amp;rsquo;s dead simple to stand up in docker&amp;hellip; but also I&amp;rsquo;ve used it before and this is meant to be a learning experience. So I ended up going with &lt;a href="https://doc.traefik.io/traefik/">Traefik&lt;/a>.&lt;/p>
+&lt;p>I started, as one does, with
+&lt;a href="https://hub.docker.com/_/nginx" target="_blank">Nginx&lt;/a>:alpine +
+&lt;a href="https://hub.docker.com/r/certbot/certbot" target="_blank">Certbot&lt;/a> in seperate containers and it worked fine, but I didn&amp;rsquo;t like needing to handle certs &amp;ldquo;myself.&amp;rdquo; That certbot container is just one more breakpoint. I thought about going with
+&lt;a href="https://nginxproxymanager.com/" target="_blank">nginx proxy manager&lt;/a> because I&amp;rsquo;ve worked with it before and I know it&amp;rsquo;s dead simple to stand up in docker&amp;hellip; but also I&amp;rsquo;ve used it before and this is meant to be a learning experience. So I ended up going with
+&lt;a href="https://doc.traefik.io/traefik/" target="_blank">Traefik&lt;/a>.&lt;/p>
 &lt;h2 id="compose-file-setup">Compose file setup&lt;/h2>
-&lt;p>My full &lt;a href="https://github.com/Bishma/MrHomn/blob/main/docker-compose.yaml">compose file&lt;/a> is available for review. I&amp;rsquo;ll do my best to explain each service here. This section is going to be dense but hopefully it save someone else some of my debugging time.&lt;/p>
+&lt;p>My full
+&lt;a href="https://github.com/Bishma/MrHomn/blob/main/docker-compose.yaml" target="_blank">compose file&lt;/a> is available for review. I&amp;rsquo;ll do my best to explain each service here. This section is going to be dense but hopefully it save someone else some of my debugging time.&lt;/p>
 &lt;p>I&amp;rsquo;ll go over each of my starting service definitions and attempt keep line numbers consistent.&lt;/p>
 &lt;h3 id="traefik">Traefik&lt;/h3>
 &lt;p>Starting with the container basics. I&amp;rsquo;m tagging the current minor version of traefik from docker hub.&lt;/p>
@@ -194,7 +201,8 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="appdaemon">AppDaemon&lt;/h3>
-&lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is &lt;a href="https://appdaemon.readthedocs.io/en/latest/">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
+&lt;p>The other docker service that needs to make use of Traefik&amp;rsquo;s websecure endpoint is
+&lt;a href="https://appdaemon.readthedocs.io/en/latest/" target="_blank">AppDaemon&lt;/a>. At the moment I&amp;rsquo;m only using AppDaemon for my Alexa skill but I plan to make more APIs and other projects that can make use of the coupling to Home Assistant.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">56
@@ -296,7 +304,8 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>I&amp;rsquo;ve given this service access to my Synology&amp;rsquo;s front USB port since I have a &lt;a href="https://aeotec.com/z-wave-usb-stick/">Aeotec z-wave usb stick&lt;/a> there.&lt;/p>
+&lt;/div>&lt;p>I&amp;rsquo;ve given this service access to my Synology&amp;rsquo;s front USB port since I have a
+&lt;a href="https://aeotec.com/z-wave-usb-stick/" target="_blank">Aeotec z-wave usb stick&lt;/a> there.&lt;/p>
 &lt;h3 id="sql">SQL&lt;/h3>
 &lt;p>I&amp;rsquo;ve gone with MariaDB for SQL. This currently only drives home assistant, but I will soon be restoring some Alexa skill functionality that also requires SQL.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -347,7 +356,8 @@ src="https://dereksrose.com/images/mrhomn-migration-to-docker/mrhomn1.png"
 &lt;/div>
 &lt;/div>&lt;h2 id="synology-ip-tables-fix">Synology IP Tables Fix&lt;/h2>
 &lt;p>To be honest I don&amp;rsquo;t know enough about networking to know who&amp;rsquo;s ultimately at fault here, but the default interaction between synology and docker keep bridge networks from being able to see real end user IPs. I don&amp;rsquo;t know how many hours I spend messing with proxy protocol settings in nginx and traefik.&lt;/p>
-&lt;p>The fix that finally worked was altering my synology&amp;rsquo;s iptables settings. I don&amp;rsquo;t know what good karma finally led me to &lt;a href="https://gist.github.com/pedrolamas/db809a2b9112166da4a2dbf8e3a72ae9">pedrolamas/docker-iptables-fix.sh&lt;/a>, but it was a turning point for this project.&lt;/p>
+&lt;p>The fix that finally worked was altering my synology&amp;rsquo;s iptables settings. I don&amp;rsquo;t know what good karma finally led me to
+&lt;a href="https://gist.github.com/pedrolamas/db809a2b9112166da4a2dbf8e3a72ae9" target="_blank">pedrolamas/docker-iptables-fix.sh&lt;/a>, but it was a turning point for this project.&lt;/p>
 &lt;h2 id="the-port-dance">The port dance&lt;/h2>
 &lt;p>For the sake of compatibility I need ingressing traffic to come in via public ports 80 and 443 but I&amp;rsquo;m already using these ports (privately) on my host device for unrelated internal traffic routing through nginx. So home automation requests will hit my my WAF on 80/443 and then forward to ports 8321/8322 respectively on my Synology. But then docker is going map those host ports back to 80/443 😕&lt;/p>
 &lt;p>To keep it all straight I made a flow chart.&lt;/p>
@@ -373,16 +383,21 @@ href="https://dereksrose.com/images/mrhomn-migration-to-docker/nginx_port_dance.
 title="All the routing that nginx needed to also handle certbot."
 >this is what it looked like&lt;/a> when I first set it up with Nginx. I don&amp;rsquo;t know why, but having to maintain that extra route for certbot was, if you&amp;rsquo;ll forgive the idiom, a bridge too far.&lt;/p>
 &lt;h1 id="the-migration-process">The migration process&lt;/h1>
-&lt;p>Now that I&amp;rsquo;m routing I can take down my existing &lt;a href="https://www.home-assistant.io/installation/">Home Assistant OS&lt;/a> based install and move it over to my docker setup.&lt;/p>
+&lt;p>Now that I&amp;rsquo;m routing I can take down my existing
+&lt;a href="https://www.home-assistant.io/installation/" target="_blank">Home Assistant OS&lt;/a> based install and move it over to my docker setup.&lt;/p>
 &lt;h2 id="just-the-foundation">Just the foundation&lt;/h2>
 &lt;p>I ultimately went with a semi start-over approach. I copied all my yaml files (&lt;code>configuration.yaml&lt;/code>, &lt;code>scripts.yaml&lt;/code>, &lt;code>secrets.yaml&lt;/code>, etc) and the lovelace json files from inside &lt;code>.storage&lt;/code>. I deleted everything that was generated by home assistant as I was working out my routing system and put the copied files in their place. Then I restarted home-assistant and manually set up all UI based integrations. This took minutes, and other that needing to clear browser cache and re-setup our mobile apps it was pretty painless.&lt;/p>
 &lt;h2 id="updates">Updates&lt;/h2>
-&lt;p>My Home Assistant doesn&amp;rsquo;t use their handy &lt;a href="https://www.home-assistant.io/integrations/default_config/">default_config&lt;/a> because I don&amp;rsquo;t like having autodiscovery turned on. The downside to doing things manually is that I miss out on new developments that are normally added to this &lt;code>default_config&lt;/code> alias.&lt;/p>
-&lt;p>So I went in and added some of the things I&amp;rsquo;ve missed out on since I last did a major update including &lt;a href="https://www.home-assistant.io/integrations/my/">my&lt;/a> and &lt;a href="https://www.home-assistant.io/integrations/stream/">stream&lt;/a>. Then I cleaned up some other messes here and there as well.&lt;/p>
+&lt;p>My Home Assistant doesn&amp;rsquo;t use their handy
+&lt;a href="https://www.home-assistant.io/integrations/default_config/" target="_blank">default_config&lt;/a> because I don&amp;rsquo;t like having autodiscovery turned on. The downside to doing things manually is that I miss out on new developments that are normally added to this &lt;code>default_config&lt;/code> alias.&lt;/p>
+&lt;p>So I went in and added some of the things I&amp;rsquo;ve missed out on since I last did a major update including
+&lt;a href="https://www.home-assistant.io/integrations/my/" target="_blank">my&lt;/a> and
+&lt;a href="https://www.home-assistant.io/integrations/stream/" target="_blank">stream&lt;/a>. Then I cleaned up some other messes here and there as well.&lt;/p>
 &lt;h1 id="aftermath">Aftermath&lt;/h1>
 &lt;p>Very minor things were broken by my brute force migration.&lt;/p>
 &lt;p>I ran into 2 devices whose names had changed at somepoint (on the hardware) but which had their old names cached in my old install. I had to go into one script, one automation, and a couple lovelace cards to update things to the correct (newer) name.&lt;/p>
 &lt;p>Because I didn&amp;rsquo;t copy over anything from auth we had to clear our browser caches and re-setup our mobile apps.&lt;/p>
 &lt;h1 id="coming-next">Coming next&lt;/h1>
-&lt;p>I&amp;rsquo;m currently writing a very basic DR script in python. Honestly I&amp;rsquo;m doing it manly to play with Github Copilot. Then I think I want to start playing with &lt;a href="https://grafana.com/docs/grafana/latest/datasources/influxdb/">Influxdb and Grafana&lt;/a> to visualize some of my home assistant data.&lt;/p>
+&lt;p>I&amp;rsquo;m currently writing a very basic DR script in python. Honestly I&amp;rsquo;m doing it manly to play with Github Copilot. Then I think I want to start playing with
+&lt;a href="https://grafana.com/docs/grafana/latest/datasources/influxdb/" target="_blank">Influxdb and Grafana&lt;/a> to visualize some of my home assistant data.&lt;/p>
 &lt;p>Hopefully I don&amp;rsquo;t run out of RAM, an upgrade isn&amp;rsquo;t in the budget.&lt;/p></description></item></channel></rss>

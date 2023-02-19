@@ -82,18 +82,23 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>To make assembly easier I &lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
+&lt;p>To make assembly easier I
+&lt;a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-insert-a-standard-part-into-a-Fusion-360-design.html" target="_blank">inserted a hex nut from McMaster-Carr&lt;/a> and use that to cut out a recess in the backing piece. That way the nuts spin less when trying to tighten them.&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.thingiverse.com/thing:4668530/">Thingiverse&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.thingiverse.com/thing:4668530/" target="_blank">Thingiverse&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.prusaprinters.org/prints/47716-075-inch-19mm-dowel-bracket-for-dry-box" target="_blank">Prusaprinters&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/0.75%20inch%20Drybox%20Dowel%20Mount" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="problem-2">Problem 2&lt;/h3>
 &lt;p>So much friction! I knew the filament spools wouldn&amp;rsquo;t roll smoothly on a narrow rod, but this was enough friction to make my extruder skip steps. Using a wooden rod was certainly exacerbating the situation.&lt;/p>
 &lt;h4 id="solution-2-bearing-assembly">Solution 2: Bearing Assembly&lt;/h4>
 &lt;p>I&amp;rsquo;m pretty sure I could have sufficiently overcome both sources of friction by making a bushing to adapt the average size of a filament spool to my small diameter rod. But I happen to have almost 50 (mediocre quality) 608 bearings that would DEFINITELY do the job&amp;hellip; perhaps too well (thay may spin too freely).&lt;/p>
 &lt;p>My first attempt (left side of the video below) didn&amp;rsquo;t leave enough clearance so it didn&amp;rsquo;t spin well and was going to wear grooves in my wooden dowel. On the right spool in the video you can see how adding just 0.15mm of tolerance got it dialed in.&lt;/p>
-&lt;p>This build warranted it&amp;rsquo;s &lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
+&lt;p>This build warranted it&amp;rsquo;s
+&lt;a href="https://dereksrose.com/posts/spool-bearing-assembly/">own post&lt;/a>.&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/heie4OLFuSw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
 &lt;/div>
@@ -149,7 +154,10 @@ loading="lazy">
 &lt;h3 id="problem-4">Problem 4&lt;/h3>
 &lt;p>I want to keep these 3 spools ready to go without much fuss. That meant feeding the filament from all spools without introducing a place for humidity to creep in.&lt;/p>
 &lt;h4 id="solution-4">Solution 4&lt;/h4>
-&lt;p>The folks who feed multi-filament systems (Like an &lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#">MMU&lt;/a> or a &lt;a href="https://www.mosaicmfg.com/products/palette-3">Pallete&lt;/a>) already have this figured out. I downloaded some &lt;a href="https://www.thingiverse.com/thing:4853256">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
+&lt;p>The folks who feed multi-filament systems (Like an
+&lt;a href="https://shop.prusa3d.com/en/upgrades/183-original-prusa-i3-mmu2s-upgrade-kit-for-mk25-mk3s.html#" target="_blank">MMU&lt;/a> or a
+&lt;a href="https://www.mosaicmfg.com/products/palette-3" target="_blank">Pallete&lt;/a>) already have this figured out. I downloaded some
+&lt;a href="https://www.thingiverse.com/thing:4853256" target="_blank">drybox filament guides&lt;/a> from thingiverse and used a short length of 1.75mm (ID) PTFE (teflon) tube so there&amp;rsquo;s almost no air space but the filament still goes through with very little friction.&lt;/p>
 &lt;figure
 style="width: 60%;"
 >
@@ -176,9 +184,15 @@ src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
-&lt;p>&lt;strong>Compatible with the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
-&lt;p>We have several &lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a &lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my &lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
-&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the &lt;a href="https://www.thingiverse.com/thing:2853257">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the &lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
+&lt;p>&lt;strong>Compatible with the
+&lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>We have several
+&lt;a href="https://www.ikea.com/us/en/p/raskog-utility-cart-white-20382932/" target="_blank">Ikea Raskog carts&lt;/a> at our house including one I use as an end table. They&amp;rsquo;re very versatile but also not easy to keep organized. So this project has been on my todo list longer than I&amp;rsquo;ve had a 3D printer. In fact it was one of the ideas that convinced me to buy a printer in the first place. It was also the second thing I tried to design (the first was a
+&lt;a href="https://dereksrose.com/posts/garage-lock-handle/">door knob&lt;/a>) and so my
+&lt;a href="https://twitter.com/Derek_Prints/status/1271936399005020160" target="_blank">initial attempts&lt;/a> weren&amp;rsquo;t great.&lt;/p>
+&lt;p>Once I figured out how to make an easily printable hook that would hold firmly onto the cart&amp;rsquo;s trays it was obvious that I could make work the same way that the
+&lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a> works. Like that collection this is easy to print (no supports), easy to assemble with no glue, strong, and stable. By spacing my hook posts at intervals of 44.5mm I was also able to make the Switch Holder, USB Cable Holder, Pen Holders, and Hook Row compatible with the
+&lt;a href="https://www.ikea.com/us/en/cat/skadis-series-37813/" target="_blank">Ikea Skadis pegboard&lt;/a> by swapping the Universal Hook from that set.&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -230,7 +244,8 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
+&lt;p>I got as far as functional prototypes before I got distracted by other projects. Being one of my first designs in Fusion 360 what I had created was not easy to modify. Then, in the winter of &amp;lsquo;21, PrusaPrinters ran a
+&lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/" target="_blank">contest&lt;/a> for organizer designs which spurred me to finish things up. I recreated my designs in a more maintainable way and got them to a releasable state before the contest ended.&lt;/p>
 &lt;p>Here&amp;rsquo;s what&amp;rsquo;s included.&lt;/p>
 &lt;h2 id="one-piece-hooks">One Piece Hooks&lt;/h2>
 &lt;p>On work carts it&amp;rsquo;s nice to be able to hang tools off the size. I ended up making a couple sizes as a design compromise. The &amp;ldquo;narrow&amp;rdquo; version is 4mm square and plenty strong (especially when printed with 3 perimeters)&lt;/p>
@@ -447,10 +462,13 @@ loading="lazy">
 &lt;a
 href="https://www.prusaprinters.org/prints/57188"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/Raskog%20Collection" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Just A Super [glue] Organizer</title><link>https://dereksrose.com/posts/caddy/</link><pubDate>Sat, 23 Jan 2021 18:36:03 -0800</pubDate><guid>https://dereksrose.com/posts/caddy/</guid><description>&lt;h1 id="the-caddy">The CAddy&lt;/h1>
-&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer, &lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
-&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
+&lt;p>When you do a lot of 3D printing you use a lot of super glue (AKA CyanoAcrylate, AKA &amp;ldquo;CA&amp;rdquo;). It&amp;rsquo;s a crack fixer, gap filler, layer re-adherer,
+&lt;a href="https://www.youtube.com/watch?v=hd1ciPnTGKg" target="_blank">classic movie line&lt;/a>, and I think you can use it to stick things together or something. Moreover different use cases require different formulations, and the bottle you can find is never the one you need (I think it says so on the label).&lt;/p>
+&lt;p>So I decided to design a carrier for all my CA. A &amp;ldquo;CAddy,&amp;rdquo; if you will. And because that sounded kind of boring I decided to design it around a super glue molecule (specifically
+&lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate" target="_blank">ethyl-2-cyanoacrylate&lt;/a>)&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
 integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
@@ -525,7 +543,8 @@ loading="lazy">
 &lt;/li>
 &lt;li>&lt;/li>
 &lt;/ul>
-&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a &lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/">contest on prusaprinters.org&lt;/a>.&lt;/p>
+&lt;p>I had this idea a while ago because I was sick of my glue bottles getting separated. The thing that finally got me to finish it up is a
+&lt;a href="https://blog.prusaprinters.org/organization-contest-announcement_42886/" target="_blank">contest on prusaprinters.org&lt;/a>.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;p>Because it&amp;rsquo;s not a Derek project if its not over-engineered I&amp;rsquo;ve packed as many features as I could make fit.&lt;/p>
 &lt;ul>
@@ -536,7 +555,8 @@ href="https://dereksrose.com/images/CAddy/models.png"
 title="Fusion 360 rendering showing the tray&amp;#39;s front view, with and without text labels."
 >optional labels&lt;/a>
 &lt;ul>
-&lt;li>Sized for 50g bottles of &lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html">Hobby King glues&lt;/a>&lt;/li>
+&lt;li>Sized for 50g bottles of
+&lt;a href="https://hobbyking.com/en_us/hobbyking-super-glue-ca-50g-1-7oz-super-thin.html" target="_blank">Hobby King glues&lt;/a>&lt;/li>
 &lt;li>Specifically, the ovals that are
 &lt;a
 data-lightbox="features"
@@ -561,9 +581,11 @@ title="Assembly of the utility knife."
 &lt;li>The end of the molecule is a textured handle&lt;/li>
 &lt;/ul>
 &lt;h2 id="design">Design&lt;/h2>
-&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in &lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
+&lt;p>I had two starting points. First I wanted it design it around the CA molecular line diagram. I easily found the diagram in
+&lt;a href="https://en.wikipedia.org/wiki/Ethyl_cyanoacrylate#/media/File:Ethyl_cyanoacrylate.svg" target="_blank">SVG format&lt;/a> on wikipedia. I aligned the bottle cutouts so they point at the carbon junctions and was pleased with the results.&lt;/p>
 &lt;p>Secondly, I was able to find a step model of a #1 utility knife on
-&lt;a href="https://grabcad.com/library/utility-blade-3">grabcad&lt;/a>, size a handle around it, and perform a &lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
+&lt;a href="https://grabcad.com/library/utility-blade-3" target="_blank">grabcad&lt;/a>, size a handle around it, and perform a
+&lt;a href="https://knowledge.autodesk.com/support/fusion-360/getting-started/caas/screencast/Main/Details/1365f377-8bf4-4845-92af-4b775858a9d6.html" target="_blank">boolean subtraction&lt;/a> and have a nice starting point for the utility knife handle. Adding tolerances for FDM was a bit of a challenge and results in the blade having a little bit of play in the handle. But as long as downward pressure is being applied there is a machine screw reenforcing the main stress point. I don&amp;rsquo;t think different dimensional accuracies will affect function or safety. Use your best judgement.&lt;/p>
 &lt;h2 id="printing">Printing&lt;/h2>
 &lt;h3 id="settings-and-assembly">Settings and Assembly&lt;/h3>
 &lt;h4 id="tray">Tray&lt;/h4>
@@ -589,7 +611,8 @@ title="Assembly of the utility knife."
 &lt;a
 href="https://www.prusaprinters.org/prints/53618"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy">Github&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy" target="_blank">Github&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Patio Umbrella Stand Cap</title><link>https://dereksrose.com/posts/umbrella-stand-cap/</link><pubDate>Sun, 10 Jan 2021 14:09:58 -0800</pubDate><guid>https://dereksrose.com/posts/umbrella-stand-cap/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Our Winter Umbrella&lt;/h1>
 &lt;p>When we take our outdoor umbrella down for the season we like to put something over the remaining part of the stand. In years past we made use of an old travel mug, a plastic bag, and some duct tape. This year as we were taking it down Bonnie said, &amp;ldquo;hey, I&amp;rsquo;ll bet you can design and print a cap for that.&amp;rdquo; Spoiler: she was right.&lt;/p>
 &lt;link rel="stylesheet"
