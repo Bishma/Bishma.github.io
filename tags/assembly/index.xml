@@ -3,8 +3,8 @@
 &lt;p>I did a little research and figured out that a bushing would solve my issue (effectively adapting the 19mm rod to make it a ~50mm rod) buuuuut&amp;hellip; I also have a ton of crappy 608 bearings that I got for cheap. Plus, you know, bearings are more fun than bushings. &lt;span class="emoticon">¯\_(ツ)_/¯&lt;/span>&lt;/p>
 &lt;p>I figured three points of contact would be sufficient for the weight, but three 608 bearing + the diameter of the dowel is greater than the 50mm inner diameter of a filament spool. That means that the end caps are as thick as a 608 bearing + the plastic to hold them in place. I pressed ahead anyway knowing this extra width means I can only fit 3 spools in my dry box instead of 4.&lt;/p>
 &lt;link rel="stylesheet"
-href="https://dereksrose.com/scss/image-squash.min.81c91163b958640150e52dcb5d482bc815fb950e5db53be1da55479b85227857.css"
-integrity="sha256-gckRY7lYZAFQ5S3LXUgryBX7lQ5dtTvh2lVHm4UieFc="
+href="https://dereksrose.com/scss/image-squash.min.15c74f47b5076c7cbb847938dfc71aa37aca7dce0e91f27ef9772e48a1d0681d.css"
+integrity="sha256-FcdPR7UHbHy7hHk438cao3rKfc4OkfJ&amp;#43;&amp;#43;XcuSKHQaB0="
 crossorigin="anonymous"
 type="text/css" />
 &lt;ul class="image-squash">
