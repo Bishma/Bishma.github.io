@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fidget on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/fidget/</link><description>Recent content in fidget on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 27 Feb 2023 19:00:18 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/fidget/index.xml" rel="self" type="application/rss+xml"/><item><title>Fidget Switch Missile Command Edition</title><link>https://dereksrose.com/posts/fidget-switch-missile-command-edition/</link><pubDate>Mon, 27 Feb 2023 19:00:18 -0800</pubDate><guid>https://dereksrose.com/posts/fidget-switch-missile-command-edition/</guid><description>&lt;h2 id="hahahugoshortcode-s0-hbhb">Helps you focus on all 99 red balloons&lt;/h2>
+&lt;p>Sometimes you see something and you think, &amp;ldquo;I wish that was more like the 1980&amp;rsquo;s
+&lt;a href="https://www.imdb.com/name/nm0000111/" target="_blank">Matthew Broderick&lt;/a> movie
+&lt;a href="https://en.wikipedia.org/wiki/WarGames" target="_blank">Wargames&lt;/a>.&amp;rdquo; It&amp;rsquo;s also possible I think of that movie more than most people. Hey, remember when
+&lt;a href="https://en.wikipedia.org/wiki/Eddie_Deezen#Legal_troubles" target="_blank">Eddie Deezen seemed cute and harmless&lt;/a>?&lt;/p>
+&lt;p>Anyway, I was browsing
+&lt;a href="https://www.printables.com/" target="_blank">Printables.com&lt;/a> one day and I saw what looked to be a very satisfying fidget toy by user
+&lt;a href="https://www.printables.com/social/153223-kriswillcode/about" target="_blank">kriswillcode&lt;/a>. The
+&lt;a href="https://www.printables.com/model/87042-fidget-toggle-switch" target="_blank">Fidget Toggle Switch&lt;/a> was a featured model at the time and the instant I saw it I wanted to add one of those safety switch covers like you see used in movies to launch missiles and whatnot.&lt;/p>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.15c74f47b5076c7cbb847938dfc71aa37aca7dce0e91f27ef9772e48a1d0681d.css"
+integrity="sha256-FcdPR7UHbHy7hHk438cao3rKfc4OkfJ&amp;#43;&amp;#43;XcuSKHQaB0="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Fidget Switch"
+href="https://dereksrose.com/images/fidget-switch-missile-command-edition/cover.jpg"
+title="Danger">
+&lt;img
+src="https://dereksrose.com/images/fidget-switch-missile-command-edition/cover.jpg"
+title="Danger"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Fidget Switch"
+href="https://dereksrose.com/images/fidget-switch-missile-command-edition/closed_cover.jpg"
+title="Safe">
+&lt;img
+src="https://dereksrose.com/images/fidget-switch-missile-command-edition/closed_cover.jpg"
+title="Safe"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Fidget Switch"
+href="https://dereksrose.com/images/fidget-switch-missile-command-edition/on-bed1.jpg"
+title="How the cover prints">
+&lt;img
+src="https://dereksrose.com/images/fidget-switch-missile-command-edition/on-bed1.jpg"
+title="How the cover prints"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>The design made it pretty easy to add a part to the corners. I made a small keyed corner slot and then designed the cover to attach there. The cover and it&amp;rsquo;s corner print in one piece, but because the sides of the case are identical I had to add the key slot to each front corner. That lead me to make a small, unnecessary for anything but aesthetic reasons. The cover was my first time doing a print-in-place hinge, and it worked really well.&lt;/p>
+&lt;p>I&amp;rsquo;m really happy with the way the cover design came out so there&amp;rsquo;re no overhangs and yet it&amp;rsquo;s instantly recognizable.&lt;/p>
+&lt;p>This model has been out for about a year and a half and its far-and-away my most popular model to date. I prefer to not think about what it says about me that my most popular model is a remix&amp;hellip; instead I focus on the fact that this model got me a
+&lt;a href="https://blog.prusa3d.com/introducing-a-new-reward-system-and-badges-for-prusaprinters_60073/" target="_blank">free roll of filament&lt;/a>.&lt;/p>
+&lt;p>P.S. Ask me how many times I forgot the second I when typing &amp;ldquo;missile.&amp;rdquo; I don&amp;rsquo;t know the answer but I&amp;rsquo;m sure the pained expression on my face will be good for a larf.&lt;/p>
+&lt;h3 id="print-settings">Print Settings&lt;/h3>
+&lt;h4 id="what-to-print">What to print&lt;/h4>
+&lt;ul>
+&lt;li>2x of the Case halves&lt;/li>
+&lt;li>1x Cover&lt;/li>
+&lt;li>1x Corner Filler (Optional)&lt;/li>
+&lt;li>Spring of your choice
+&lt;ul>
+&lt;li>I recommend printing all 3 and trying them&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="settings">Settings&lt;/h4>
+&lt;p>As shown this was printed with a 0.4mm nozzle but it should print fine with a 0.6mm nozzle and a slicer with
+&lt;a href="https://www.hta3d.com/en/blog/arachne-engine-the-engine-perimeter-generator-that-comes-to-revolutionize-our-3d-prints" target="_blank">Arachne&lt;/a>.&lt;/p>
+&lt;ul>
+&lt;li>Layer Height: 0.2mm&lt;/li>
+&lt;li>Infill: 10% of 15%&lt;/li>
+&lt;li>Supports: None&lt;/li>
+&lt;/ul>
+&lt;h3 id="assembly">Assembly&lt;/h3>
+&lt;figure
+style="width: 60%;"
+>
+&lt;a
+data-lightbox="image-/images/fidget-switch-missile-command-edition/assembly.jpg"
+href="https://dereksrose.com/images/fidget-switch-missile-command-edition/assembly.jpg"
+title=" "
+>
+&lt;img
+src="https://dereksrose.com/images/fidget-switch-missile-command-edition/assembly.jpg"
+/>
+&lt;/a>
+&lt;/figure>
+&lt;p>I recommend assembling everything into one half of the case (2), then place the other case half on top of the assembly (3) as pictured.&lt;/p>
+&lt;ul>
+&lt;li>Add your spring of choice and the toggle switch to one of the case halves&lt;/li>
+&lt;li>Add the switch cover to the corner you like best so it will cover the toggle switch&lt;/li>
+&lt;li>Add the Corner Filler to the loser corner.&lt;/li>
+&lt;li>Sandwich the other case half on top.&lt;/li>
+&lt;/ul>
+&lt;h3 id="availability">Availability&lt;/h3>
+&lt;p>Special note: When I remix a model I, or course, match the original license rather than use my default. Normally I list my models under the MIT license (Creative Commons on Printables.com because that&amp;rsquo;s all they offer). Since I am matching the original for this model it is listed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;a href="https://www.printables.com/model/234842-fidget-toggle-switch-missile-command-edition" target="_blank">Printables.com&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/Bishma/admafu/tree/main/Fidget%20Switch-%20Missle%20Command%20Edition" target="_blank">Github&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
