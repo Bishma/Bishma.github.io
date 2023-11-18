@@ -1,4 +1,146 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3d-printing on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/3d-printing/</link><description>Recent content in 3d-printing on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 27 Feb 2023 19:00:18 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/3d-printing/index.xml" rel="self" type="application/rss+xml"/><item><title>Fidget Switch Missile Command Edition</title><link>https://dereksrose.com/posts/fidget-switch-missile-command-edition/</link><pubDate>Mon, 27 Feb 2023 19:00:18 -0800</pubDate><guid>https://dereksrose.com/posts/fidget-switch-missile-command-edition/</guid><description>&lt;h2 id="hahahugoshortcode-s0-hbhb">Helps you focus on all 99 red balloons&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3d-printing on Derek Rose: A how to guide for overthiking things.</title><link>https://dereksrose.com/tags/3d-printing/</link><description>Recent content in 3d-printing on Derek Rose: A how to guide for overthiking things.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Mar 2023 14:03:27 -0800</lastBuildDate><atom:link href="https://dereksrose.com/tags/3d-printing/index.xml" rel="self" type="application/rss+xml"/><item><title>Bobs Birders</title><link>https://dereksrose.com/posts/bobs-birders/</link><pubDate>Thu, 02 Mar 2023 14:03:27 -0800</pubDate><guid>https://dereksrose.com/posts/bobs-birders/</guid><description>&lt;h2 id="hahahugoshortcodes0hbhb">A &amp;#34;Burger&amp;#34; Restaurant for Birds &amp;amp; Squirrels&lt;/h2>
+&lt;p>We recently got a window mounted bird feeder to encourage wildlife and entertain our indoor cats through the window. It&amp;rsquo;s been fun for us but torture for one particular squirrel who spent the summer of 2022 performing a slapstick version of Mission Impossible. It found a way on to our AC unit and from there spent a good amount of time judging its ability to leap to the feeder. When it decided that was a no-go it got on the roof then then tried to climb down to the feeder on chain. That didn&amp;rsquo;t work so it then tried to crawl along the windowsill using its forearms, but there was no way up to the feeder from there.&lt;/p>
+&lt;p>After watching this go on for weeks I decided it deserved a good meal. Later, when watching an episode of
+&lt;a href="https://en.wikipedia.org/wiki/Bob%27s_Burgers" target="_blank">Bob&amp;rsquo;s Burgers&lt;/a>, I imagined the Squirrel sitting on a stool in restaurant like
+&lt;a href="https://bobs-burgers.fandom.com/wiki/Teddy" target="_blank">Teddy&lt;/a> (even though Teddy hates squirrels). So I fired up CAD and spent the winter designing this so I can feed the squirrels and large birds in our yard.&lt;/p>
+&lt;p>Before I give you all the photos you came here for, I need to self promote. The model fully 3D Printed and is
+&lt;a href="https://www.printables.com/model/493447-bobs-birders-bird-and-squirrel-feeder" target="_blank">available for free on printables.com&lt;/a>. There you&amp;rsquo;ll find a detailed
+&lt;a href="https://docs.google.com/document/d/1qTSzFMaA-h0sKJgEUVzgMQtXoNab7-di9tYruIxrtjM/edit?usp=sharing" target="_blank">printing and assembly guide&lt;/a> that includes all the filaments used in the photos below.&lt;/p>
+&lt;h3 id="the-feeder-close-up">The Feeder, Close-up&lt;/h3>
+&lt;link rel="stylesheet"
+href="https://dereksrose.com/scss/image-squash.min.15c74f47b5076c7cbb847938dfc71aa37aca7dce0e91f27ef9772e48a1d0681d.css"
+integrity="sha256-FcdPR7UHbHy7hHk438cao3rKfc4OkfJ&amp;#43;&amp;#43;XcuSKHQaB0="
+crossorigin="anonymous"
+type="text/css" />
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Feeder"
+href="https://dereksrose.com/images/bobs-birders/cover%20photo.jpg"
+title="Bob&amp;amp;rsquo;s Birders Restaurant. Freshly mounted.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/cover%20photo.jpg"
+title="Bob&amp;amp;rsquo;s Birders Restaurant. Freshly mounted."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Feeder"
+href="https://dereksrose.com/images/bobs-birders/cover%20photo%202.jpg"
+title="A second angle of the restaurant and roof.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/cover%20photo%202.jpg"
+title="A second angle of the restaurant and roof."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Feeder"
+href="https://dereksrose.com/images/bobs-birders/restaurant%20closeup.jpg"
+title="Close-up of the feeder itself.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/restaurant%20closeup.jpg"
+title="Close-up of the feeder itself."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Feeder"
+href="https://dereksrose.com/images/bobs-birders/feed%20closeup.jpg"
+title="The seed tray full of &amp;amp;lsquo;backyard critter chow.&amp;amp;rsquo;">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/feed%20closeup.jpg"
+title="The seed tray full of &amp;amp;lsquo;backyard critter chow.&amp;amp;rsquo;"
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Feeder"
+href="https://dereksrose.com/images/bobs-birders/sign%20and%20register%20closeup.jpg"
+title="The cash register and burger of the day.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/sign%20and%20register%20closeup.jpg"
+title="The cash register and burger of the day."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Feeder"
+href="https://dereksrose.com/images/bobs-birders/night%20time.jpg"
+title="I printed the seed tray gate in glow-in-the-dark filament.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/night%20time.jpg"
+title="I printed the seed tray gate in glow-in-the-dark filament."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h3 id="our-daily-visitor">Our Daily Visitor&lt;/h3>
+&lt;p>This is the squirrel that inspired everything. Lemmy pronounced it Teddy.&lt;/p>
+&lt;ul class="image-squash">
+&lt;li>
+&lt;a
+data-lightbox="Squirrel"
+href="https://dereksrose.com/images/bobs-birders/en%20route.jpg"
+title="Squirrel climbing the 4x4 to get at the food.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/en%20route.jpg"
+title="Squirrel climbing the 4x4 to get at the food."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Squirrel"
+href="https://dereksrose.com/images/bobs-birders/digging%20in.jpg"
+title="Squirrel drops by for snack.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/digging%20in.jpg"
+title="Squirrel drops by for snack."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Squirrel"
+href="https://dereksrose.com/images/bobs-birders/en%20route.jpg"
+title="Zoomed in phone image of the Squirrel&amp;amp;rsquo;s first visit.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/en%20route.jpg"
+title="Zoomed in phone image of the Squirrel&amp;amp;rsquo;s first visit."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Squirrel"
+href="https://dereksrose.com/images/bobs-birders/standing.jpg"
+title="The squirrel standing in the counter.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/standing.jpg"
+title="The squirrel standing in the counter."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>
+&lt;a
+data-lightbox="Squirrel"
+href="https://dereksrose.com/images/bobs-birders/digging%20deep.jpg"
+title="Squirrel is head deep in the seed tray.">
+&lt;img
+src="https://dereksrose.com/images/bobs-birders/digging%20deep.jpg"
+title="Squirrel is head deep in the seed tray."
+loading="lazy">
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul></description></item><item><title>Fidget Switch Missile Command Edition</title><link>https://dereksrose.com/posts/fidget-switch-missile-command-edition/</link><pubDate>Mon, 27 Feb 2023 19:00:18 -0800</pubDate><guid>https://dereksrose.com/posts/fidget-switch-missile-command-edition/</guid><description>&lt;h2 id="hahahugoshortcodes0hbhb">Helps you focus on all 99 red balloons&lt;/h2>
 &lt;p>Sometimes you see something and you think, &amp;ldquo;I wish that was more like the 1980&amp;rsquo;s
 &lt;a href="https://www.imdb.com/name/nm0000111/" target="_blank">Matthew Broderick&lt;/a> movie
 &lt;a href="https://en.wikipedia.org/wiki/WarGames" target="_blank">Wargames&lt;/a>.&amp;rdquo; It&amp;rsquo;s also possible I think of that movie more than most people. Hey, remember when
@@ -101,7 +243,7 @@ src="https://dereksrose.com/images/fidget-switch-missile-command-edition/assembl
 &lt;a href="https://www.printables.com/model/234842-fidget-toggle-switch-missile-command-edition" target="_blank">Printables.com&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="https://github.com/Bishma/admafu/tree/main/Fidget%20Switch-%20Missle%20Command%20Edition" target="_blank">Github&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Repbox Standoffs</title><link>https://dereksrose.com/posts/repbox-standoffs/</link><pubDate>Mon, 20 Feb 2023 15:34:17 -0800</pubDate><guid>https://dereksrose.com/posts/repbox-standoffs/</guid><description>&lt;h2 id="hahahugoshortcode-s0-hbhb">Adjustable Risers for the Repbox&lt;/h2>
+&lt;/ul></description></item><item><title>Repbox Standoffs</title><link>https://dereksrose.com/posts/repbox-standoffs/</link><pubDate>Mon, 20 Feb 2023 15:34:17 -0800</pubDate><guid>https://dereksrose.com/posts/repbox-standoffs/</guid><description>&lt;h2 id="hahahugoshortcodes0hbhb">Adjustable Risers for the Repbox&lt;/h2>
 &lt;p>For Christmas, B gave me a
 &lt;a href="https://www.repkord.com/products/repbox-2-the-3d-printing-spool-management-solution" target="_blank">Repkord Repbox&lt;/a> (v2.4). My plan when I mentioned wanting it was for it to sit on top of my
 &lt;a href="https://www.printables.com/model/3673-prusa-enclosure-v2-mmu2s" target="_blank">Lack enclosure&lt;/a>, knowing full well that the back of the box would have to hang off the end of the enclosure. Thankfully, the whole thing sits in front of an old stove mantle. That means I&amp;rsquo;ve got a sturdy shelf just 15 or 20cm below the top of the enclosure. To bridge the gap I designed and printed these:&lt;/p>
@@ -163,7 +305,7 @@ loading="lazy">
 &lt;ul>
 &lt;li>
 &lt;a href="https://github.com/Bishma/admafu/tree/main/Repbox%20Stand" target="_blank">Github&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Garage Door Chock</title><link>https://dereksrose.com/posts/garage-door-chock/</link><pubDate>Fri, 27 Aug 2021 13:55:45 -0700</pubDate><guid>https://dereksrose.com/posts/garage-door-chock/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Garage door safety and... style?&lt;/h1>
+&lt;/ul></description></item><item><title>Garage Door Chock</title><link>https://dereksrose.com/posts/garage-door-chock/</link><pubDate>Fri, 27 Aug 2021 13:55:45 -0700</pubDate><guid>https://dereksrose.com/posts/garage-door-chock/</guid><description>&lt;h1 id="hahahugoshortcodes0hbhb">Garage door safety and... style?&lt;/h1>
 &lt;p>Our 1950&amp;rsquo;s home has its original garage door, track, and spring. The whole thing has aged well despite neglect, but it can&amp;rsquo;t fully resist gravity any longer. It also has been painted several times over the years and is really in need of a full restoration. Since we have plans to rework the garage in the not too distant future I&amp;rsquo;m not taking on that project (now) and have been just making do with the fact the garage door doesn&amp;rsquo;t always hold itself up anymore.&lt;/p>
 &lt;p>For the last 18 months the fix has been a screwdriver tied near the door with string, which we can insert through a hole in the track to act as a pin to prevent the door from falling. In terms of quick fixes for common life problems, this one isn&amp;rsquo;t bad but it&amp;rsquo;s not without some annoyances. The biggest is that the string sometimes gets caught up in the door mechanism and the screwdriver gets flung around and could take out an eye.&lt;/p>
 &lt;p>So I made a threw together this chock out of TPU with a small PETG handle.&lt;/p>
@@ -454,7 +596,7 @@ src="https://dereksrose.com/images/gallery/drybox/3_filament-guides.jpg"
 &lt;p>See also: Footnote 1&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
+&lt;/div></description></item><item><title>Clip-On Ikea Raskog Accessories</title><link>https://dereksrose.com/posts/clip-on-raskog-accessories/</link><pubDate>Sun, 21 Feb 2021 11:16:24 -0800</pubDate><guid>https://dereksrose.com/posts/clip-on-raskog-accessories/</guid><description>&lt;h1 id="hahahugoshortcodes0hbhb">Organizational Accessories For Our Project Carts&lt;/h1>
 &lt;p>&lt;strong>Compatible with the
 &lt;a href="https://www.thingiverse.com/thing:2853257" target="_blank">Skadis Universal Hook Set&lt;/a>&lt;/strong>&lt;/p>
 &lt;p>We have several
@@ -884,7 +1026,7 @@ href="https://www.prusaprinters.org/prints/53618"
 target="_blank">Prusaprinters&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="https://github.com/Bishma/admafu/tree/main/CAddy" target="_blank">Github&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Patio Umbrella Stand Cap</title><link>https://dereksrose.com/posts/umbrella-stand-cap/</link><pubDate>Sun, 10 Jan 2021 14:09:58 -0800</pubDate><guid>https://dereksrose.com/posts/umbrella-stand-cap/</guid><description>&lt;h1 id="hahahugoshortcode-s0-hbhb">Our Winter Umbrella&lt;/h1>
+&lt;/ul></description></item><item><title>Patio Umbrella Stand Cap</title><link>https://dereksrose.com/posts/umbrella-stand-cap/</link><pubDate>Sun, 10 Jan 2021 14:09:58 -0800</pubDate><guid>https://dereksrose.com/posts/umbrella-stand-cap/</guid><description>&lt;h1 id="hahahugoshortcodes0hbhb">Our Winter Umbrella&lt;/h1>
 &lt;p>When we take our outdoor umbrella down for the season we like to put something over the remaining part of the stand. In years past we made use of an old travel mug, a plastic bag, and some duct tape. This year as we were taking it down Bonnie said, &amp;ldquo;hey, I&amp;rsquo;ll bet you can design and print a cap for that.&amp;rdquo; Spoiler: she was right.&lt;/p>
 &lt;link rel="stylesheet"
 href="https://dereksrose.com/scss/image-squash.min.15c74f47b5076c7cbb847938dfc71aa37aca7dce0e91f27ef9772e48a1d0681d.css"
